@@ -19,4 +19,4 @@ google-genai>=1.0
 python-dotenv>=1.0
 
 # Parte 3 – Dashboard
-streamlit>=1.38
+streamlit>=1.50
