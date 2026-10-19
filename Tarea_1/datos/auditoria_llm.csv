@@ -1,0 +1,21 @@
+n,titular,etiqueta_llm,confianza,modelo_llm,fecha,latencia_s,acuerdo_humano
+1,Reinfo: Decano del Colegio de Abogados de Loreto afirma que Ejecutivo y Congreso no responden demanda contra ampliación,politica,0.95,gemini-3.1-flash-lite,2026-10-19,0.446,True
+2,El Niño retrasaría la recuperación económica del Perú hasta la segunda mitad de 2027: las cifras del impacto,economia,0.95,gemini-3.1-flash-lite,2026-10-19,0.446,True
+3,Precio del dólar del lunes 12 de octubre: a cuánto cerró el tipo de cambio,economia,0.99,gemini-3-flash-preview,2026-10-19,0.446,True
+4,Científicos descubren cómo predecir cuándo una inteligencia artificial dará respuestas peligrosas,ciencia_tecnologia,0.99,gemini-3.1-flash-lite,2026-10-19,0.446,True
+5,"Gol de Andy Polo: Universitario vence 2-0 a Alianza Atlético por el Torneo Clausura, Liga 1 | VIDEO",deportes,1.0,gemini-3.1-flash-lite,2026-10-19,0.446,True
+6,Noruega estudia prohibir temporalmente las gafas inteligentes,ciencia_tecnologia,0.95,gemini-3.1-flash-lite,2026-10-19,0.446,True
+7,VIDEO: Universitario goleó 4-1 a Alianza Atlético y sigue en la pelea por el Torneo Clausura,deportes,1.0,gemini-3-flash-preview,2026-10-19,0.446,True
+8,A falta de una etapa: Eduardo Castro mantiene liderato de Caminos del Inca seguido de cerca por André Martínez,deportes,1.0,gemini-3.1-flash-lite,2026-10-19,0.446,True
+9,"Las empresas de IA son incapaces de controlar sus modelos, alerta un exinvestigador de OpenAI",ciencia_tecnologia,1.0,gemini-3.1-flash-lite,2026-10-19,0.446,True
+10,"Luis Felipe Gazitúa, del Consejo Empresarial Chileno- Peruano: “El principal destino de la inversión extranjera chilena es el Perú”",economia,1.0,gemini-3-flash-preview,2026-10-19,0.446,True
+11,Jaime Delgado: “Pienso que deberíamos mantenernos en los 20 puntos aprobados por Diputados”,politica,1.0,gemini-3-flash-preview,2026-10-19,0.446,True
+12,Bayern Múnich vs. Leipzig (6-1): resumen y goles del partido por la Bundesliga | VIDEO,deportes,1.0,gemini-3.1-flash-lite,2026-10-19,0.446,True
+13,"Inccosac trae las primeras ‘tapas antirrobo’ para agua y desagüe del Perú, ¿cómo funcionan?",ciencia_tecnologia,0.9,gemini-3-flash-preview,2026-10-19,0.446,True
+14,El Niño alcanza niveles récord en el Pacífico antes de llegar a su punto máximo: ¿qué está ocurriendo?,ciencia_tecnologia,0.9,gemini-3.1-flash-lite,2026-10-19,0.446,True
+15,Lamine Yamal fue agredido por Facundo Bernal en el Barcelona vs Real Betis y el uruguayo se fue expulsado | VIDEO,deportes,1.0,gemini-3.1-flash-lite,2026-10-19,0.446,True
+16,MTC plantea reducir la TUUA de transferencia internacional en “no menos del 50%” en el aeropuerto Jorge Chávez,economia,0.95,gemini-3-flash-preview,2026-10-19,0.446,True
+17,Elmer Cuba: “Tenemos un Ministerio de Economía que va a responder para que la economía no se enfríe”,economia,0.95,gemini-3.1-flash-lite,2026-10-19,0.446,True
+18,¿Cómo lograr que una marca aparezca en ChatGPT o Gemini? Así funciona el AEO,ciencia_tecnologia,0.95,gemini-3.1-flash-lite,2026-10-19,0.446,True
+19,"Google lanza una herramienta web para identificar fotos, videos y audios generados con IA",ciencia_tecnologia,1.0,gemini-3.1-flash-lite,2026-10-19,0.446,True
+20,ProInversión planea alcanzar en el 2027 una adjudicación similar al 2024: Línea 3 y 4 del Metro de Lima y los otros proyectos en cartera,economia,0.95,gemini-3-flash-preview,2026-10-19,0.446,True

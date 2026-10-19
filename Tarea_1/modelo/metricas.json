@@ -1,0 +1,10 @@
+{
+  "f1_macro_test": 0.8634,
+  "accuracy_test": 0.8621,
+  "f1_zero_shot": 0.6583,
+  "f1_llm_test": 0.8954,
+  "acuerdo_llm_humano": 20,
+  "pct_acuerdo_llm_humano": 1.0,
+  "modelo_base": "distilbert-base-multilingual-cased",
+  "modelo_llm": "gemini-3.1-flash-lite"
+}

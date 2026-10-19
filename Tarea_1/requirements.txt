@@ -8,4 +8,15 @@ kaleido>=1.0          # imagen PNG de los gráficos para que se vean en GitHub
 ipykernel>=6.29
 nbformat>=5.10
 
-# Partes 2 y 3 (se agregarán y fijarán versiones exactas al final con `pip freeze`)
+# Parte 2 – Clasificación
+torch>=2.2
+transformers>=4.46
+accelerate>=1.0
+scikit-learn>=1.4
+seaborn>=0.13
+matplotlib>=3.8
+google-genai>=1.0
+python-dotenv>=1.0
+
+# Parte 3 – Dashboard
+streamlit>=1.38
