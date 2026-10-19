@@ -1,0 +1,19 @@
+# Pesos del modelo (superan los 100 MB de GitHub)
+modelo/*.safetensors
+modelo/*.bin
+modelo/checkpoint-*/
+modelo/**/*.pt
+
+# Caché de descargas (HTML/XML crudos); en Git solo queda el CSV crudo y el log
+datos/raw/cache/
+
+# Credenciales (clave de Gemini)
+.env
+*.key
+
+# Entorno y archivos temporales
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store

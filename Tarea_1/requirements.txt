@@ -1,0 +1,11 @@
+# Parte 1 – Recolección y EDA
+requests>=2.32,<3
+beautifulsoup4>=4.12,<5
+lxml>=5.0
+pandas>=2.2,<3
+plotly>=6.0,<7
+kaleido>=1.0          # imagen PNG de los gráficos para que se vean en GitHub
+ipykernel>=6.29
+nbformat>=5.10
+
+# Partes 2 y 3 (se agregarán y fijarán versiones exactas al final con `pip freeze`)
