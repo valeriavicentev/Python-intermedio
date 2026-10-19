@@ -17,7 +17,7 @@ Sí. Un `distilbert-base-multilingual-cased` ajustado con 268 titulares de entre
 - **Medio:** El Comercio (`elcomercio.pe`) — **opción B**, 383 noticias (95–99 por categoría).
 - **Fuentes:** RSS oficiales por sección (`/arc/outboundfeeds/google-news-feed/category/{sección}/`) y sitemaps de noticias (`/sitemap/news/{sección}/`), respetando `robots.txt`, con pausas de 1,5 s y máximo 1 reintento.
 - **Fecha de descarga:** 2026-10-19.
-- **Rango de publicación de las noticias:** _AAAA-MM-DD_ a _AAAA-MM-DD_ (ver gráfico 2 de `01_recoleccion.ipynb`; el dashboard también lo muestra en su encabezado).
+- **Rango de publicación de las noticias:** _06/10/2026_ a _19/10/2026_ (ver gráfico 2 de `01_recoleccion.ipynb`; el dashboard también lo muestra en su encabezado).
 - **Cambio de opción C → B:** el plan inicial era comparar La República y El Comercio (200 + 200). La República solo expuso 54 noticias válidas por sus canales permitidos (sus RSS y sitemaps traen ~25 notas por sección y su `robots.txt` prohíbe recorrer `/archivo/` y la paginación `/pag/`), por lo que se pasó a la opción B. El detalle está documentado en `01_recoleccion.ipynb`.
 
 ## 3. Hallazgos analíticos
