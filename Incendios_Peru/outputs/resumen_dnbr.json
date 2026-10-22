@@ -31,14 +31,43 @@
     "nubes_zona": 0.8,
     "nubes_tile": 11.4
   },
-  "umbral_quemado": 0.27,
-  "ha_quemadas": 240.6,
-  "ha_dnbr_mayor_0_10": 1606.4,
+  "metodo": "dNBR >= 0.1, manchas continuas a <= 200 m de un foco VIIRS",
+  "umbral_quemado": 0.1,
+  "ha_quemadas": 1572.8,
+  "ha_quemadas_fuera_de_zona": 78.0,
+  "ha_quemadas_por_severidad": {
+    "Baja": 1331.0,
+    "Moderada-baja": 240.6,
+    "Moderada-alta": 1.1,
+    "Alta": 0.0
+  },
+  "sensibilidad_umbral": [
+    {
+      "umbral": 0.1,
+      "ha_todos_los_pixeles_en_zona": 1606.4,
+      "ha_sembrado_con_focos": 1572.8
+    },
+    {
+      "umbral": 0.15,
+      "ha_todos_los_pixeles_en_zona": 1126.2,
+      "ha_sembrado_con_focos": 963.6
+    },
+    {
+      "umbral": 0.2,
+      "ha_todos_los_pixeles_en_zona": 676.0,
+      "ha_sembrado_con_focos": 422.6
+    },
+    {
+      "umbral": 0.27,
+      "ha_todos_los_pixeles_en_zona": 240.6,
+      "ha_sembrado_con_focos": 119.1
+    }
+  ],
   "ha_por_clase": {
     "Rebrote": 301.6,
     "No quemado": 4190.4,
-    "Baja": 1365.8,
-    "Moderada-baja": 239.6,
+    "Baja": 1442.6,
+    "Moderada-baja": 240.8,
     "Moderada-alta": 1.1,
     "Alta": 0.0
   },
@@ -48,14 +77,14 @@
       "distrito": "CHICHAS",
       "provincia": "CONDESUYOS",
       "departamento": "AREQUIPA",
-      "ha_quemadas": 219.3
+      "ha_quemadas": 1057.9
     },
     {
       "ubigeo": "040811",
       "distrito": "TORO",
       "provincia": "LA UNION",
       "departamento": "AREQUIPA",
-      "ha_quemadas": 21.3
+      "ha_quemadas": 514.9
     }
   ],
   "capa_4326": {

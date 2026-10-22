@@ -1,0 +1,8 @@
+codigo,cobertura,color,ha_zona_observada,ha_quemadas,ha_Baja,ha_Moderada-baja,ha_Moderada-alta,ha_Alta,pct_de_lo_quemado,pct_de_la_zona,pct_de_la_cobertura_que_se_quemo
+30,Pastizal,#ffff4c,2634.9,1127.2,986.5,139.7,1.0,0.0,71.7,42.7,42.8
+20,Matorral,#ffbb22,2593.1,437.6,336.8,100.6,0.1,0.0,27.8,42.0,16.9
+60,Suelo desnudo,#b4b4b4,934.5,8.0,7.7,0.2,0.0,0.0,0.5,15.1,0.9
+10,Bosque,#006400,10.8,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.0
+40,Cultivo,#f096ff,0.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+50,Urbano,#fa0000,1.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+80,Agua,#0064c8,1.9,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

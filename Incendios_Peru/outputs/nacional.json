@@ -1,0 +1,365 @@
+{
+  "periodo": [
+    "2026-10-15",
+    "2026-10-21"
+  ],
+  "focos": 2726,
+  "incendios": 1264,
+  "incendios_10_focos": 30,
+  "departamentos_con_focos": 23,
+  "por_dia": {
+    "2026-10-15": 727,
+    "2026-10-16": 1179,
+    "2026-10-17": 133,
+    "2026-10-18": 247,
+    "2026-10-19": 206,
+    "2026-10-20": 75,
+    "2026-10-21": 159
+  },
+  "por_departamento": [
+    {
+      "departamento": "UCAYALI",
+      "focos": 779,
+      "incendios": 331,
+      "incendios_10_focos": 9,
+      "frp": 11477.0
+    },
+    {
+      "departamento": "JUNIN",
+      "focos": 331,
+      "incendios": 161,
+      "incendios_10_focos": 4,
+      "frp": 3021.8
+    },
+    {
+      "departamento": "HUANUCO",
+      "focos": 323,
+      "incendios": 159,
+      "incendios_10_focos": 2,
+      "frp": 3984.8
+    },
+    {
+      "departamento": "LORETO",
+      "focos": 223,
+      "incendios": 139,
+      "incendios_10_focos": 2,
+      "frp": 1536.6
+    },
+    {
+      "departamento": "CUSCO",
+      "focos": 165,
+      "incendios": 54,
+      "incendios_10_focos": 3,
+      "frp": 2875.8
+    },
+    {
+      "departamento": "SAN MARTIN",
+      "focos": 131,
+      "incendios": 95,
+      "incendios_10_focos": 0,
+      "frp": 775.3
+    },
+    {
+      "departamento": "AREQUIPA",
+      "focos": 120,
+      "incendios": 23,
+      "incendios_10_focos": 2,
+      "frp": 1230.2
+    },
+    {
+      "departamento": "ANCASH",
+      "focos": 116,
+      "incendios": 43,
+      "incendios_10_focos": 2,
+      "frp": 1434.7
+    },
+    {
+      "departamento": "APURIMAC",
+      "focos": 109,
+      "incendios": 26,
+      "incendios_10_focos": 3,
+      "frp": 1244.2
+    },
+    {
+      "departamento": "PASCO",
+      "focos": 81,
+      "incendios": 52,
+      "incendios_10_focos": 0,
+      "frp": 972.3
+    },
+    {
+      "departamento": "HUANCAVELICA",
+      "focos": 58,
+      "incendios": 24,
+      "incendios_10_focos": 2,
+      "frp": 817.6
+    },
+    {
+      "departamento": "MADRE DE DIOS",
+      "focos": 46,
+      "incendios": 22,
+      "incendios_10_focos": 0,
+      "frp": 747.5
+    },
+    {
+      "departamento": "AYACUCHO",
+      "focos": 41,
+      "incendios": 24,
+      "incendios_10_focos": 0,
+      "frp": 264.9
+    },
+    {
+      "departamento": "MOQUEGUA",
+      "focos": 38,
+      "incendios": 14,
+      "incendios_10_focos": 0,
+      "frp": 301.1
+    },
+    {
+      "departamento": "PUNO",
+      "focos": 33,
+      "incendios": 17,
+      "incendios_10_focos": 0,
+      "frp": 427.1
+    },
+    {
+      "departamento": "LA LIBERTAD",
+      "focos": 33,
+      "incendios": 17,
+      "incendios_10_focos": 0,
+      "frp": 327.9
+    },
+    {
+      "departamento": "CAJAMARCA",
+      "focos": 27,
+      "incendios": 24,
+      "incendios_10_focos": 0,
+      "frp": 183.9
+    },
+    {
+      "departamento": "ICA",
+      "focos": 24,
+      "incendios": 9,
+      "incendios_10_focos": 1,
+      "frp": 149.4
+    },
+    {
+      "departamento": "LIMA",
+      "focos": 20,
+      "incendios": 12,
+      "incendios_10_focos": 0,
+      "frp": 115.8
+    },
+    {
+      "departamento": "AMAZONAS",
+      "focos": 12,
+      "incendios": 9,
+      "incendios_10_focos": 0,
+      "frp": 60.5
+    },
+    {
+      "departamento": "LAMBAYEQUE",
+      "focos": 8,
+      "incendios": 7,
+      "incendios_10_focos": 0,
+      "frp": 59.3
+    },
+    {
+      "departamento": "PIURA",
+      "focos": 5,
+      "incendios": 5,
+      "incendios_10_focos": 0,
+      "frp": 19.4
+    },
+    {
+      "departamento": "TACNA",
+      "focos": 3,
+      "incendios": 1,
+      "incendios_10_focos": 0,
+      "frp": 27.6
+    }
+  ],
+  "top_incendios": [
+    {
+      "id": 990,
+      "focos": 54,
+      "frp": 406.4,
+      "distrito": "CHICHAS",
+      "provincia": "CONDESUYOS",
+      "departamento": "AREQUIPA",
+      "inicio": "2026-10-17",
+      "fin": "2026-10-18",
+      "lat": -15.4855,
+      "lon": -72.9792
+    },
+    {
+      "id": 278,
+      "focos": 51,
+      "frp": 643.9,
+      "distrito": "MANANTAY",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-16",
+      "lat": -8.4791,
+      "lon": -74.5358
+    },
+    {
+      "id": 59,
+      "focos": 50,
+      "frp": 490.7,
+      "distrito": "CURAHUASI",
+      "provincia": "ABANCAY",
+      "departamento": "APURIMAC",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-18",
+      "lat": -13.6425,
+      "lon": -72.4171
+    },
+    {
+      "id": 1077,
+      "focos": 29,
+      "frp": 595.3,
+      "distrito": "CAYNA",
+      "provincia": "AMBO",
+      "departamento": "HUANUCO",
+      "inicio": "2026-10-18",
+      "fin": "2026-10-19",
+      "lat": -10.2477,
+      "lon": -76.3467
+    },
+    {
+      "id": 392,
+      "focos": 29,
+      "frp": 580.4,
+      "distrito": "TAPO",
+      "provincia": "TARMA",
+      "departamento": "JUNIN",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-16",
+      "lat": -11.4071,
+      "lon": -75.5233
+    },
+    {
+      "id": 58,
+      "focos": 28,
+      "frp": 737.9,
+      "distrito": "HUANOQUITE",
+      "provincia": "PARURO",
+      "departamento": "CUSCO",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-17",
+      "lat": -13.7337,
+      "lon": -72.1246
+    },
+    {
+      "id": 14,
+      "focos": 26,
+      "frp": 1437.5,
+      "distrito": "TAHUANIA",
+      "provincia": "ATALAYA",
+      "departamento": "UCAYALI",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-16",
+      "lat": -9.6193,
+      "lon": -73.786
+    },
+    {
+      "id": 311,
+      "focos": 26,
+      "frp": 275.8,
+      "distrito": "NUEVA REQUENA",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-16",
+      "lat": -8.1332,
+      "lon": -75.0021
+    },
+    {
+      "id": 31,
+      "focos": 24,
+      "frp": 131.8,
+      "distrito": "RIO TAMBO",
+      "provincia": "SATIPO",
+      "departamento": "JUNIN",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-16",
+      "lat": -11.8613,
+      "lon": -73.8547
+    },
+    {
+      "id": 299,
+      "focos": 22,
+      "frp": 224.6,
+      "distrito": "NUEVA REQUENA",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-16",
+      "lat": -8.22,
+      "lon": -75.0098
+    },
+    {
+      "id": 300,
+      "focos": 19,
+      "frp": 136.6,
+      "distrito": "NUEVA REQUENA",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-16",
+      "lat": -8.1722,
+      "lon": -74.7979
+    },
+    {
+      "id": 968,
+      "focos": 15,
+      "frp": 426.3,
+      "distrito": "HUAYLAS",
+      "provincia": "HUAYLAS",
+      "departamento": "ANCASH",
+      "inicio": "2026-10-17",
+      "fin": "2026-10-17",
+      "lat": -8.8861,
+      "lon": -77.8782
+    },
+    {
+      "id": 380,
+      "focos": 14,
+      "frp": 136.5,
+      "distrito": "TAHUANIA",
+      "provincia": "ATALAYA",
+      "departamento": "UCAYALI",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-16",
+      "lat": -9.6612,
+      "lon": -73.7104
+    },
+    {
+      "id": 47,
+      "focos": 14,
+      "frp": 80.7,
+      "distrito": "PARACAS",
+      "provincia": "PISCO",
+      "departamento": "ICA",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-21",
+      "lat": -13.7856,
+      "lon": -76.1696
+    },
+    {
+      "id": 1091,
+      "focos": 13,
+      "frp": 568.6,
+      "distrito": "LIMATAMBO",
+      "provincia": "ANTA",
+      "departamento": "CUSCO",
+      "inicio": "2026-10-19",
+      "fin": "2026-10-19",
+      "lat": -13.4018,
+      "lon": -72.3777
+    }
+  ],
+  "incendio_estudiado": 990
+}

@@ -1,0 +1,321 @@
+{
+  "id": 59,
+  "distrito": "CURAHUASI",
+  "provincia": "ABANCAY",
+  "departamento": "APURIMAC",
+  "distritos_focos": "CHINCHAYPUJIO, CURAHUASI",
+  "focos": 50,
+  "frp": 490.7,
+  "inicio": "2026-10-15 06:33",
+  "fin": "2026-10-18 18:13",
+  "lat": -13.6425,
+  "lon": -72.4171,
+  "estado": "ok",
+  "motivo": null,
+  "candidatas": 44,
+  "imagen_antes": {
+    "fecha": "2026-10-05",
+    "id": "S2C_18LYK_20261005_0_L2A",
+    "tile": "18LYK",
+    "nubes_zona": 0.0,
+    "dias_antes": 10
+  },
+  "imagen_despues": {
+    "fecha": "2026-10-17",
+    "id": "S2A_18LYK_20261017_0_L2A",
+    "tile": "18LYK",
+    "nubes_zona": 0.0,
+    "dias_despues": 1
+  },
+  "corte_despues": "2026-10-16 18:49",
+  "despues_antes_del_ultimo_foco": true,
+  "zona_ha": 3990.8,
+  "pct_zona_sin_dato": 0.0,
+  "ha_quemadas": 2165.9,
+  "ha_quemadas_usgs_027": 251.4,
+  "ha_todos_px_010": 1126.3,
+  "ha_por_severidad": {
+    "Baja": 1361.4,
+    "Moderada-baja": 706.1,
+    "Moderada-alta": 96.9,
+    "Alta": 1.5
+  },
+  "ha_por_distrito": [
+    {
+      "ubigeo": "030104",
+      "distrito": "CURAHUASI",
+      "provincia": "ABANCAY",
+      "departamento": "APURIMAC",
+      "ha": 2111.3
+    },
+    {
+      "ubigeo": "080306",
+      "distrito": "LIMATAMBO",
+      "provincia": "ANTA",
+      "departamento": "CUSCO",
+      "ha": 53.3
+    },
+    {
+      "ubigeo": "080304",
+      "distrito": "CHINCHAYPUJIO",
+      "provincia": "ANTA",
+      "departamento": "CUSCO",
+      "ha": 1.3
+    }
+  ],
+  "ha_por_cobertura": [
+    {
+      "cobertura": "Pastizal",
+      "ha_quemadas": 1884.6,
+      "ha_zona": 2887.2,
+      "pct_quemado": 87.0,
+      "pct_zona": 72.3
+    },
+    {
+      "cobertura": "Bosque",
+      "ha_quemadas": 216.3,
+      "ha_zona": 908.7,
+      "pct_quemado": 10.0,
+      "pct_zona": 22.8
+    },
+    {
+      "cobertura": "Matorral",
+      "ha_quemadas": 64.4,
+      "ha_zona": 149.4,
+      "pct_quemado": 3.0,
+      "pct_zona": 3.7
+    },
+    {
+      "cobertura": "Cultivo",
+      "ha_quemadas": 0.3,
+      "ha_zona": 4.8,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.1
+    },
+    {
+      "cobertura": "Suelo desnudo",
+      "ha_quemadas": 0.2,
+      "ha_zona": 13.7,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.3
+    },
+    {
+      "cobertura": "Agua",
+      "ha_quemadas": 0.2,
+      "ha_zona": 26.9,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.7
+    }
+  ],
+  "focos_en_nubes_px": 0,
+  "imagenes": {
+    "antes": "antes.jpg",
+    "despues": "despues.jpg",
+    "severidad": "severidad.png",
+    "ancho": 562,
+    "alto": 484
+  },
+  "focos_xy": [
+    [
+      0.5036,
+      0.3616
+    ],
+    [
+      0.4947,
+      0.405
+    ],
+    [
+      0.5356,
+      0.3719
+    ],
+    [
+      0.5267,
+      0.4132
+    ],
+    [
+      0.4858,
+      0.4339
+    ],
+    [
+      0.4004,
+      0.4525
+    ],
+    [
+      0.5694,
+      0.3946
+    ],
+    [
+      0.5641,
+      0.4318
+    ],
+    [
+      0.5979,
+      0.4401
+    ],
+    [
+      0.5587,
+      0.4711
+    ],
+    [
+      0.5907,
+      0.4773
+    ],
+    [
+      0.5178,
+      0.5021
+    ],
+    [
+      0.5498,
+      0.5083
+    ],
+    [
+      0.411,
+      0.5186
+    ],
+    [
+      0.4431,
+      0.5248
+    ],
+    [
+      0.4769,
+      0.5331
+    ],
+    [
+      0.4039,
+      0.5579
+    ],
+    [
+      0.3719,
+      0.5496
+    ],
+    [
+      0.4359,
+      0.564
+    ],
+    [
+      0.411,
+      0.6302
+    ],
+    [
+      0.3986,
+      0.5909
+    ],
+    [
+      0.4466,
+      0.5806
+    ],
+    [
+      0.3505,
+      0.5992
+    ],
+    [
+      0.5676,
+      0.5145
+    ],
+    [
+      0.6495,
+      0.5
+    ],
+    [
+      0.6085,
+      0.5083
+    ],
+    [
+      0.5249,
+      0.5227
+    ],
+    [
+      0.4822,
+      0.531
+    ],
+    [
+      0.4164,
+      0.6198
+    ],
+    [
+      0.3683,
+      0.6281
+    ],
+    [
+      0.5836,
+      0.5475
+    ],
+    [
+      0.5427,
+      0.5537
+    ],
+    [
+      0.4537,
+      0.5702
+    ],
+    [
+      0.4039,
+      0.5785
+    ],
+    [
+      0.3559,
+      0.5888
+    ],
+    [
+      0.573,
+      0.5062
+    ],
+    [
+      0.6548,
+      0.4917
+    ],
+    [
+      0.6139,
+      0.4979
+    ],
+    [
+      0.5302,
+      0.5145
+    ],
+    [
+      0.4858,
+      0.5227
+    ],
+    [
+      0.6495,
+      0.4504
+    ],
+    [
+      0.605,
+      0.4587
+    ],
+    [
+      0.3737,
+      0.5
+    ],
+    [
+      0.6014,
+      0.4153
+    ],
+    [
+      0.5979,
+      0.374
+    ],
+    [
+      0.3114,
+      0.6364
+    ],
+    [
+      0.452,
+      0.6157
+    ],
+    [
+      0.4181,
+      0.6219
+    ],
+    [
+      0.4875,
+      0.5599
+    ],
+    [
+      0.6868,
+      0.4318
+    ]
+  ],
+  "segundos": 21
+}

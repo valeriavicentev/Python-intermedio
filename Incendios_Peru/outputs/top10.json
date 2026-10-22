@@ -1,0 +1,2255 @@
+{
+  "fuente": "Earth Search (AWS)",
+  "umbral": 0.1,
+  "incendios": [
+    {
+      "id": 990,
+      "distrito": "CHICHAS",
+      "provincia": "CONDESUYOS",
+      "departamento": "AREQUIPA",
+      "distritos_focos": "CHICHAS, TORO",
+      "focos": 54,
+      "frp": 406.4,
+      "inicio": "2026-10-17 05:57",
+      "fin": "2026-10-18 18:11",
+      "lat": -15.4855,
+      "lon": -72.9792,
+      "estado": "ok",
+      "imagen_antes": {
+        "fecha": "2026-10-15",
+        "id": "S2C_18LYH_20261015_0_L2A",
+        "tile": "18LYH",
+        "nubes_zona": 0.0,
+        "dias_antes": 2
+      },
+      "imagen_despues": {
+        "fecha": "2026-10-20",
+        "id": "S2A_18LYH_20261020_1_L2A",
+        "tile": "18LYH",
+        "nubes_zona": 0.8,
+        "dias_despues": 2
+      },
+      "zona_ha": 6145.3,
+      "pct_zona_sin_dato": 0.8,
+      "ha_quemadas": 1572.8,
+      "ha_quemadas_usgs_027": 119.1,
+      "ha_todos_px_010": 1606.4,
+      "ha_por_severidad": {
+        "Baja": 1331.0,
+        "Moderada-baja": 240.6,
+        "Moderada-alta": 1.1,
+        "Alta": 0.0
+      },
+      "ha_por_distrito": [
+        {
+          "ubigeo": "040604",
+          "distrito": "CHICHAS",
+          "provincia": "CONDESUYOS",
+          "departamento": "AREQUIPA",
+          "ha": 1057.9
+        },
+        {
+          "ubigeo": "040811",
+          "distrito": "TORO",
+          "provincia": "LA UNION",
+          "departamento": "AREQUIPA",
+          "ha": 514.9
+        }
+      ],
+      "ha_por_cobertura": [
+        {
+          "cobertura": "Pastizal",
+          "ha_quemadas": 1127.4,
+          "ha_zona": 2559.1,
+          "pct_quemado": 71.7,
+          "pct_zona": 42.0
+        },
+        {
+          "cobertura": "Matorral",
+          "ha_quemadas": 437.5,
+          "ha_zona": 2592.4,
+          "pct_quemado": 27.8,
+          "pct_zona": 42.5
+        },
+        {
+          "cobertura": "Suelo desnudo",
+          "ha_quemadas": 7.8,
+          "ha_zona": 933.0,
+          "pct_quemado": 0.5,
+          "pct_zona": 15.3
+        },
+        {
+          "cobertura": "Bosque",
+          "ha_quemadas": 0.0,
+          "ha_zona": 10.6,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.2
+        },
+        {
+          "cobertura": "Cultivo",
+          "ha_quemadas": 0.0,
+          "ha_zona": 0.2,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.0
+        },
+        {
+          "cobertura": "Urbano",
+          "ha_quemadas": 0.0,
+          "ha_zona": 1.2,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.0
+        },
+        {
+          "cobertura": "Agua",
+          "ha_quemadas": 0.0,
+          "ha_zona": 1.9,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.0
+        }
+      ],
+      "focos_en_nubes_px": 0,
+      "imagenes": {
+        "antes": "antes.jpg",
+        "despues": "despues.jpg",
+        "severidad": "severidad.png",
+        "ancho": 516,
+        "alto": 722
+      },
+      "focos_xy": [
+        [
+          0.4826,
+          0.3546
+        ],
+        [
+          0.5155,
+          0.3587
+        ],
+        [
+          0.5446,
+          0.3643
+        ],
+        [
+          0.5717,
+          0.367
+        ],
+        [
+          0.6008,
+          0.3712
+        ],
+        [
+          0.5988,
+          0.4044
+        ],
+        [
+          0.3624,
+          0.4377
+        ],
+        [
+          0.405,
+          0.4432
+        ],
+        [
+          0.5853,
+          0.4681
+        ],
+        [
+          0.4322,
+          0.4806
+        ],
+        [
+          0.5426,
+          0.4958
+        ],
+        [
+          0.3915,
+          0.4737
+        ],
+        [
+          0.5097,
+          0.4917
+        ],
+        [
+          0.5717,
+          0.5
+        ],
+        [
+          0.4283,
+          0.4861
+        ],
+        [
+          0.5388,
+          0.5028
+        ],
+        [
+          0.436,
+          0.59
+        ],
+        [
+          0.3934,
+          0.5942
+        ],
+        [
+          0.4729,
+          0.5582
+        ],
+        [
+          0.5116,
+          0.554
+        ],
+        [
+          0.5465,
+          0.5235
+        ],
+        [
+          0.595,
+          0.3546
+        ],
+        [
+          0.5562,
+          0.331
+        ],
+        [
+          0.5523,
+          0.3047
+        ],
+        [
+          0.5174,
+          0.3075
+        ],
+        [
+          0.5116,
+          0.2812
+        ],
+        [
+          0.4767,
+          0.2853
+        ],
+        [
+          0.5155,
+          0.2424
+        ],
+        [
+          0.5446,
+          0.2922
+        ],
+        [
+          0.5659,
+          0.295
+        ],
+        [
+          0.5853,
+          0.2978
+        ],
+        [
+          0.5581,
+          0.2645
+        ],
+        [
+          0.4903,
+          0.2535
+        ],
+        [
+          0.5155,
+          0.2562
+        ],
+        [
+          0.5678,
+          0.3102
+        ],
+        [
+          0.5465,
+          0.3075
+        ],
+        [
+          0.5891,
+          0.3144
+        ],
+        [
+          0.6124,
+          0.3186
+        ],
+        [
+          0.6085,
+          0.3629
+        ],
+        [
+          0.5136,
+          0.5291
+        ],
+        [
+          0.5388,
+          0.5332
+        ],
+        [
+          0.4903,
+          0.5706
+        ],
+        [
+          0.4729,
+          0.6136
+        ],
+        [
+          0.5039,
+          0.6177
+        ],
+        [
+          0.4554,
+          0.6551
+        ],
+        [
+          0.4884,
+          0.6607
+        ],
+        [
+          0.3391,
+          0.6828
+        ],
+        [
+          0.4322,
+          0.6967
+        ],
+        [
+          0.4942,
+          0.7521
+        ],
+        [
+          0.4438,
+          0.7562
+        ],
+        [
+          0.5116,
+          0.6773
+        ],
+        [
+          0.5116,
+          0.6413
+        ],
+        [
+          0.6434,
+          0.3421
+        ],
+        [
+          0.6589,
+          0.3518
+        ]
+      ],
+      "segundos": 22,
+      "rank": 1
+    },
+    {
+      "id": 278,
+      "distrito": "MANANTAY",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "distritos_focos": "MANANTAY",
+      "focos": 51,
+      "frp": 643.9,
+      "inicio": "2026-10-15 06:33",
+      "fin": "2026-10-16 18:49",
+      "lat": -8.4791,
+      "lon": -74.5358,
+      "estado": "parcial",
+      "motivo": "La mejor imagen posterior tiene 56.3 % de nubes en la zona",
+      "candidatas": 13,
+      "imagen_antes": {
+        "fecha": "2026-09-21",
+        "id": "S2C_18LWR_20260921_0_L2A",
+        "tile": "18LWR",
+        "nubes_zona": 0.9,
+        "dias_antes": 24
+      },
+      "imagen_despues": {
+        "fecha": "2026-10-21",
+        "id": "S2C_18LWR_20261021_0_L2A",
+        "tile": "18LWR",
+        "nubes_zona": 56.3,
+        "dias_despues": 5
+      },
+      "corte_despues": "2026-10-16 18:49",
+      "despues_antes_del_ultimo_foco": false,
+      "zona_ha": 5879.0,
+      "pct_zona_sin_dato": 59.4,
+      "ha_quemadas": 787.1,
+      "ha_quemadas_usgs_027": 294.1,
+      "ha_todos_px_010": 1197.6,
+      "ha_por_severidad": {
+        "Baja": 337.4,
+        "Moderada-baja": 327.8,
+        "Moderada-alta": 108.7,
+        "Alta": 13.2
+      },
+      "ha_por_distrito": [
+        {
+          "ubigeo": "250107",
+          "distrito": "MANANTAY",
+          "provincia": "CORONEL PORTILLO",
+          "departamento": "UCAYALI",
+          "ha": 787.1
+        }
+      ],
+      "ha_por_cobertura": [
+        {
+          "cobertura": "Bosque",
+          "ha_quemadas": 400.2,
+          "ha_zona": 1455.6,
+          "pct_quemado": 50.8,
+          "pct_zona": 60.9
+        },
+        {
+          "cobertura": "Pastizal",
+          "ha_quemadas": 378.0,
+          "ha_zona": 914.6,
+          "pct_quemado": 48.0,
+          "pct_zona": 38.3
+        },
+        {
+          "cobertura": "Humedal herbáceo",
+          "ha_quemadas": 7.6,
+          "ha_zona": 15.1,
+          "pct_quemado": 1.0,
+          "pct_zona": 0.6
+        },
+        {
+          "cobertura": "Matorral",
+          "ha_quemadas": 1.2,
+          "ha_zona": 1.6,
+          "pct_quemado": 0.2,
+          "pct_zona": 0.1
+        },
+        {
+          "cobertura": "Agua",
+          "ha_quemadas": 0.0,
+          "ha_zona": 1.4,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.1
+        }
+      ],
+      "focos_en_nubes_px": 4321,
+      "imagenes": {
+        "antes": "antes.jpg",
+        "despues": "despues.jpg",
+        "severidad": "severidad.png",
+        "ancho": 562,
+        "alto": 659
+      },
+      "focos_xy": [
+        [
+          0.5534,
+          0.4901
+        ],
+        [
+          0.5142,
+          0.5129
+        ],
+        [
+          0.4448,
+          0.6829
+        ],
+        [
+          0.5712,
+          0.5842
+        ],
+        [
+          0.5249,
+          0.5903
+        ],
+        [
+          0.5641,
+          0.5448
+        ],
+        [
+          0.516,
+          0.5524
+        ],
+        [
+          0.6032,
+          0.4992
+        ],
+        [
+          0.5961,
+          0.4598
+        ],
+        [
+          0.548,
+          0.4674
+        ],
+        [
+          0.5409,
+          0.4279
+        ],
+        [
+          0.532,
+          0.39
+        ],
+        [
+          0.3843,
+          0.3718
+        ],
+        [
+          0.5569,
+          0.2656
+        ],
+        [
+          0.5036,
+          0.4067
+        ],
+        [
+          0.3541,
+          0.3869
+        ],
+        [
+          0.5285,
+          0.2822
+        ],
+        [
+          0.4591,
+          0.7329
+        ],
+        [
+          0.4929,
+          0.698
+        ],
+        [
+          0.4537,
+          0.7041
+        ],
+        [
+          0.5249,
+          0.6646
+        ],
+        [
+          0.4875,
+          0.6692
+        ],
+        [
+          0.4484,
+          0.6737
+        ],
+        [
+          0.5196,
+          0.6343
+        ],
+        [
+          0.4431,
+          0.6449
+        ],
+        [
+          0.5142,
+          0.6055
+        ],
+        [
+          0.4751,
+          0.61
+        ],
+        [
+          0.6228,
+          0.5599
+        ],
+        [
+          0.5463,
+          0.5706
+        ],
+        [
+          0.5089,
+          0.5766
+        ],
+        [
+          0.6174,
+          0.5311
+        ],
+        [
+          0.6868,
+          0.4917
+        ],
+        [
+          0.6103,
+          0.5023
+        ],
+        [
+          0.4982,
+          0.5175
+        ],
+        [
+          0.605,
+          0.4734
+        ],
+        [
+          0.5569,
+          0.4203
+        ],
+        [
+          0.5196,
+          0.4249
+        ],
+        [
+          0.5516,
+          0.39
+        ],
+        [
+          0.5142,
+          0.3961
+        ],
+        [
+          0.5605,
+          0.4127
+        ],
+        [
+          0.5214,
+          0.4173
+        ],
+        [
+          0.5552,
+          0.3839
+        ],
+        [
+          0.516,
+          0.3885
+        ],
+        [
+          0.4359,
+          0.3687
+        ],
+        [
+          0.3594,
+          0.3794
+        ],
+        [
+          0.468,
+          0.3354
+        ],
+        [
+          0.3541,
+          0.3505
+        ],
+        [
+          0.3167,
+          0.3551
+        ],
+        [
+          0.5391,
+          0.2959
+        ],
+        [
+          0.3114,
+          0.3263
+        ],
+        [
+          0.5338,
+          0.2671
+        ]
+      ],
+      "segundos": 17,
+      "rank": 2
+    },
+    {
+      "id": 59,
+      "distrito": "CURAHUASI",
+      "provincia": "ABANCAY",
+      "departamento": "APURIMAC",
+      "distritos_focos": "CHINCHAYPUJIO, CURAHUASI",
+      "focos": 50,
+      "frp": 490.7,
+      "inicio": "2026-10-15 06:33",
+      "fin": "2026-10-18 18:13",
+      "lat": -13.6425,
+      "lon": -72.4171,
+      "estado": "ok",
+      "motivo": null,
+      "candidatas": 44,
+      "imagen_antes": {
+        "fecha": "2026-10-05",
+        "id": "S2C_18LYK_20261005_0_L2A",
+        "tile": "18LYK",
+        "nubes_zona": 0.0,
+        "dias_antes": 10
+      },
+      "imagen_despues": {
+        "fecha": "2026-10-17",
+        "id": "S2A_18LYK_20261017_0_L2A",
+        "tile": "18LYK",
+        "nubes_zona": 0.0,
+        "dias_despues": 1
+      },
+      "corte_despues": "2026-10-16 18:49",
+      "despues_antes_del_ultimo_foco": true,
+      "zona_ha": 3990.8,
+      "pct_zona_sin_dato": 0.0,
+      "ha_quemadas": 2165.9,
+      "ha_quemadas_usgs_027": 251.4,
+      "ha_todos_px_010": 1126.3,
+      "ha_por_severidad": {
+        "Baja": 1361.4,
+        "Moderada-baja": 706.1,
+        "Moderada-alta": 96.9,
+        "Alta": 1.5
+      },
+      "ha_por_distrito": [
+        {
+          "ubigeo": "030104",
+          "distrito": "CURAHUASI",
+          "provincia": "ABANCAY",
+          "departamento": "APURIMAC",
+          "ha": 2111.3
+        },
+        {
+          "ubigeo": "080306",
+          "distrito": "LIMATAMBO",
+          "provincia": "ANTA",
+          "departamento": "CUSCO",
+          "ha": 53.3
+        },
+        {
+          "ubigeo": "080304",
+          "distrito": "CHINCHAYPUJIO",
+          "provincia": "ANTA",
+          "departamento": "CUSCO",
+          "ha": 1.3
+        }
+      ],
+      "ha_por_cobertura": [
+        {
+          "cobertura": "Pastizal",
+          "ha_quemadas": 1884.6,
+          "ha_zona": 2887.2,
+          "pct_quemado": 87.0,
+          "pct_zona": 72.3
+        },
+        {
+          "cobertura": "Bosque",
+          "ha_quemadas": 216.3,
+          "ha_zona": 908.7,
+          "pct_quemado": 10.0,
+          "pct_zona": 22.8
+        },
+        {
+          "cobertura": "Matorral",
+          "ha_quemadas": 64.4,
+          "ha_zona": 149.4,
+          "pct_quemado": 3.0,
+          "pct_zona": 3.7
+        },
+        {
+          "cobertura": "Cultivo",
+          "ha_quemadas": 0.3,
+          "ha_zona": 4.8,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.1
+        },
+        {
+          "cobertura": "Suelo desnudo",
+          "ha_quemadas": 0.2,
+          "ha_zona": 13.7,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.3
+        },
+        {
+          "cobertura": "Agua",
+          "ha_quemadas": 0.2,
+          "ha_zona": 26.9,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.7
+        }
+      ],
+      "focos_en_nubes_px": 0,
+      "imagenes": {
+        "antes": "antes.jpg",
+        "despues": "despues.jpg",
+        "severidad": "severidad.png",
+        "ancho": 562,
+        "alto": 484
+      },
+      "focos_xy": [
+        [
+          0.5036,
+          0.3616
+        ],
+        [
+          0.4947,
+          0.405
+        ],
+        [
+          0.5356,
+          0.3719
+        ],
+        [
+          0.5267,
+          0.4132
+        ],
+        [
+          0.4858,
+          0.4339
+        ],
+        [
+          0.4004,
+          0.4525
+        ],
+        [
+          0.5694,
+          0.3946
+        ],
+        [
+          0.5641,
+          0.4318
+        ],
+        [
+          0.5979,
+          0.4401
+        ],
+        [
+          0.5587,
+          0.4711
+        ],
+        [
+          0.5907,
+          0.4773
+        ],
+        [
+          0.5178,
+          0.5021
+        ],
+        [
+          0.5498,
+          0.5083
+        ],
+        [
+          0.411,
+          0.5186
+        ],
+        [
+          0.4431,
+          0.5248
+        ],
+        [
+          0.4769,
+          0.5331
+        ],
+        [
+          0.4039,
+          0.5579
+        ],
+        [
+          0.3719,
+          0.5496
+        ],
+        [
+          0.4359,
+          0.564
+        ],
+        [
+          0.411,
+          0.6302
+        ],
+        [
+          0.3986,
+          0.5909
+        ],
+        [
+          0.4466,
+          0.5806
+        ],
+        [
+          0.3505,
+          0.5992
+        ],
+        [
+          0.5676,
+          0.5145
+        ],
+        [
+          0.6495,
+          0.5
+        ],
+        [
+          0.6085,
+          0.5083
+        ],
+        [
+          0.5249,
+          0.5227
+        ],
+        [
+          0.4822,
+          0.531
+        ],
+        [
+          0.4164,
+          0.6198
+        ],
+        [
+          0.3683,
+          0.6281
+        ],
+        [
+          0.5836,
+          0.5475
+        ],
+        [
+          0.5427,
+          0.5537
+        ],
+        [
+          0.4537,
+          0.5702
+        ],
+        [
+          0.4039,
+          0.5785
+        ],
+        [
+          0.3559,
+          0.5888
+        ],
+        [
+          0.573,
+          0.5062
+        ],
+        [
+          0.6548,
+          0.4917
+        ],
+        [
+          0.6139,
+          0.4979
+        ],
+        [
+          0.5302,
+          0.5145
+        ],
+        [
+          0.4858,
+          0.5227
+        ],
+        [
+          0.6495,
+          0.4504
+        ],
+        [
+          0.605,
+          0.4587
+        ],
+        [
+          0.3737,
+          0.5
+        ],
+        [
+          0.6014,
+          0.4153
+        ],
+        [
+          0.5979,
+          0.374
+        ],
+        [
+          0.3114,
+          0.6364
+        ],
+        [
+          0.452,
+          0.6157
+        ],
+        [
+          0.4181,
+          0.6219
+        ],
+        [
+          0.4875,
+          0.5599
+        ],
+        [
+          0.6868,
+          0.4318
+        ]
+      ],
+      "segundos": 21,
+      "rank": 3
+    },
+    {
+      "id": 1077,
+      "distrito": "CAYNA",
+      "provincia": "AMBO",
+      "departamento": "HUANUCO",
+      "distritos_focos": "CAYNA",
+      "focos": 29,
+      "frp": 595.3,
+      "inicio": "2026-10-18 18:11",
+      "fin": "2026-10-19 19:34",
+      "lat": -10.2477,
+      "lon": -76.3467,
+      "estado": "nublado",
+      "motivo": "La mejor imagen posterior tiene 99.9 % de nubes en la zona",
+      "candidatas": 11,
+      "imagen_antes": {
+        "fecha": "2026-10-13",
+        "id": "S2A_18LUP_20261013_0_L2A",
+        "tile": "18LUP",
+        "nubes_zona": 1.6,
+        "dias_antes": 5
+      },
+      "imagen_despues": {
+        "fecha": "2026-10-21",
+        "id": "S2C_18LUP_20261021_0_L2A",
+        "tile": "18LUP",
+        "nubes_zona": 99.9,
+        "dias_despues": 2
+      },
+      "corte_despues": "2026-10-19 19:34",
+      "despues_antes_del_ultimo_foco": false,
+      "zona_ha": 3460.5,
+      "pct_zona_sin_dato": 99.9,
+      "ha_quemadas": 0.0,
+      "ha_quemadas_usgs_027": 0.0,
+      "ha_todos_px_010": 0.0,
+      "ha_por_severidad": {
+        "Baja": 0.0,
+        "Moderada-baja": 0.0,
+        "Moderada-alta": 0.0,
+        "Alta": 0.0
+      },
+      "ha_por_distrito": [],
+      "ha_por_cobertura": [
+        {
+          "cobertura": "Bosque",
+          "ha_quemadas": 0.0,
+          "ha_zona": 1.3,
+          "pct_quemado": 0.0,
+          "pct_zona": 28.9
+        },
+        {
+          "cobertura": "Pastizal",
+          "ha_quemadas": 0.0,
+          "ha_zona": 2.6,
+          "pct_quemado": 0.0,
+          "pct_zona": 57.8
+        },
+        {
+          "cobertura": "Urbano",
+          "ha_quemadas": 0.0,
+          "ha_zona": 0.2,
+          "pct_quemado": 0.0,
+          "pct_zona": 4.4
+        },
+        {
+          "cobertura": "Suelo desnudo",
+          "ha_quemadas": 0.0,
+          "ha_zona": 0.4,
+          "pct_quemado": 0.0,
+          "pct_zona": 8.9
+        }
+      ],
+      "focos_en_nubes_px": 4892,
+      "imagenes": {
+        "antes": "antes.jpg",
+        "despues": "despues.jpg",
+        "severidad": "severidad.png",
+        "ancho": 500,
+        "alto": 480
+      },
+      "focos_xy": [
+        [
+          0.592,
+          0.5479
+        ],
+        [
+          0.568,
+          0.5521
+        ],
+        [
+          0.544,
+          0.5542
+        ],
+        [
+          0.518,
+          0.5583
+        ],
+        [
+          0.484,
+          0.5625
+        ],
+        [
+          0.44,
+          0.5688
+        ],
+        [
+          0.572,
+          0.4875
+        ],
+        [
+          0.548,
+          0.4917
+        ],
+        [
+          0.52,
+          0.4938
+        ],
+        [
+          0.48,
+          0.5
+        ],
+        [
+          0.586,
+          0.5396
+        ],
+        [
+          0.474,
+          0.5542
+        ],
+        [
+          0.564,
+          0.5417
+        ],
+        [
+          0.54,
+          0.5458
+        ],
+        [
+          0.51,
+          0.55
+        ],
+        [
+          0.426,
+          0.5625
+        ],
+        [
+          0.568,
+          0.4771
+        ],
+        [
+          0.542,
+          0.4812
+        ],
+        [
+          0.522,
+          0.4208
+        ],
+        [
+          0.478,
+          0.4271
+        ],
+        [
+          0.552,
+          0.4167
+        ],
+        [
+          0.35,
+          0.3896
+        ],
+        [
+          0.386,
+          0.3958
+        ],
+        [
+          0.602,
+          0.4396
+        ],
+        [
+          0.648,
+          0.6042
+        ],
+        [
+          0.5,
+          0.6333
+        ],
+        [
+          0.47,
+          0.5688
+        ],
+        [
+          0.412,
+          0.3646
+        ],
+        [
+          0.38,
+          0.3708
+        ]
+      ],
+      "segundos": 16,
+      "rank": 4
+    },
+    {
+      "id": 392,
+      "distrito": "TAPO",
+      "provincia": "TARMA",
+      "departamento": "JUNIN",
+      "distritos_focos": "TAPO",
+      "focos": 29,
+      "frp": 580.4,
+      "inicio": "2026-10-15 19:08",
+      "fin": "2026-10-16 18:49",
+      "lat": -11.4071,
+      "lon": -75.5233,
+      "estado": "nublado",
+      "motivo": "La mejor imagen posterior tiene 100.0 % de nubes en la zona",
+      "candidatas": 13,
+      "imagen_antes": {
+        "fecha": "2026-10-06",
+        "id": "S2B_18LVN_20261006_0_L2A",
+        "tile": "18LVN",
+        "nubes_zona": 0.2,
+        "dias_antes": 9
+      },
+      "imagen_despues": {
+        "fecha": "2026-10-21",
+        "id": "S2C_18LVN_20261021_0_L2A",
+        "tile": "18LVN",
+        "nubes_zona": 100.0,
+        "dias_despues": 5
+      },
+      "corte_despues": "2026-10-16 06:16",
+      "despues_antes_del_ultimo_foco": false,
+      "zona_ha": 4263.8,
+      "pct_zona_sin_dato": 100.0,
+      "ha_quemadas": 0.0,
+      "ha_quemadas_usgs_027": 0.0,
+      "ha_todos_px_010": 0.0,
+      "ha_por_severidad": {
+        "Baja": 0.0,
+        "Moderada-baja": 0.0,
+        "Moderada-alta": 0.0,
+        "Alta": 0.0
+      },
+      "ha_por_distrito": [],
+      "ha_por_cobertura": [],
+      "focos_en_nubes_px": 6291,
+      "imagenes": {
+        "antes": "antes.jpg",
+        "despues": "despues.jpg",
+        "severidad": "severidad.png",
+        "ancho": 545,
+        "alto": 501
+      },
+      "focos_xy": [
+        [
+          0.6624,
+          0.6307
+        ],
+        [
+          0.633,
+          0.6367
+        ],
+        [
+          0.6018,
+          0.6407
+        ],
+        [
+          0.5321,
+          0.6088
+        ],
+        [
+          0.6495,
+          0.5848
+        ],
+        [
+          0.6202,
+          0.5908
+        ],
+        [
+          0.589,
+          0.5968
+        ],
+        [
+          0.6459,
+          0.5389
+        ],
+        [
+          0.6147,
+          0.5449
+        ],
+        [
+          0.5817,
+          0.5529
+        ],
+        [
+          0.5523,
+          0.5569
+        ],
+        [
+          0.4624,
+          0.5749
+        ],
+        [
+          0.6771,
+          0.487
+        ],
+        [
+          0.6459,
+          0.493
+        ],
+        [
+          0.6771,
+          0.4411
+        ],
+        [
+          0.6459,
+          0.4471
+        ],
+        [
+          0.4459,
+          0.485
+        ],
+        [
+          0.4037,
+          0.493
+        ],
+        [
+          0.6422,
+          0.3992
+        ],
+        [
+          0.611,
+          0.4052
+        ],
+        [
+          0.389,
+          0.4491
+        ],
+        [
+          0.3339,
+          0.4591
+        ],
+        [
+          0.4294,
+          0.3952
+        ],
+        [
+          0.3706,
+          0.4052
+        ],
+        [
+          0.3211,
+          0.4152
+        ],
+        [
+          0.4239,
+          0.3493
+        ],
+        [
+          0.4771,
+          0.5908
+        ],
+        [
+          0.5083,
+          0.6487
+        ],
+        [
+          0.5028,
+          0.6108
+        ]
+      ],
+      "segundos": 15,
+      "rank": 5
+    },
+    {
+      "id": 58,
+      "distrito": "HUANOQUITE",
+      "provincia": "PARURO",
+      "departamento": "CUSCO",
+      "distritos_focos": "HUANOQUITE",
+      "focos": 28,
+      "frp": 737.9,
+      "inicio": "2026-10-15 19:08",
+      "fin": "2026-10-17 18:30",
+      "lat": -13.7337,
+      "lon": -72.1246,
+      "estado": "ok",
+      "imagen_antes": {
+        "fecha": "2026-10-05",
+        "id": "S2C_18LZK_20261005_0_L2A",
+        "tile": "18LZK",
+        "nubes_zona": 0.0,
+        "dias_antes": 10
+      },
+      "imagen_despues": {
+        "fecha": "2026-10-17",
+        "id": "S2A_18LZK_20261017_0_L2A",
+        "tile": "18LZK",
+        "nubes_zona": 0.0,
+        "dias_despues": 1
+      },
+      "corte_despues": "2026-10-16 06:16",
+      "despues_antes_del_ultimo_foco": true,
+      "zona_ha": 3628.6,
+      "pct_zona_sin_dato": 0.0,
+      "ha_quemadas": 897.5,
+      "ha_quemadas_usgs_027": 269.8,
+      "ha_todos_px_010": 817.8,
+      "ha_por_severidad": {
+        "Baja": 456.4,
+        "Moderada-baja": 344.4,
+        "Moderada-alta": 95.2,
+        "Alta": 1.5
+      },
+      "ha_por_distrito": [
+        {
+          "ubigeo": "081005",
+          "distrito": "HUANOQUITE",
+          "provincia": "PARURO",
+          "departamento": "CUSCO",
+          "ha": 897.5
+        }
+      ],
+      "ha_por_cobertura": [
+        {
+          "cobertura": "Pastizal",
+          "ha_quemadas": 828.2,
+          "ha_zona": 3007.0,
+          "pct_quemado": 92.3,
+          "pct_zona": 82.9
+        },
+        {
+          "cobertura": "Bosque",
+          "ha_quemadas": 57.0,
+          "ha_zona": 439.0,
+          "pct_quemado": 6.4,
+          "pct_zona": 12.1
+        },
+        {
+          "cobertura": "Matorral",
+          "ha_quemadas": 10.2,
+          "ha_zona": 91.2,
+          "pct_quemado": 1.1,
+          "pct_zona": 2.5
+        },
+        {
+          "cobertura": "Cultivo",
+          "ha_quemadas": 1.4,
+          "ha_zona": 78.1,
+          "pct_quemado": 0.2,
+          "pct_zona": 2.2
+        },
+        {
+          "cobertura": "Urbano",
+          "ha_quemadas": 0.6,
+          "ha_zona": 4.5,
+          "pct_quemado": 0.1,
+          "pct_zona": 0.1
+        },
+        {
+          "cobertura": "Suelo desnudo",
+          "ha_quemadas": 0.1,
+          "ha_zona": 8.4,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.2
+        },
+        {
+          "cobertura": "Agua",
+          "ha_quemadas": 0.0,
+          "ha_zona": 0.4,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.0
+        }
+      ],
+      "focos_en_nubes_px": 0,
+      "imagenes": {
+        "antes": "antes.jpg",
+        "despues": "despues.jpg",
+        "severidad": "severidad.png",
+        "ancho": 524,
+        "alto": 493
+      },
+      "focos_xy": [
+        [
+          0.5401,
+          0.572
+        ],
+        [
+          0.4962,
+          0.5801
+        ],
+        [
+          0.4103,
+          0.5963
+        ],
+        [
+          0.5248,
+          0.5172
+        ],
+        [
+          0.6221,
+          0.497
+        ],
+        [
+          0.4847,
+          0.5254
+        ],
+        [
+          0.4427,
+          0.5335
+        ],
+        [
+          0.605,
+          0.4442
+        ],
+        [
+          0.563,
+          0.5639
+        ],
+        [
+          0.6164,
+          0.5538
+        ],
+        [
+          0.5172,
+          0.572
+        ],
+        [
+          0.3855,
+          0.5984
+        ],
+        [
+          0.5954,
+          0.501
+        ],
+        [
+          0.5038,
+          0.5172
+        ],
+        [
+          0.4618,
+          0.5254
+        ],
+        [
+          0.5782,
+          0.4462
+        ],
+        [
+          0.5744,
+          0.355
+        ],
+        [
+          0.5668,
+          0.3915
+        ],
+        [
+          0.5305,
+          0.3854
+        ],
+        [
+          0.5229,
+          0.4219
+        ],
+        [
+          0.5611,
+          0.43
+        ],
+        [
+          0.479,
+          0.4523
+        ],
+        [
+          0.666,
+          0.4868
+        ],
+        [
+          0.6622,
+          0.5132
+        ],
+        [
+          0.3454,
+          0.568
+        ],
+        [
+          0.3397,
+          0.6065
+        ],
+        [
+          0.334,
+          0.643
+        ],
+        [
+          0.542,
+          0.4016
+        ]
+      ],
+      "segundos": 14,
+      "rank": 6
+    },
+    {
+      "id": 14,
+      "distrito": "TAHUANIA",
+      "provincia": "ATALAYA",
+      "departamento": "UCAYALI",
+      "distritos_focos": "TAHUANIA",
+      "focos": 26,
+      "frp": 1437.5,
+      "inicio": "2026-10-15 06:33",
+      "fin": "2026-10-16 18:49",
+      "lat": -9.6193,
+      "lon": -73.786,
+      "estado": "ok",
+      "imagen_antes": {
+        "fecha": "2026-10-03",
+        "id": "S2B_18LXQ_20261003_0_L2A",
+        "tile": "18LXQ",
+        "nubes_zona": 2.6,
+        "dias_antes": 12
+      },
+      "imagen_despues": {
+        "fecha": "2026-10-20",
+        "id": "S2A_18LXQ_20261020_0_L2A",
+        "tile": "18LXQ",
+        "nubes_zona": 13.8,
+        "dias_despues": 4
+      },
+      "zona_ha": 2609.0,
+      "pct_zona_sin_dato": 15.3,
+      "ha_quemadas": 115.7,
+      "ha_quemadas_usgs_027": 84.1,
+      "ha_todos_px_010": 212.5,
+      "ha_por_severidad": {
+        "Baja": 25.1,
+        "Moderada-baja": 42.4,
+        "Moderada-alta": 48.2,
+        "Alta": 0.0
+      },
+      "ha_por_distrito": [
+        {
+          "ubigeo": "250203",
+          "distrito": "TAHUANIA",
+          "provincia": "ATALAYA",
+          "departamento": "UCAYALI",
+          "ha": 115.7
+        }
+      ],
+      "ha_por_cobertura": [
+        {
+          "cobertura": "Bosque",
+          "ha_quemadas": 112.9,
+          "ha_zona": 2185.8,
+          "pct_quemado": 97.6,
+          "pct_zona": 98.9
+        },
+        {
+          "cobertura": "Pastizal",
+          "ha_quemadas": 2.8,
+          "ha_zona": 25.3,
+          "pct_quemado": 2.4,
+          "pct_zona": 1.1
+        }
+      ],
+      "focos_en_nubes_px": 185,
+      "imagenes": {
+        "antes": "antes.jpg",
+        "despues": "despues.jpg",
+        "severidad": "severidad.png",
+        "ancho": 456,
+        "alto": 437
+      },
+      "focos_xy": [
+        [
+          0.5241,
+          0.5446
+        ],
+        [
+          0.4781,
+          0.5378
+        ],
+        [
+          0.4276,
+          0.5744
+        ],
+        [
+          0.4715,
+          0.5812
+        ],
+        [
+          0.5175,
+          0.5881
+        ],
+        [
+          0.3838,
+          0.5652
+        ],
+        [
+          0.5789,
+          0.5812
+        ],
+        [
+          0.5175,
+          0.5927
+        ],
+        [
+          0.5066,
+          0.5332
+        ],
+        [
+          0.557,
+          0.46
+        ],
+        [
+          0.5482,
+          0.4005
+        ],
+        [
+          0.5614,
+          0.5858
+        ],
+        [
+          0.5,
+          0.5973
+        ],
+        [
+          0.489,
+          0.5378
+        ],
+        [
+          0.614,
+          0.5149
+        ],
+        [
+          0.5417,
+          0.4645
+        ],
+        [
+          0.5307,
+          0.405
+        ],
+        [
+          0.4956,
+          0.4371
+        ],
+        [
+          0.4868,
+          0.4828
+        ],
+        [
+          0.5373,
+          0.492
+        ],
+        [
+          0.5307,
+          0.5378
+        ],
+        [
+          0.5811,
+          0.5469
+        ],
+        [
+          0.5526,
+          0.5492
+        ],
+        [
+          0.5439,
+          0.5034
+        ],
+        [
+          0.4956,
+          0.5126
+        ],
+        [
+          0.489,
+          0.4668
+        ]
+      ],
+      "segundos": 15,
+      "rank": 7
+    },
+    {
+      "id": 311,
+      "distrito": "NUEVA REQUENA",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "distritos_focos": "NUEVA REQUENA",
+      "focos": 26,
+      "frp": 275.8,
+      "inicio": "2026-10-15 06:33",
+      "fin": "2026-10-16 18:49",
+      "lat": -8.1332,
+      "lon": -75.0021,
+      "estado": "nublado",
+      "motivo": "La mejor imagen posterior tiene 84.1 % de nubes en la zona",
+      "candidatas": 52,
+      "imagen_antes": {
+        "fecha": "2026-09-21",
+        "id": "S2C_18MVS_20260921_0_L2A",
+        "tile": "18MVS",
+        "nubes_zona": 0.0,
+        "dias_antes": 24
+      },
+      "imagen_despues": {
+        "fecha": "2026-10-21",
+        "id": "S2C_18MVS_20261021_0_L2A",
+        "tile": "18MVS",
+        "nubes_zona": 84.1,
+        "dias_despues": 5
+      },
+      "corte_despues": "2026-10-16 18:49",
+      "despues_antes_del_ultimo_foco": false,
+      "zona_ha": 2935.9,
+      "pct_zona_sin_dato": 84.1,
+      "ha_quemadas": 146.7,
+      "ha_quemadas_usgs_027": 38.9,
+      "ha_todos_px_010": 369.7,
+      "ha_por_severidad": {
+        "Baja": 63.4,
+        "Moderada-baja": 82.9,
+        "Moderada-alta": 0.4,
+        "Alta": 0.0
+      },
+      "ha_por_distrito": [
+        {
+          "ubigeo": "250106",
+          "distrito": "NUEVA REQUENA",
+          "provincia": "CORONEL PORTILLO",
+          "departamento": "UCAYALI",
+          "ha": 146.7
+        }
+      ],
+      "ha_por_cobertura": [
+        {
+          "cobertura": "Bosque",
+          "ha_quemadas": 139.1,
+          "ha_zona": 438.2,
+          "pct_quemado": 94.8,
+          "pct_zona": 93.9
+        },
+        {
+          "cobertura": "Pastizal",
+          "ha_quemadas": 7.6,
+          "ha_zona": 28.3,
+          "pct_quemado": 5.2,
+          "pct_zona": 6.1
+        }
+      ],
+      "focos_en_nubes_px": 3191,
+      "imagenes": {
+        "antes": "antes.jpg",
+        "despues": "despues.jpg",
+        "severidad": "severidad.png",
+        "ancho": 412,
+        "alto": 491
+      },
+      "focos_xy": [
+        [
+          0.568,
+          0.5621
+        ],
+        [
+          0.5607,
+          0.6008
+        ],
+        [
+          0.5146,
+          0.5947
+        ],
+        [
+          0.5534,
+          0.6375
+        ],
+        [
+          0.5097,
+          0.6334
+        ],
+        [
+          0.449,
+          0.6415
+        ],
+        [
+          0.4879,
+          0.5316
+        ],
+        [
+          0.4272,
+          0.5418
+        ],
+        [
+          0.5388,
+          0.4725
+        ],
+        [
+          0.5291,
+          0.4216
+        ],
+        [
+          0.4684,
+          0.4297
+        ],
+        [
+          0.5194,
+          0.3707
+        ],
+        [
+          0.4587,
+          0.3788
+        ],
+        [
+          0.4248,
+          0.3809
+        ],
+        [
+          0.4927,
+          0.391
+        ],
+        [
+          0.483,
+          0.4358
+        ],
+        [
+          0.5728,
+          0.6191
+        ],
+        [
+          0.5655,
+          0.5804
+        ],
+        [
+          0.517,
+          0.5886
+        ],
+        [
+          0.4951,
+          0.4725
+        ],
+        [
+          0.5364,
+          0.4257
+        ],
+        [
+          0.4879,
+          0.4338
+        ],
+        [
+          0.5291,
+          0.387
+        ],
+        [
+          0.4806,
+          0.3951
+        ],
+        [
+          0.4296,
+          0.4012
+        ],
+        [
+          0.4733,
+          0.3564
+        ]
+      ],
+      "segundos": 20,
+      "rank": 8
+    },
+    {
+      "id": 31,
+      "distrito": "RIO TAMBO",
+      "provincia": "SATIPO",
+      "departamento": "JUNIN",
+      "distritos_focos": "RIO TAMBO",
+      "focos": 24,
+      "frp": 131.8,
+      "inicio": "2026-10-15 06:33",
+      "fin": "2026-10-16 06:16",
+      "lat": -11.8613,
+      "lon": -73.8547,
+      "estado": "ok",
+      "imagen_antes": {
+        "fecha": "2026-10-08",
+        "id": "S2C_18LXM_20261008_0_L2A",
+        "tile": "18LXM",
+        "nubes_zona": 0.0,
+        "dias_antes": 7
+      },
+      "imagen_despues": {
+        "fecha": "2026-10-20",
+        "id": "S2A_18LXM_20261020_0_L2A",
+        "tile": "18LXM",
+        "nubes_zona": 40.0,
+        "dias_despues": 4
+      },
+      "zona_ha": 3208.0,
+      "pct_zona_sin_dato": 40.0,
+      "ha_quemadas": 519.2,
+      "ha_quemadas_usgs_027": 340.1,
+      "ha_todos_px_010": 630.6,
+      "ha_por_severidad": {
+        "Baja": 154.8,
+        "Moderada-baja": 252.9,
+        "Moderada-alta": 108.0,
+        "Alta": 3.6
+      },
+      "ha_por_distrito": [
+        {
+          "ubigeo": "120608",
+          "distrito": "RIO TAMBO",
+          "provincia": "SATIPO",
+          "departamento": "JUNIN",
+          "ha": 519.2
+        }
+      ],
+      "ha_por_cobertura": [
+        {
+          "cobertura": "Bosque",
+          "ha_quemadas": 517.7,
+          "ha_zona": 1894.7,
+          "pct_quemado": 99.7,
+          "pct_zona": 98.4
+        },
+        {
+          "cobertura": "Pastizal",
+          "ha_quemadas": 1.5,
+          "ha_zona": 31.5,
+          "pct_quemado": 0.3,
+          "pct_zona": 1.6
+        },
+        {
+          "cobertura": "Urbano",
+          "ha_quemadas": 0.0,
+          "ha_zona": 0.2,
+          "pct_quemado": 0.0,
+          "pct_zona": 0.0
+        }
+      ],
+      "focos_en_nubes_px": 1112,
+      "imagenes": {
+        "antes": "antes.jpg",
+        "despues": "despues.jpg",
+        "severidad": "severidad.png",
+        "ancho": 536,
+        "alto": 421
+      },
+      "focos_xy": [
+        [
+          0.6399,
+          0.4893
+        ],
+        [
+          0.6343,
+          0.5368
+        ],
+        [
+          0.6511,
+          0.5392
+        ],
+        [
+          0.5131,
+          0.5083
+        ],
+        [
+          0.4683,
+          0.5178
+        ],
+        [
+          0.4216,
+          0.5297
+        ],
+        [
+          0.3731,
+          0.5392
+        ],
+        [
+          0.3265,
+          0.5511
+        ],
+        [
+          0.5504,
+          0.4371
+        ],
+        [
+          0.5056,
+          0.4489
+        ],
+        [
+          0.5075,
+          0.4157
+        ],
+        [
+          0.5485,
+          0.4252
+        ],
+        [
+          0.459,
+          0.4513
+        ],
+        [
+          0.5,
+          0.4608
+        ],
+        [
+          0.6716,
+          0.4988
+        ],
+        [
+          0.4534,
+          0.4988
+        ],
+        [
+          0.4944,
+          0.5083
+        ],
+        [
+          0.5784,
+          0.5273
+        ],
+        [
+          0.6213,
+          0.5368
+        ],
+        [
+          0.6642,
+          0.5463
+        ],
+        [
+          0.3638,
+          0.5273
+        ],
+        [
+          0.4049,
+          0.5344
+        ],
+        [
+          0.4869,
+          0.5534
+        ],
+        [
+          0.6138,
+          0.5819
+        ]
+      ],
+      "segundos": 15,
+      "rank": 9
+    },
+    {
+      "id": 299,
+      "distrito": "NUEVA REQUENA",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "distritos_focos": "NUEVA REQUENA",
+      "focos": 22,
+      "frp": 224.6,
+      "inicio": "2026-10-15 19:10",
+      "fin": "2026-10-16 18:49",
+      "lat": -8.22,
+      "lon": -75.0098,
+      "estado": "nublado",
+      "motivo": "La mejor imagen posterior tiene 100.0 % de nubes en la zona",
+      "candidatas": 52,
+      "imagen_antes": {
+        "fecha": "2026-10-06",
+        "id": "S2B_18LVR_20261006_0_L2A",
+        "tile": "18LVR",
+        "nubes_zona": 1.6,
+        "dias_antes": 9
+      },
+      "imagen_despues": {
+        "fecha": "2026-10-21",
+        "id": "S2C_18LVR_20261021_0_L2A",
+        "tile": "18LVR",
+        "nubes_zona": 100.0,
+        "dias_despues": 5
+      },
+      "corte_despues": "2026-10-16 18:49",
+      "despues_antes_del_ultimo_foco": false,
+      "zona_ha": 3054.0,
+      "pct_zona_sin_dato": 100.0,
+      "ha_quemadas": 0.0,
+      "ha_quemadas_usgs_027": 0.0,
+      "ha_todos_px_010": 0.0,
+      "ha_por_severidad": {
+        "Baja": 0.0,
+        "Moderada-baja": 0.0,
+        "Moderada-alta": 0.0,
+        "Alta": 0.0
+      },
+      "ha_por_distrito": [],
+      "ha_por_cobertura": [],
+      "focos_en_nubes_px": 3939,
+      "imagenes": {
+        "antes": "antes.jpg",
+        "despues": "despues.jpg",
+        "severidad": "severidad.png",
+        "ancho": 446,
+        "alto": 497
+      },
+      "focos_xy": [
+        [
+          0.5695,
+          0.5855
+        ],
+        [
+          0.5135,
+          0.5936
+        ],
+        [
+          0.5605,
+          0.5352
+        ],
+        [
+          0.5045,
+          0.5433
+        ],
+        [
+          0.5874,
+          0.3763
+        ],
+        [
+          0.5762,
+          0.5694
+        ],
+        [
+          0.5202,
+          0.5775
+        ],
+        [
+          0.6054,
+          0.4105
+        ],
+        [
+          0.5964,
+          0.3602
+        ],
+        [
+          0.5404,
+          0.3702
+        ],
+        [
+          0.5314,
+          0.4085
+        ],
+        [
+          0.5224,
+          0.4527
+        ],
+        [
+          0.5673,
+          0.5493
+        ],
+        [
+          0.4978,
+          0.5855
+        ],
+        [
+          0.5605,
+          0.5936
+        ],
+        [
+          0.3991,
+          0.6459
+        ],
+        [
+          0.5314,
+          0.5875
+        ],
+        [
+          0.3924,
+          0.6076
+        ],
+        [
+          0.5628,
+          0.505
+        ],
+        [
+          0.5561,
+          0.4728
+        ],
+        [
+          0.5493,
+          0.4346
+        ],
+        [
+          0.5807,
+          0.3521
+        ]
+      ],
+      "segundos": 15,
+      "rank": 10
+    }
+  ]
+}

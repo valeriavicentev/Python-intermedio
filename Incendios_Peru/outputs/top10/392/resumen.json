@@ -1,0 +1,172 @@
+{
+  "id": 392,
+  "distrito": "TAPO",
+  "provincia": "TARMA",
+  "departamento": "JUNIN",
+  "distritos_focos": "TAPO",
+  "focos": 29,
+  "frp": 580.4,
+  "inicio": "2026-10-15 19:08",
+  "fin": "2026-10-16 18:49",
+  "lat": -11.4071,
+  "lon": -75.5233,
+  "estado": "nublado",
+  "motivo": "La mejor imagen posterior tiene 100.0 % de nubes en la zona",
+  "candidatas": 13,
+  "imagen_antes": {
+    "fecha": "2026-10-06",
+    "id": "S2B_18LVN_20261006_0_L2A",
+    "tile": "18LVN",
+    "nubes_zona": 0.2,
+    "dias_antes": 9
+  },
+  "imagen_despues": {
+    "fecha": "2026-10-21",
+    "id": "S2C_18LVN_20261021_0_L2A",
+    "tile": "18LVN",
+    "nubes_zona": 100.0,
+    "dias_despues": 5
+  },
+  "corte_despues": "2026-10-16 06:16",
+  "despues_antes_del_ultimo_foco": false,
+  "zona_ha": 4263.8,
+  "pct_zona_sin_dato": 100.0,
+  "ha_quemadas": 0.0,
+  "ha_quemadas_usgs_027": 0.0,
+  "ha_todos_px_010": 0.0,
+  "ha_por_severidad": {
+    "Baja": 0.0,
+    "Moderada-baja": 0.0,
+    "Moderada-alta": 0.0,
+    "Alta": 0.0
+  },
+  "ha_por_distrito": [],
+  "ha_por_cobertura": [],
+  "focos_en_nubes_px": 6291,
+  "imagenes": {
+    "antes": "antes.jpg",
+    "despues": "despues.jpg",
+    "severidad": "severidad.png",
+    "ancho": 545,
+    "alto": 501
+  },
+  "focos_xy": [
+    [
+      0.6624,
+      0.6307
+    ],
+    [
+      0.633,
+      0.6367
+    ],
+    [
+      0.6018,
+      0.6407
+    ],
+    [
+      0.5321,
+      0.6088
+    ],
+    [
+      0.6495,
+      0.5848
+    ],
+    [
+      0.6202,
+      0.5908
+    ],
+    [
+      0.589,
+      0.5968
+    ],
+    [
+      0.6459,
+      0.5389
+    ],
+    [
+      0.6147,
+      0.5449
+    ],
+    [
+      0.5817,
+      0.5529
+    ],
+    [
+      0.5523,
+      0.5569
+    ],
+    [
+      0.4624,
+      0.5749
+    ],
+    [
+      0.6771,
+      0.487
+    ],
+    [
+      0.6459,
+      0.493
+    ],
+    [
+      0.6771,
+      0.4411
+    ],
+    [
+      0.6459,
+      0.4471
+    ],
+    [
+      0.4459,
+      0.485
+    ],
+    [
+      0.4037,
+      0.493
+    ],
+    [
+      0.6422,
+      0.3992
+    ],
+    [
+      0.611,
+      0.4052
+    ],
+    [
+      0.389,
+      0.4491
+    ],
+    [
+      0.3339,
+      0.4591
+    ],
+    [
+      0.4294,
+      0.3952
+    ],
+    [
+      0.3706,
+      0.4052
+    ],
+    [
+      0.3211,
+      0.4152
+    ],
+    [
+      0.4239,
+      0.3493
+    ],
+    [
+      0.4771,
+      0.5908
+    ],
+    [
+      0.5083,
+      0.6487
+    ],
+    [
+      0.5028,
+      0.6108
+    ]
+  ],
+  "segundos": 15
+}

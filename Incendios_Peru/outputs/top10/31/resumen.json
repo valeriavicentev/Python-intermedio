@@ -1,0 +1,178 @@
+{
+  "id": 31,
+  "distrito": "RIO TAMBO",
+  "provincia": "SATIPO",
+  "departamento": "JUNIN",
+  "distritos_focos": "RIO TAMBO",
+  "focos": 24,
+  "frp": 131.8,
+  "inicio": "2026-10-15 06:33",
+  "fin": "2026-10-16 06:16",
+  "lat": -11.8613,
+  "lon": -73.8547,
+  "estado": "ok",
+  "imagen_antes": {
+    "fecha": "2026-10-08",
+    "id": "S2C_18LXM_20261008_0_L2A",
+    "tile": "18LXM",
+    "nubes_zona": 0.0,
+    "dias_antes": 7
+  },
+  "imagen_despues": {
+    "fecha": "2026-10-20",
+    "id": "S2A_18LXM_20261020_0_L2A",
+    "tile": "18LXM",
+    "nubes_zona": 40.0,
+    "dias_despues": 4
+  },
+  "zona_ha": 3208.0,
+  "pct_zona_sin_dato": 40.0,
+  "ha_quemadas": 519.2,
+  "ha_quemadas_usgs_027": 340.1,
+  "ha_todos_px_010": 630.6,
+  "ha_por_severidad": {
+    "Baja": 154.8,
+    "Moderada-baja": 252.9,
+    "Moderada-alta": 108.0,
+    "Alta": 3.6
+  },
+  "ha_por_distrito": [
+    {
+      "ubigeo": "120608",
+      "distrito": "RIO TAMBO",
+      "provincia": "SATIPO",
+      "departamento": "JUNIN",
+      "ha": 519.2
+    }
+  ],
+  "ha_por_cobertura": [
+    {
+      "cobertura": "Bosque",
+      "ha_quemadas": 517.7,
+      "ha_zona": 1894.7,
+      "pct_quemado": 99.7,
+      "pct_zona": 98.4
+    },
+    {
+      "cobertura": "Pastizal",
+      "ha_quemadas": 1.5,
+      "ha_zona": 31.5,
+      "pct_quemado": 0.3,
+      "pct_zona": 1.6
+    },
+    {
+      "cobertura": "Urbano",
+      "ha_quemadas": 0.0,
+      "ha_zona": 0.2,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.0
+    }
+  ],
+  "focos_en_nubes_px": 1112,
+  "imagenes": {
+    "antes": "antes.jpg",
+    "despues": "despues.jpg",
+    "severidad": "severidad.png",
+    "ancho": 536,
+    "alto": 421
+  },
+  "focos_xy": [
+    [
+      0.6399,
+      0.4893
+    ],
+    [
+      0.6343,
+      0.5368
+    ],
+    [
+      0.6511,
+      0.5392
+    ],
+    [
+      0.5131,
+      0.5083
+    ],
+    [
+      0.4683,
+      0.5178
+    ],
+    [
+      0.4216,
+      0.5297
+    ],
+    [
+      0.3731,
+      0.5392
+    ],
+    [
+      0.3265,
+      0.5511
+    ],
+    [
+      0.5504,
+      0.4371
+    ],
+    [
+      0.5056,
+      0.4489
+    ],
+    [
+      0.5075,
+      0.4157
+    ],
+    [
+      0.5485,
+      0.4252
+    ],
+    [
+      0.459,
+      0.4513
+    ],
+    [
+      0.5,
+      0.4608
+    ],
+    [
+      0.6716,
+      0.4988
+    ],
+    [
+      0.4534,
+      0.4988
+    ],
+    [
+      0.4944,
+      0.5083
+    ],
+    [
+      0.5784,
+      0.5273
+    ],
+    [
+      0.6213,
+      0.5368
+    ],
+    [
+      0.6642,
+      0.5463
+    ],
+    [
+      0.3638,
+      0.5273
+    ],
+    [
+      0.4049,
+      0.5344
+    ],
+    [
+      0.4869,
+      0.5534
+    ],
+    [
+      0.6138,
+      0.5819
+    ]
+  ],
+  "segundos": 15
+}

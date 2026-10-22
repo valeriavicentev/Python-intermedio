@@ -1,0 +1,144 @@
+{
+  "id": 299,
+  "distrito": "NUEVA REQUENA",
+  "provincia": "CORONEL PORTILLO",
+  "departamento": "UCAYALI",
+  "distritos_focos": "NUEVA REQUENA",
+  "focos": 22,
+  "frp": 224.6,
+  "inicio": "2026-10-15 19:10",
+  "fin": "2026-10-16 18:49",
+  "lat": -8.22,
+  "lon": -75.0098,
+  "estado": "nublado",
+  "motivo": "La mejor imagen posterior tiene 100.0 % de nubes en la zona",
+  "candidatas": 52,
+  "imagen_antes": {
+    "fecha": "2026-10-06",
+    "id": "S2B_18LVR_20261006_0_L2A",
+    "tile": "18LVR",
+    "nubes_zona": 1.6,
+    "dias_antes": 9
+  },
+  "imagen_despues": {
+    "fecha": "2026-10-21",
+    "id": "S2C_18LVR_20261021_0_L2A",
+    "tile": "18LVR",
+    "nubes_zona": 100.0,
+    "dias_despues": 5
+  },
+  "corte_despues": "2026-10-16 18:49",
+  "despues_antes_del_ultimo_foco": false,
+  "zona_ha": 3054.0,
+  "pct_zona_sin_dato": 100.0,
+  "ha_quemadas": 0.0,
+  "ha_quemadas_usgs_027": 0.0,
+  "ha_todos_px_010": 0.0,
+  "ha_por_severidad": {
+    "Baja": 0.0,
+    "Moderada-baja": 0.0,
+    "Moderada-alta": 0.0,
+    "Alta": 0.0
+  },
+  "ha_por_distrito": [],
+  "ha_por_cobertura": [],
+  "focos_en_nubes_px": 3939,
+  "imagenes": {
+    "antes": "antes.jpg",
+    "despues": "despues.jpg",
+    "severidad": "severidad.png",
+    "ancho": 446,
+    "alto": 497
+  },
+  "focos_xy": [
+    [
+      0.5695,
+      0.5855
+    ],
+    [
+      0.5135,
+      0.5936
+    ],
+    [
+      0.5605,
+      0.5352
+    ],
+    [
+      0.5045,
+      0.5433
+    ],
+    [
+      0.5874,
+      0.3763
+    ],
+    [
+      0.5762,
+      0.5694
+    ],
+    [
+      0.5202,
+      0.5775
+    ],
+    [
+      0.6054,
+      0.4105
+    ],
+    [
+      0.5964,
+      0.3602
+    ],
+    [
+      0.5404,
+      0.3702
+    ],
+    [
+      0.5314,
+      0.4085
+    ],
+    [
+      0.5224,
+      0.4527
+    ],
+    [
+      0.5673,
+      0.5493
+    ],
+    [
+      0.4978,
+      0.5855
+    ],
+    [
+      0.5605,
+      0.5936
+    ],
+    [
+      0.3991,
+      0.6459
+    ],
+    [
+      0.5314,
+      0.5875
+    ],
+    [
+      0.3924,
+      0.6076
+    ],
+    [
+      0.5628,
+      0.505
+    ],
+    [
+      0.5561,
+      0.4728
+    ],
+    [
+      0.5493,
+      0.4346
+    ],
+    [
+      0.5807,
+      0.3521
+    ]
+  ],
+  "segundos": 15
+}

@@ -1,0 +1,183 @@
+{
+  "id": 311,
+  "distrito": "NUEVA REQUENA",
+  "provincia": "CORONEL PORTILLO",
+  "departamento": "UCAYALI",
+  "distritos_focos": "NUEVA REQUENA",
+  "focos": 26,
+  "frp": 275.8,
+  "inicio": "2026-10-15 06:33",
+  "fin": "2026-10-16 18:49",
+  "lat": -8.1332,
+  "lon": -75.0021,
+  "estado": "nublado",
+  "motivo": "La mejor imagen posterior tiene 84.1 % de nubes en la zona",
+  "candidatas": 52,
+  "imagen_antes": {
+    "fecha": "2026-09-21",
+    "id": "S2C_18MVS_20260921_0_L2A",
+    "tile": "18MVS",
+    "nubes_zona": 0.0,
+    "dias_antes": 24
+  },
+  "imagen_despues": {
+    "fecha": "2026-10-21",
+    "id": "S2C_18MVS_20261021_0_L2A",
+    "tile": "18MVS",
+    "nubes_zona": 84.1,
+    "dias_despues": 5
+  },
+  "corte_despues": "2026-10-16 18:49",
+  "despues_antes_del_ultimo_foco": false,
+  "zona_ha": 2935.9,
+  "pct_zona_sin_dato": 84.1,
+  "ha_quemadas": 146.7,
+  "ha_quemadas_usgs_027": 38.9,
+  "ha_todos_px_010": 369.7,
+  "ha_por_severidad": {
+    "Baja": 63.4,
+    "Moderada-baja": 82.9,
+    "Moderada-alta": 0.4,
+    "Alta": 0.0
+  },
+  "ha_por_distrito": [
+    {
+      "ubigeo": "250106",
+      "distrito": "NUEVA REQUENA",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "ha": 146.7
+    }
+  ],
+  "ha_por_cobertura": [
+    {
+      "cobertura": "Bosque",
+      "ha_quemadas": 139.1,
+      "ha_zona": 438.2,
+      "pct_quemado": 94.8,
+      "pct_zona": 93.9
+    },
+    {
+      "cobertura": "Pastizal",
+      "ha_quemadas": 7.6,
+      "ha_zona": 28.3,
+      "pct_quemado": 5.2,
+      "pct_zona": 6.1
+    }
+  ],
+  "focos_en_nubes_px": 3191,
+  "imagenes": {
+    "antes": "antes.jpg",
+    "despues": "despues.jpg",
+    "severidad": "severidad.png",
+    "ancho": 412,
+    "alto": 491
+  },
+  "focos_xy": [
+    [
+      0.568,
+      0.5621
+    ],
+    [
+      0.5607,
+      0.6008
+    ],
+    [
+      0.5146,
+      0.5947
+    ],
+    [
+      0.5534,
+      0.6375
+    ],
+    [
+      0.5097,
+      0.6334
+    ],
+    [
+      0.449,
+      0.6415
+    ],
+    [
+      0.4879,
+      0.5316
+    ],
+    [
+      0.4272,
+      0.5418
+    ],
+    [
+      0.5388,
+      0.4725
+    ],
+    [
+      0.5291,
+      0.4216
+    ],
+    [
+      0.4684,
+      0.4297
+    ],
+    [
+      0.5194,
+      0.3707
+    ],
+    [
+      0.4587,
+      0.3788
+    ],
+    [
+      0.4248,
+      0.3809
+    ],
+    [
+      0.4927,
+      0.391
+    ],
+    [
+      0.483,
+      0.4358
+    ],
+    [
+      0.5728,
+      0.6191
+    ],
+    [
+      0.5655,
+      0.5804
+    ],
+    [
+      0.517,
+      0.5886
+    ],
+    [
+      0.4951,
+      0.4725
+    ],
+    [
+      0.5364,
+      0.4257
+    ],
+    [
+      0.4879,
+      0.4338
+    ],
+    [
+      0.5291,
+      0.387
+    ],
+    [
+      0.4806,
+      0.3951
+    ],
+    [
+      0.4296,
+      0.4012
+    ],
+    [
+      0.4733,
+      0.3564
+    ]
+  ],
+  "segundos": 20
+}

@@ -1,0 +1,304 @@
+{
+  "id": 278,
+  "distrito": "MANANTAY",
+  "provincia": "CORONEL PORTILLO",
+  "departamento": "UCAYALI",
+  "distritos_focos": "MANANTAY",
+  "focos": 51,
+  "frp": 643.9,
+  "inicio": "2026-10-15 06:33",
+  "fin": "2026-10-16 18:49",
+  "lat": -8.4791,
+  "lon": -74.5358,
+  "estado": "parcial",
+  "motivo": "La mejor imagen posterior tiene 56.3 % de nubes en la zona",
+  "candidatas": 13,
+  "imagen_antes": {
+    "fecha": "2026-09-21",
+    "id": "S2C_18LWR_20260921_0_L2A",
+    "tile": "18LWR",
+    "nubes_zona": 0.9,
+    "dias_antes": 24
+  },
+  "imagen_despues": {
+    "fecha": "2026-10-21",
+    "id": "S2C_18LWR_20261021_0_L2A",
+    "tile": "18LWR",
+    "nubes_zona": 56.3,
+    "dias_despues": 5
+  },
+  "corte_despues": "2026-10-16 18:49",
+  "despues_antes_del_ultimo_foco": false,
+  "zona_ha": 5879.0,
+  "pct_zona_sin_dato": 59.4,
+  "ha_quemadas": 787.1,
+  "ha_quemadas_usgs_027": 294.1,
+  "ha_todos_px_010": 1197.6,
+  "ha_por_severidad": {
+    "Baja": 337.4,
+    "Moderada-baja": 327.8,
+    "Moderada-alta": 108.7,
+    "Alta": 13.2
+  },
+  "ha_por_distrito": [
+    {
+      "ubigeo": "250107",
+      "distrito": "MANANTAY",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "ha": 787.1
+    }
+  ],
+  "ha_por_cobertura": [
+    {
+      "cobertura": "Bosque",
+      "ha_quemadas": 400.2,
+      "ha_zona": 1455.6,
+      "pct_quemado": 50.8,
+      "pct_zona": 60.9
+    },
+    {
+      "cobertura": "Pastizal",
+      "ha_quemadas": 378.0,
+      "ha_zona": 914.6,
+      "pct_quemado": 48.0,
+      "pct_zona": 38.3
+    },
+    {
+      "cobertura": "Humedal herbáceo",
+      "ha_quemadas": 7.6,
+      "ha_zona": 15.1,
+      "pct_quemado": 1.0,
+      "pct_zona": 0.6
+    },
+    {
+      "cobertura": "Matorral",
+      "ha_quemadas": 1.2,
+      "ha_zona": 1.6,
+      "pct_quemado": 0.2,
+      "pct_zona": 0.1
+    },
+    {
+      "cobertura": "Agua",
+      "ha_quemadas": 0.0,
+      "ha_zona": 1.4,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.1
+    }
+  ],
+  "focos_en_nubes_px": 4321,
+  "imagenes": {
+    "antes": "antes.jpg",
+    "despues": "despues.jpg",
+    "severidad": "severidad.png",
+    "ancho": 562,
+    "alto": 659
+  },
+  "focos_xy": [
+    [
+      0.5534,
+      0.4901
+    ],
+    [
+      0.5142,
+      0.5129
+    ],
+    [
+      0.4448,
+      0.6829
+    ],
+    [
+      0.5712,
+      0.5842
+    ],
+    [
+      0.5249,
+      0.5903
+    ],
+    [
+      0.5641,
+      0.5448
+    ],
+    [
+      0.516,
+      0.5524
+    ],
+    [
+      0.6032,
+      0.4992
+    ],
+    [
+      0.5961,
+      0.4598
+    ],
+    [
+      0.548,
+      0.4674
+    ],
+    [
+      0.5409,
+      0.4279
+    ],
+    [
+      0.532,
+      0.39
+    ],
+    [
+      0.3843,
+      0.3718
+    ],
+    [
+      0.5569,
+      0.2656
+    ],
+    [
+      0.5036,
+      0.4067
+    ],
+    [
+      0.3541,
+      0.3869
+    ],
+    [
+      0.5285,
+      0.2822
+    ],
+    [
+      0.4591,
+      0.7329
+    ],
+    [
+      0.4929,
+      0.698
+    ],
+    [
+      0.4537,
+      0.7041
+    ],
+    [
+      0.5249,
+      0.6646
+    ],
+    [
+      0.4875,
+      0.6692
+    ],
+    [
+      0.4484,
+      0.6737
+    ],
+    [
+      0.5196,
+      0.6343
+    ],
+    [
+      0.4431,
+      0.6449
+    ],
+    [
+      0.5142,
+      0.6055
+    ],
+    [
+      0.4751,
+      0.61
+    ],
+    [
+      0.6228,
+      0.5599
+    ],
+    [
+      0.5463,
+      0.5706
+    ],
+    [
+      0.5089,
+      0.5766
+    ],
+    [
+      0.6174,
+      0.5311
+    ],
+    [
+      0.6868,
+      0.4917
+    ],
+    [
+      0.6103,
+      0.5023
+    ],
+    [
+      0.4982,
+      0.5175
+    ],
+    [
+      0.605,
+      0.4734
+    ],
+    [
+      0.5569,
+      0.4203
+    ],
+    [
+      0.5196,
+      0.4249
+    ],
+    [
+      0.5516,
+      0.39
+    ],
+    [
+      0.5142,
+      0.3961
+    ],
+    [
+      0.5605,
+      0.4127
+    ],
+    [
+      0.5214,
+      0.4173
+    ],
+    [
+      0.5552,
+      0.3839
+    ],
+    [
+      0.516,
+      0.3885
+    ],
+    [
+      0.4359,
+      0.3687
+    ],
+    [
+      0.3594,
+      0.3794
+    ],
+    [
+      0.468,
+      0.3354
+    ],
+    [
+      0.3541,
+      0.3505
+    ],
+    [
+      0.3167,
+      0.3551
+    ],
+    [
+      0.5391,
+      0.2959
+    ],
+    [
+      0.3114,
+      0.3263
+    ],
+    [
+      0.5338,
+      0.2671
+    ]
+  ],
+  "segundos": 17
+}

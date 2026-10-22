@@ -1,0 +1,179 @@
+{
+  "id": 14,
+  "distrito": "TAHUANIA",
+  "provincia": "ATALAYA",
+  "departamento": "UCAYALI",
+  "distritos_focos": "TAHUANIA",
+  "focos": 26,
+  "frp": 1437.5,
+  "inicio": "2026-10-15 06:33",
+  "fin": "2026-10-16 18:49",
+  "lat": -9.6193,
+  "lon": -73.786,
+  "estado": "ok",
+  "imagen_antes": {
+    "fecha": "2026-10-03",
+    "id": "S2B_18LXQ_20261003_0_L2A",
+    "tile": "18LXQ",
+    "nubes_zona": 2.6,
+    "dias_antes": 12
+  },
+  "imagen_despues": {
+    "fecha": "2026-10-20",
+    "id": "S2A_18LXQ_20261020_0_L2A",
+    "tile": "18LXQ",
+    "nubes_zona": 13.8,
+    "dias_despues": 4
+  },
+  "zona_ha": 2609.0,
+  "pct_zona_sin_dato": 15.3,
+  "ha_quemadas": 115.7,
+  "ha_quemadas_usgs_027": 84.1,
+  "ha_todos_px_010": 212.5,
+  "ha_por_severidad": {
+    "Baja": 25.1,
+    "Moderada-baja": 42.4,
+    "Moderada-alta": 48.2,
+    "Alta": 0.0
+  },
+  "ha_por_distrito": [
+    {
+      "ubigeo": "250203",
+      "distrito": "TAHUANIA",
+      "provincia": "ATALAYA",
+      "departamento": "UCAYALI",
+      "ha": 115.7
+    }
+  ],
+  "ha_por_cobertura": [
+    {
+      "cobertura": "Bosque",
+      "ha_quemadas": 112.9,
+      "ha_zona": 2185.8,
+      "pct_quemado": 97.6,
+      "pct_zona": 98.9
+    },
+    {
+      "cobertura": "Pastizal",
+      "ha_quemadas": 2.8,
+      "ha_zona": 25.3,
+      "pct_quemado": 2.4,
+      "pct_zona": 1.1
+    }
+  ],
+  "focos_en_nubes_px": 185,
+  "imagenes": {
+    "antes": "antes.jpg",
+    "despues": "despues.jpg",
+    "severidad": "severidad.png",
+    "ancho": 456,
+    "alto": 437
+  },
+  "focos_xy": [
+    [
+      0.5241,
+      0.5446
+    ],
+    [
+      0.4781,
+      0.5378
+    ],
+    [
+      0.4276,
+      0.5744
+    ],
+    [
+      0.4715,
+      0.5812
+    ],
+    [
+      0.5175,
+      0.5881
+    ],
+    [
+      0.3838,
+      0.5652
+    ],
+    [
+      0.5789,
+      0.5812
+    ],
+    [
+      0.5175,
+      0.5927
+    ],
+    [
+      0.5066,
+      0.5332
+    ],
+    [
+      0.557,
+      0.46
+    ],
+    [
+      0.5482,
+      0.4005
+    ],
+    [
+      0.5614,
+      0.5858
+    ],
+    [
+      0.5,
+      0.5973
+    ],
+    [
+      0.489,
+      0.5378
+    ],
+    [
+      0.614,
+      0.5149
+    ],
+    [
+      0.5417,
+      0.4645
+    ],
+    [
+      0.5307,
+      0.405
+    ],
+    [
+      0.4956,
+      0.4371
+    ],
+    [
+      0.4868,
+      0.4828
+    ],
+    [
+      0.5373,
+      0.492
+    ],
+    [
+      0.5307,
+      0.5378
+    ],
+    [
+      0.5811,
+      0.5469
+    ],
+    [
+      0.5526,
+      0.5492
+    ],
+    [
+      0.5439,
+      0.5034
+    ],
+    [
+      0.4956,
+      0.5126
+    ],
+    [
+      0.489,
+      0.4668
+    ]
+  ],
+  "segundos": 15
+}

@@ -1,0 +1,333 @@
+{
+  "id": 990,
+  "distrito": "CHICHAS",
+  "provincia": "CONDESUYOS",
+  "departamento": "AREQUIPA",
+  "distritos_focos": "CHICHAS, TORO",
+  "focos": 54,
+  "frp": 406.4,
+  "inicio": "2026-10-17 05:57",
+  "fin": "2026-10-18 18:11",
+  "lat": -15.4855,
+  "lon": -72.9792,
+  "estado": "ok",
+  "imagen_antes": {
+    "fecha": "2026-10-15",
+    "id": "S2C_18LYH_20261015_0_L2A",
+    "tile": "18LYH",
+    "nubes_zona": 0.0,
+    "dias_antes": 2
+  },
+  "imagen_despues": {
+    "fecha": "2026-10-20",
+    "id": "S2A_18LYH_20261020_1_L2A",
+    "tile": "18LYH",
+    "nubes_zona": 0.8,
+    "dias_despues": 2
+  },
+  "zona_ha": 6145.3,
+  "pct_zona_sin_dato": 0.8,
+  "ha_quemadas": 1572.8,
+  "ha_quemadas_usgs_027": 119.1,
+  "ha_todos_px_010": 1606.4,
+  "ha_por_severidad": {
+    "Baja": 1331.0,
+    "Moderada-baja": 240.6,
+    "Moderada-alta": 1.1,
+    "Alta": 0.0
+  },
+  "ha_por_distrito": [
+    {
+      "ubigeo": "040604",
+      "distrito": "CHICHAS",
+      "provincia": "CONDESUYOS",
+      "departamento": "AREQUIPA",
+      "ha": 1057.9
+    },
+    {
+      "ubigeo": "040811",
+      "distrito": "TORO",
+      "provincia": "LA UNION",
+      "departamento": "AREQUIPA",
+      "ha": 514.9
+    }
+  ],
+  "ha_por_cobertura": [
+    {
+      "cobertura": "Pastizal",
+      "ha_quemadas": 1127.4,
+      "ha_zona": 2559.1,
+      "pct_quemado": 71.7,
+      "pct_zona": 42.0
+    },
+    {
+      "cobertura": "Matorral",
+      "ha_quemadas": 437.5,
+      "ha_zona": 2592.4,
+      "pct_quemado": 27.8,
+      "pct_zona": 42.5
+    },
+    {
+      "cobertura": "Suelo desnudo",
+      "ha_quemadas": 7.8,
+      "ha_zona": 933.0,
+      "pct_quemado": 0.5,
+      "pct_zona": 15.3
+    },
+    {
+      "cobertura": "Bosque",
+      "ha_quemadas": 0.0,
+      "ha_zona": 10.6,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.2
+    },
+    {
+      "cobertura": "Cultivo",
+      "ha_quemadas": 0.0,
+      "ha_zona": 0.2,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.0
+    },
+    {
+      "cobertura": "Urbano",
+      "ha_quemadas": 0.0,
+      "ha_zona": 1.2,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.0
+    },
+    {
+      "cobertura": "Agua",
+      "ha_quemadas": 0.0,
+      "ha_zona": 1.9,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.0
+    }
+  ],
+  "focos_en_nubes_px": 0,
+  "imagenes": {
+    "antes": "antes.jpg",
+    "despues": "despues.jpg",
+    "severidad": "severidad.png",
+    "ancho": 516,
+    "alto": 722
+  },
+  "focos_xy": [
+    [
+      0.4826,
+      0.3546
+    ],
+    [
+      0.5155,
+      0.3587
+    ],
+    [
+      0.5446,
+      0.3643
+    ],
+    [
+      0.5717,
+      0.367
+    ],
+    [
+      0.6008,
+      0.3712
+    ],
+    [
+      0.5988,
+      0.4044
+    ],
+    [
+      0.3624,
+      0.4377
+    ],
+    [
+      0.405,
+      0.4432
+    ],
+    [
+      0.5853,
+      0.4681
+    ],
+    [
+      0.4322,
+      0.4806
+    ],
+    [
+      0.5426,
+      0.4958
+    ],
+    [
+      0.3915,
+      0.4737
+    ],
+    [
+      0.5097,
+      0.4917
+    ],
+    [
+      0.5717,
+      0.5
+    ],
+    [
+      0.4283,
+      0.4861
+    ],
+    [
+      0.5388,
+      0.5028
+    ],
+    [
+      0.436,
+      0.59
+    ],
+    [
+      0.3934,
+      0.5942
+    ],
+    [
+      0.4729,
+      0.5582
+    ],
+    [
+      0.5116,
+      0.554
+    ],
+    [
+      0.5465,
+      0.5235
+    ],
+    [
+      0.595,
+      0.3546
+    ],
+    [
+      0.5562,
+      0.331
+    ],
+    [
+      0.5523,
+      0.3047
+    ],
+    [
+      0.5174,
+      0.3075
+    ],
+    [
+      0.5116,
+      0.2812
+    ],
+    [
+      0.4767,
+      0.2853
+    ],
+    [
+      0.5155,
+      0.2424
+    ],
+    [
+      0.5446,
+      0.2922
+    ],
+    [
+      0.5659,
+      0.295
+    ],
+    [
+      0.5853,
+      0.2978
+    ],
+    [
+      0.5581,
+      0.2645
+    ],
+    [
+      0.4903,
+      0.2535
+    ],
+    [
+      0.5155,
+      0.2562
+    ],
+    [
+      0.5678,
+      0.3102
+    ],
+    [
+      0.5465,
+      0.3075
+    ],
+    [
+      0.5891,
+      0.3144
+    ],
+    [
+      0.6124,
+      0.3186
+    ],
+    [
+      0.6085,
+      0.3629
+    ],
+    [
+      0.5136,
+      0.5291
+    ],
+    [
+      0.5388,
+      0.5332
+    ],
+    [
+      0.4903,
+      0.5706
+    ],
+    [
+      0.4729,
+      0.6136
+    ],
+    [
+      0.5039,
+      0.6177
+    ],
+    [
+      0.4554,
+      0.6551
+    ],
+    [
+      0.4884,
+      0.6607
+    ],
+    [
+      0.3391,
+      0.6828
+    ],
+    [
+      0.4322,
+      0.6967
+    ],
+    [
+      0.4942,
+      0.7521
+    ],
+    [
+      0.4438,
+      0.7562
+    ],
+    [
+      0.5116,
+      0.6773
+    ],
+    [
+      0.5116,
+      0.6413
+    ],
+    [
+      0.6434,
+      0.3421
+    ],
+    [
+      0.6589,
+      0.3518
+    ]
+  ],
+  "segundos": 22
+}

@@ -1,0 +1,11 @@
+rank,id,distrito,departamento,focos,estado,antes,despues,nubes_antes,nubes_despues,ha_quemadas,ha_usgs_027,cobertura_principal,pct_cobertura_principal,motivo
+1,990,CHICHAS,AREQUIPA,54,ok,2026-10-15,2026-10-20,0.0,0.8,1572.8,119.1,Pastizal,71.7,
+2,278,MANANTAY,UCAYALI,51,parcial,2026-09-21,2026-10-21,0.9,56.3,787.1,294.1,Bosque,50.8,La mejor imagen posterior tiene 56.3 % de nubes en la zona
+3,59,CURAHUASI,APURIMAC,50,ok,2026-10-05,2026-10-17,0.0,0.0,2165.9,251.4,Pastizal,87.0,
+4,1077,CAYNA,HUANUCO,29,nublado,2026-10-13,2026-10-21,1.6,99.9,0.0,0.0,Bosque,0.0,La mejor imagen posterior tiene 99.9 % de nubes en la zona
+5,392,TAPO,JUNIN,29,nublado,2026-10-06,2026-10-21,0.2,100.0,0.0,0.0,,,La mejor imagen posterior tiene 100.0 % de nubes en la zona
+6,58,HUANOQUITE,CUSCO,28,ok,2026-10-05,2026-10-17,0.0,0.0,897.5,269.8,Pastizal,92.3,
+7,14,TAHUANIA,UCAYALI,26,ok,2026-10-03,2026-10-20,2.6,13.8,115.7,84.1,Bosque,97.6,
+8,311,NUEVA REQUENA,UCAYALI,26,nublado,2026-09-21,2026-10-21,0.0,84.1,146.7,38.9,Bosque,94.8,La mejor imagen posterior tiene 84.1 % de nubes en la zona
+9,31,RIO TAMBO,JUNIN,24,ok,2026-10-08,2026-10-20,0.0,40.0,519.2,340.1,Bosque,99.7,
+10,299,NUEVA REQUENA,UCAYALI,22,nublado,2026-10-06,2026-10-21,1.6,100.0,0.0,0.0,,,La mejor imagen posterior tiene 100.0 % de nubes en la zona

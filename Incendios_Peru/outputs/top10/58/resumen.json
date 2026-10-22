@@ -1,0 +1,224 @@
+{
+  "id": 58,
+  "distrito": "HUANOQUITE",
+  "provincia": "PARURO",
+  "departamento": "CUSCO",
+  "distritos_focos": "HUANOQUITE",
+  "focos": 28,
+  "frp": 737.9,
+  "inicio": "2026-10-15 19:08",
+  "fin": "2026-10-17 18:30",
+  "lat": -13.7337,
+  "lon": -72.1246,
+  "estado": "ok",
+  "imagen_antes": {
+    "fecha": "2026-10-05",
+    "id": "S2C_18LZK_20261005_0_L2A",
+    "tile": "18LZK",
+    "nubes_zona": 0.0,
+    "dias_antes": 10
+  },
+  "imagen_despues": {
+    "fecha": "2026-10-17",
+    "id": "S2A_18LZK_20261017_0_L2A",
+    "tile": "18LZK",
+    "nubes_zona": 0.0,
+    "dias_despues": 1
+  },
+  "corte_despues": "2026-10-16 06:16",
+  "despues_antes_del_ultimo_foco": true,
+  "zona_ha": 3628.6,
+  "pct_zona_sin_dato": 0.0,
+  "ha_quemadas": 897.5,
+  "ha_quemadas_usgs_027": 269.8,
+  "ha_todos_px_010": 817.8,
+  "ha_por_severidad": {
+    "Baja": 456.4,
+    "Moderada-baja": 344.4,
+    "Moderada-alta": 95.2,
+    "Alta": 1.5
+  },
+  "ha_por_distrito": [
+    {
+      "ubigeo": "081005",
+      "distrito": "HUANOQUITE",
+      "provincia": "PARURO",
+      "departamento": "CUSCO",
+      "ha": 897.5
+    }
+  ],
+  "ha_por_cobertura": [
+    {
+      "cobertura": "Pastizal",
+      "ha_quemadas": 828.2,
+      "ha_zona": 3007.0,
+      "pct_quemado": 92.3,
+      "pct_zona": 82.9
+    },
+    {
+      "cobertura": "Bosque",
+      "ha_quemadas": 57.0,
+      "ha_zona": 439.0,
+      "pct_quemado": 6.4,
+      "pct_zona": 12.1
+    },
+    {
+      "cobertura": "Matorral",
+      "ha_quemadas": 10.2,
+      "ha_zona": 91.2,
+      "pct_quemado": 1.1,
+      "pct_zona": 2.5
+    },
+    {
+      "cobertura": "Cultivo",
+      "ha_quemadas": 1.4,
+      "ha_zona": 78.1,
+      "pct_quemado": 0.2,
+      "pct_zona": 2.2
+    },
+    {
+      "cobertura": "Urbano",
+      "ha_quemadas": 0.6,
+      "ha_zona": 4.5,
+      "pct_quemado": 0.1,
+      "pct_zona": 0.1
+    },
+    {
+      "cobertura": "Suelo desnudo",
+      "ha_quemadas": 0.1,
+      "ha_zona": 8.4,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.2
+    },
+    {
+      "cobertura": "Agua",
+      "ha_quemadas": 0.0,
+      "ha_zona": 0.4,
+      "pct_quemado": 0.0,
+      "pct_zona": 0.0
+    }
+  ],
+  "focos_en_nubes_px": 0,
+  "imagenes": {
+    "antes": "antes.jpg",
+    "despues": "despues.jpg",
+    "severidad": "severidad.png",
+    "ancho": 524,
+    "alto": 493
+  },
+  "focos_xy": [
+    [
+      0.5401,
+      0.572
+    ],
+    [
+      0.4962,
+      0.5801
+    ],
+    [
+      0.4103,
+      0.5963
+    ],
+    [
+      0.5248,
+      0.5172
+    ],
+    [
+      0.6221,
+      0.497
+    ],
+    [
+      0.4847,
+      0.5254
+    ],
+    [
+      0.4427,
+      0.5335
+    ],
+    [
+      0.605,
+      0.4442
+    ],
+    [
+      0.563,
+      0.5639
+    ],
+    [
+      0.6164,
+      0.5538
+    ],
+    [
+      0.5172,
+      0.572
+    ],
+    [
+      0.3855,
+      0.5984
+    ],
+    [
+      0.5954,
+      0.501
+    ],
+    [
+      0.5038,
+      0.5172
+    ],
+    [
+      0.4618,
+      0.5254
+    ],
+    [
+      0.5782,
+      0.4462
+    ],
+    [
+      0.5744,
+      0.355
+    ],
+    [
+      0.5668,
+      0.3915
+    ],
+    [
+      0.5305,
+      0.3854
+    ],
+    [
+      0.5229,
+      0.4219
+    ],
+    [
+      0.5611,
+      0.43
+    ],
+    [
+      0.479,
+      0.4523
+    ],
+    [
+      0.666,
+      0.4868
+    ],
+    [
+      0.6622,
+      0.5132
+    ],
+    [
+      0.3454,
+      0.568
+    ],
+    [
+      0.3397,
+      0.6065
+    ],
+    [
+      0.334,
+      0.643
+    ],
+    [
+      0.542,
+      0.4016
+    ]
+  ],
+  "segundos": 14
+}
