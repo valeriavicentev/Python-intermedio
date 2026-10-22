@@ -1,6 +1,6 @@
 # Incendios en el Perú · ¿Dónde ardió el país y qué se quemó?
 
-**Sesión 14 · Ciencia de Datos con Python · Retos A (área quemada con dNBR) y C (¿qué se quemó?)**
+**Ciencia de Datos con Python · Retos A (áreas quemadas con dNBR) y C (¿qué se quemó?)**
 
 **Dashboard:** [`dashboard/index.html`](dashboard/index.html) (también publicado como web app en Claude; el link está en la entrega). Tiene el mapa nacional, un visor antes/después para cada uno de los 10 incendios y la comparación entre ellos.
 
