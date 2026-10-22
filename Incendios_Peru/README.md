@@ -10,7 +10,7 @@
 
 ## Respuesta corta
 
-- **2 726 focos VIIRS** en 23 departamentos, agrupados en **1 264 incendios**. El 61 % de los focos está en Ucayali, Junín, Huánuco y Loreto.
+- **2 706 focos VIIRS** en 23 departamentos (sin confianza baja ni fuentes fijas), agrupados en **1 259 incendios**. El 61 % de los focos está en Ucayali, Junín, Huánuco y Loreto.
 - De los 10 incendios con más focos, **5 se midieron sin nubes: 5 271 ha quemadas**. Manantay se midió en parte (al menos 787 ha, baja confianza) y **4 quedaron tapados por nubes**. Las imágenes antes/después de los 10 están en el dashboard y en `outputs/top10/<id>/`.
 - En la **sierra** se quemó sobre todo **pastizal**; en la **selva**, **bosque**.
 
@@ -19,7 +19,7 @@
 <img src="outputs/mapa_nacional.png" alt="Mapa nacional de focos e incendios" width="520">
 
 - **Ucayali** concentra 779 focos (29 %). Con Junín (331), Huánuco (323) y Loreto (223) suma el **61 %** del país.
-- **30 incendios** tuvieron 10 focos o más.
+- **29 incendios** tuvieron 10 focos o más.
 - Tabla por departamento: [`outputs/focos_por_departamento.csv`](outputs/focos_por_departamento.csv).
 
 ## Los 10 incendios con más focos
@@ -62,12 +62,18 @@ Las imágenes se leyeron de Earth Search porque Planetary Computer devolvió err
 
 ## Método
 
-1. **Focos** (`01_focos.py`). Descargué los focos VIIRS S-NPP de los últimos 7 días y me quedé con los del Perú: 3 088. Quité los de confianza baja y quedaron 2 726. A cada foco le asigné su distrito.
-2. **Incendios.** Agrupé focos a ≤ 1 km y ≤ 48 h en un mismo incendio: 1 264. Ordené por número de focos y tomé los 10 primeros (`04_mapa_nacional.py` hace el mapa y las tablas nacionales).
-3. **Imágenes** (`05_top10.py`). Zona de estudio de cada incendio: envolvente de los focos + 2 km. Busqué Sentinel-2 L2A **antes** (hasta 45 días antes del primer foco) y **después** (desde el día siguiente a cuando ya había ocurrido el 90 % de los focos). Medí el % de nubes **dentro de la zona** con la capa SCL y elegí el par del mismo tile con menos nubes, penalizando escenas cortadas por el borde del tile; entre imágenes limpias, la más cercana al incendio. Si la mejor imagen tenía más de 40 % de nubes en la zona, igual guardé las imágenes y medí solo la parte despejada (**parcial**). Si más del 80 % de la zona estaba tapada, no reporto hectáreas (**tapado por nubes**); el dashboard muestra la imagen «antes» con los focos para ubicar el incendio. Busqué también escenas Landsat 8/9 posteriores (`06_buscar_landsat.py`) y no había ninguna.
-4. **dNBR.** NBR = (B8A − B12) / (B8A + B12) a 20 m; dNBR = NBR antes − NBR después. Excluí los píxeles con nube, sombra, cirros, agua o nieve en cualquiera de las dos fechas.
-5. **Área quemada.** dNBR ≥ 0,10, apertura morfológica para quitar píxeles sueltos, y solo las manchas continuas a ≤ 200 m de un foco VIIRS («dNBR sembrado con focos»). Severidad según las clases del USGS (Key y Benson, 2006).
-6. **Cruces.** Superpuse la máscara con los distritos del INEI y con ESA WorldCover 2021 (vecino más cercano a 20 m).
+1. **Focos** (`01_focos.py`). Descargué los focos VIIRS S-NPP de los últimos 7 días y me quedé con los del Perú (cruce con los límites del INEI): 3 088. Quité 362 de confianza baja, que suelen ser reflejos del sol o anomalías débiles. A cada foco le asigné su distrito.
+2. **Limpieza de lo que no es incendio.** Los focos FIRMS miden calor, no luz, así que las luces de las ciudades no aparecen; pero sí aparecen volcanes y fuentes industriales. Los datos de 7 días no traen el campo `type` de FIRMS que las marca, así que apliqué tres reglas:
+   - **Persistencia:** un punto de ~400 m (un píxel VIIRS) con focos en 4 o más de los 7 días es una fuente fija; un incendio se desplaza.
+   - **Volcanes activos** (lista del IGP: Sabancaya, Ubinas, Misti, etc.): fuera los focos a ≤ 5 km.
+   - **Fuentes industriales conocidas** (plantas de gas, fundiciones, refinerías): fuera los focos a ≤ 3 km.
+
+   Salieron **20 focos**: 14 de la planta de fraccionamiento de Pisco-Paracas (uno de sus puntos tuvo focos los 7 días), 5 de la fundición de Ilo y 1 de la planta Pampa Melchorita. Ningún foco cayó cerca de un volcán. Quedaron **2 706**. La lista está en [`data/focos_excluidos.csv`](data/focos_excluidos.csv). La limpieza se aplica después de agrupar, así que los `id` de los incendios no cambian; ninguno del top 10 perdió focos.
+3. **Incendios.** Agrupé focos a ≤ 1 km y ≤ 48 h en un mismo incendio: 1 259. Ordené por número de focos y tomé los 10 primeros (`04_mapa_nacional.py` hace el mapa y las tablas nacionales).
+4. **Imágenes** (`05_top10.py`). Zona de estudio de cada incendio: envolvente de los focos + 2 km. Busqué Sentinel-2 L2A **antes** (hasta 45 días antes del primer foco) y **después** (desde el día siguiente a cuando ya había ocurrido el 90 % de los focos). Medí el % de nubes **dentro de la zona** con la capa SCL y elegí el par del mismo tile con menos nubes, penalizando escenas cortadas por el borde del tile; entre imágenes limpias, la más cercana al incendio. Si la mejor imagen tenía más de 40 % de nubes en la zona, igual guardé las imágenes y medí solo la parte despejada (**parcial**). Si más del 80 % de la zona estaba tapada, no reporto hectáreas (**tapado por nubes**); el dashboard muestra la imagen «antes» con los focos para ubicar el incendio. Busqué también escenas Landsat 8/9 posteriores (`06_buscar_landsat.py`) y no había ninguna.
+5. **dNBR.** NBR = (B8A − B12) / (B8A + B12) a 20 m; dNBR = NBR antes − NBR después. Excluí los píxeles con nube, sombra, cirros, agua o nieve en cualquiera de las dos fechas.
+6. **Área quemada.** dNBR ≥ 0,10, apertura morfológica para quitar píxeles sueltos, y solo las manchas continuas a ≤ 200 m de un foco VIIRS («dNBR sembrado con focos»). Severidad según las clases del USGS (Key y Benson, 2006).
+7. **Cruces.** Superpuse la máscara con los distritos del INEI y con ESA WorldCover 2021 (vecino más cercano a 20 m).
 
 `02_dnbr.py` y `03_cobertura.py` hacen lo mismo para un solo incendio, con más detalle (tabla de sensibilidad al umbral). Los usé primero con Chichas para decidir el método.
 
@@ -92,7 +98,7 @@ Para los 5 incendios medidos, el total pasa de **5 271 ha** con 0,10 a **1 065 h
 
 ## Limitaciones
 
-- **Un foco de calor no es un incendio.** VIIRS marca píxeles de 375 m con calor anómalo; puede no detectar fuego de baja intensidad o fuego que arde entre dos pasadas del satélite. La agrupación en incendios depende de las reglas de 1 km y 48 h.
+- **Un foco de calor no es un incendio.** VIIRS marca píxeles de 375 m con calor anómalo; puede no detectar fuego de baja intensidad o fuego que arde entre dos pasadas del satélite. La agrupación en incendios depende de las reglas de 1 km y 48 h. La limpieza de fuentes fijas usa reglas propias y una lista de plantas conocida: puede quedar alguna fuente industrial pequeña, o salir un incendio real que ardió 4 días en el mismo punto.
 - **Las nubes esconden el fuego.** En Manantay el 59 % de la zona quedó sin dato, hay neblina y la imagen «antes» es del 21 de setiembre: sus 787 ha son un mínimo de baja confianza y no entran en el total de 5 271 ha. En Río Tambo el 40 % de la zona quedó sin dato, así que sus 519 ha son un mínimo. Tahuanía tiene 15 % sin dato. Algunas sombras de nube no las marca la capa SCL y dan dNBR negativo (falso «rebrote»).
 - **La ventana de focos es de 7 días, pero la de imágenes no.** En Curahuasi la imagen «antes» es del 5 de octubre (elegí una escena completa; la del 13 estaba cortada por el borde del tile), así que sus 2 166 ha incluyen la primera fase del mismo incendio, anterior al 15 de octubre. Además la cicatriz sigue al oeste fuera del recuadro: es un mínimo. En Huanoquite la imagen «antes» ya muestra una cicatriz anterior, que no se cuenta. En ambos, la imagen «después» es del 17 de octubre, anterior a sus últimos focos.
 - **El umbral es una decisión** (ver tabla). Con 0,10 entra algo de ruido, que el filtro de focos reduce.
@@ -103,7 +109,8 @@ Para los 5 incendios medidos, el total pasa de **5 271 ha** con 0,10 a **1 065 h
 
 ```bash
 pip install -r requirements.txt
-python 01_focos.py              # focos y ranking de incendios (cambia cada día)
+python 01_focos.py              # focos, limpieza y ranking de incendios (cambia cada día)
+python 01_focos.py --reusar     # lo mismo con el CSV ya descargado (reproduce estos resultados)
 python 04_mapa_nacional.py      # mapa y tablas nacionales
 python 05_top10.py              # antes/después, dNBR y cobertura de los 10 con más focos
 # Opcional, un solo incendio con más detalle:

@@ -2,12 +2,22 @@
 
 - Descarga el CSV público de NASA FIRMS «South America 7d» (no pide clave).
 - Se queda con los focos dentro del Perú y les asigna distrito (límites INEI, peru-geojson).
+- Quita focos de confianza baja.
 - Agrupa focos en «incendios»: focos a <= 1 km y <= 48 h pertenecen al mismo incendio.
+- Limpieza de fuentes que no son incendios (los datos NRT de 7 días no traen el campo
+  «type» de FIRMS que marca volcanes y fuentes fijas, así que se aplican tres reglas):
+    1. Persistencia: un punto de ~400 m con focos en 4 o más de los 7 días es una fuente
+       fija (quemador de gas, fundición), no un incendio, que se desplaza.
+    2. Volcanes activos (IGP): se excluyen los focos a <= 5 km del cráter.
+    3. Fuentes industriales conocidas: se excluyen los focos a <= 3 km.
+  Los focos excluidos se guardan aparte con el motivo.
 - Imprime el ranking de incendios para elegir uno.
 
-Uso:  python 01_focos.py
-Salidas: data/focos_peru_7d.csv, data/incendios_7d.csv
+Uso:  python 01_focos.py            # descarga los focos de hoy
+      python 01_focos.py --reusar   # usa el CSV ya descargado (mismos datos, mismos id)
+Salidas: data/focos_peru_7d.csv, data/incendios_7d.csv, data/focos_excluidos.csv
 """
+import argparse
 import io
 from pathlib import Path
 
@@ -28,6 +38,46 @@ URL_DIST = ("https://raw.githubusercontent.com/juaneladio/peru-geojson/"
 
 DIST_M = 1000      # distancia máxima entre focos del mismo incendio
 HORAS = 48         # separación temporal máxima
+
+# --- Limpieza ---
+CELDA_GRADOS = 0.004   # ~400 m, el tamaño de un píxel VIIRS I
+DIAS_PERSISTENCIA = 4  # focos en 4 o más de los 7 días en la misma celda = fuente fija
+VOLCANES_KM = 5
+INDUSTRIA_KM = 3
+VOLCANES = {           # volcanes activos o potencialmente activos (IGP / OVS)
+    "Sabancaya": (-15.787, -71.857), "Ubinas": (-16.355, -70.903), "Misti": (-16.294, -71.409),
+    "Huaynaputina": (-16.608, -70.850), "Ticsani": (-16.755, -70.595), "Coropuna": (-15.520, -72.650),
+    "Yucamane": (-17.180, -70.200), "Tutupaca": (-17.026, -70.372), "Casiri": (-17.470, -69.813),
+    "Sara Sara": (-15.330, -73.450), "Solimana": (-15.410, -72.890), "Chachani": (-16.191, -71.530),
+}
+INDUSTRIA = {          # fuentes de calor industriales conocidas
+    "Planta de fraccionamiento Pisco-Paracas": (-13.785, -76.170),
+    "Fundición de Ilo": (-17.500, -71.360), "Refinería de Ilo": (-17.640, -71.340),
+    "Complejo metalúrgico La Oroya": (-11.520, -75.900), "Refinería Talara": (-4.575, -81.270),
+    "Planta de gas Malvinas (Camisea)": (-11.850, -72.940), "Refinería La Pampilla": (-11.930, -77.130),
+    "Refinería Iquitos": (-3.700, -73.250), "Planta Pampa Melchorita": (-13.250, -76.300),
+}
+
+
+def km(lat1, lon1, lat2, lon2):
+    r = np.radians
+    a = (np.sin(r(lat2 - lat1) / 2) ** 2 +
+         np.cos(r(lat1)) * np.cos(r(lat2)) * np.sin(r(lon2 - lon1) / 2) ** 2)
+    return 2 * 6371 * np.arcsin(np.sqrt(a))
+
+
+def motivo_exclusion(g):
+    """Devuelve una Serie con el motivo de exclusión de cada foco ('' = se queda)."""
+    motivo = pd.Series("", index=g.index)
+    celda = ((g.latitude / CELDA_GRADOS).round().astype(int).astype(str) + "_" +
+             (g.longitude / CELDA_GRADOS).round().astype(int).astype(str))
+    dias = g.groupby(celda).acq_date.transform("nunique")
+    motivo[dias >= DIAS_PERSISTENCIA] = "persistente (fuente fija)"
+    for nombre, (la, lo) in VOLCANES.items():
+        motivo[(motivo == "") & (km(g.latitude, g.longitude, la, lo) <= VOLCANES_KM)] = f"volcán {nombre}"
+    for nombre, (la, lo) in INDUSTRIA.items():
+        motivo[(motivo == "") & (km(g.latitude, g.longitude, la, lo) <= INDUSTRIA_KM)] = nombre
+    return motivo
 
 
 def descargar(url, destino):
@@ -58,8 +108,14 @@ def agrupar(xy, t_horas):
 
 
 def main():
-    crudo = descargar(URL_FIRMS, DATA / "firms_viirs_snpp_sa_7d.csv")
-    df = pd.read_csv(io.BytesIO(crudo))
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--reusar", action="store_true", help="usar data/firms_viirs_snpp_sa_7d.csv ya descargado")
+    a = ap.parse_args()
+    ruta_crudo = DATA / "firms_viirs_snpp_sa_7d.csv"
+    if a.reusar and ruta_crudo.exists():
+        df = pd.read_csv(ruta_crudo)
+    else:
+        df = pd.read_csv(io.BytesIO(descargar(URL_FIRMS, ruta_crudo)))
     print(f"FIRMS Sudamérica 7d: {len(df):,} focos "
           f"({df.acq_date.min()} a {df.acq_date.max()})")
 
@@ -85,6 +141,18 @@ def main():
     utm = g.to_crs(32718)
     xy = np.column_stack([utm.geometry.x, utm.geometry.y])
     g["incendio_id"] = agrupar(xy, t_horas)
+
+    # Limpieza después de agrupar, para que los id de los incendios no cambien.
+    g["motivo_exclusion"] = motivo_exclusion(g)
+    excl = g[g.motivo_exclusion != ""]
+    excl.drop(columns="geometry").to_csv(DATA / "focos_excluidos.csv", index=False)
+    print(f"Excluidos por no ser incendios: {len(excl):,} focos")
+    if len(excl):
+        print(excl.groupby("motivo_exclusion").agg(focos=("latitude", "size"),
+                                                    distrito=("NOMBDIST", "first"),
+                                                    departamento=("NOMBDEP", "first")).to_string())
+    g = g[g.motivo_exclusion == ""].drop(columns="motivo_exclusion")
+    print(f"Focos que quedan: {len(g):,}")
 
     ultimo = g.fecha_hora.max()
     inc = (g.groupby("incendio_id")

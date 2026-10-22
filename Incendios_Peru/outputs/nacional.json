@@ -3,18 +3,18 @@
     "2026-10-15",
     "2026-10-21"
   ],
-  "focos": 2726,
-  "incendios": 1264,
-  "incendios_10_focos": 30,
+  "focos": 2706,
+  "incendios": 1259,
+  "incendios_10_focos": 29,
   "departamentos_con_focos": 23,
   "por_dia": {
-    "2026-10-15": 727,
-    "2026-10-16": 1179,
-    "2026-10-17": 133,
-    "2026-10-18": 247,
-    "2026-10-19": 206,
-    "2026-10-20": 75,
-    "2026-10-21": 159
+    "2026-10-15": 724,
+    "2026-10-16": 1176,
+    "2026-10-17": 131,
+    "2026-10-18": 245,
+    "2026-10-19": 201,
+    "2026-10-20": 73,
+    "2026-10-21": 156
   },
   "por_departamento": [
     {
@@ -109,18 +109,18 @@
       "frp": 264.9
     },
     {
-      "departamento": "MOQUEGUA",
-      "focos": 38,
-      "incendios": 14,
-      "incendios_10_focos": 0,
-      "frp": 301.1
-    },
-    {
       "departamento": "PUNO",
       "focos": 33,
       "incendios": 17,
       "incendios_10_focos": 0,
       "frp": 427.1
+    },
+    {
+      "departamento": "MOQUEGUA",
+      "focos": 33,
+      "incendios": 11,
+      "incendios_10_focos": 0,
+      "frp": 251.6
     },
     {
       "departamento": "LA LIBERTAD",
@@ -137,18 +137,11 @@
       "frp": 183.9
     },
     {
-      "departamento": "ICA",
-      "focos": 24,
-      "incendios": 9,
-      "incendios_10_focos": 1,
-      "frp": 149.4
-    },
-    {
       "departamento": "LIMA",
-      "focos": 20,
-      "incendios": 12,
+      "focos": 19,
+      "incendios": 11,
       "incendios_10_focos": 0,
-      "frp": 115.8
+      "frp": 106.9
     },
     {
       "departamento": "AMAZONAS",
@@ -156,6 +149,13 @@
       "incendios": 9,
       "incendios_10_focos": 0,
       "frp": 60.5
+    },
+    {
+      "departamento": "ICA",
+      "focos": 10,
+      "incendios": 8,
+      "incendios_10_focos": 0,
+      "frp": 68.6
     },
     {
       "departamento": "LAMBAYEQUE",
@@ -337,18 +337,6 @@
       "lon": -73.7104
     },
     {
-      "id": 47,
-      "focos": 14,
-      "frp": 80.7,
-      "distrito": "PARACAS",
-      "provincia": "PISCO",
-      "departamento": "ICA",
-      "inicio": "2026-10-15",
-      "fin": "2026-10-21",
-      "lat": -13.7856,
-      "lon": -76.1696
-    },
-    {
       "id": 1091,
       "focos": 13,
       "frp": 568.6,
@@ -359,6 +347,18 @@
       "fin": "2026-10-19",
       "lat": -13.4018,
       "lon": -72.3777
+    },
+    {
+      "id": 288,
+      "focos": 13,
+      "frp": 292.1,
+      "distrito": "YARINACOCHA",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "inicio": "2026-10-15",
+      "fin": "2026-10-16",
+      "lat": -8.3655,
+      "lon": -74.6815
     }
   ],
   "incendio_estudiado": 990
