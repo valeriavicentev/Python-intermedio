@@ -1,0 +1,11 @@
+pandas
+numpy
+scipy
+requests
+geopandas
+shapely
+pyproj
+rasterio
+pystac-client
+planetary-computer
+matplotlib
