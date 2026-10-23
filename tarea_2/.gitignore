@@ -1,0 +1,20 @@
+# Corpus original y salidas pesadas (se recuperan con descargas.py y datos/fuentes.csv)
+datos/raw/
+
+# Pesos de modelos (PaddleOCR ~2 GB, Whisper, Qwen3-ASR...)
+modelos/*.safetensors
+modelos/*.bin
+modelos/*.pt
+modelos/*.onnx
+modelos/checkpoint-*/
+
+# Credenciales (Gemini u otra API)
+.env
+*.key
+
+# Entorno y temporales
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store

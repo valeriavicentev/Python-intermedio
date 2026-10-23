@@ -1,0 +1,4 @@
+# Solo lo necesario para la app de Streamlit (lee CSV; no corre OCR ni ASR en el servidor)
+streamlit==1.50.0
+pandas==2.3.3
+plotly==6.3.1
