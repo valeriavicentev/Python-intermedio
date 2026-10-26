@@ -23,9 +23,14 @@ st.set_page_config(page_title="Voces y documentos peruanos", page_icon="📜", l
 
 
 @st.cache_data
+def _leer(nombre, version):
+    return pd.read_csv(DATOS / nombre)
+
+
 def leer(nombre):
+    """La fecha de modificación entra a la clave de la caché: si el CSV cambia (o aparece), se vuelve a leer."""
     ruta = DATOS / nombre
-    return pd.read_csv(ruta) if ruta.exists() else pd.DataFrame()
+    return _leer(nombre, ruta.stat().st_mtime) if ruta.exists() else pd.DataFrame()
 
 
 def sin_tildes(t):
