@@ -80,11 +80,24 @@ def elegir_modelo() -> str:
 
 
 def extraer(id_: str, modalidad: str, texto: str, modelo: str, pausa: float = 4.0) -> dict:
+    """Devuelve los campos y guarda en caché {campos, modelo}. Si el modelo pedido sigue saturado
+    tras 3 intentos, prueba con el siguiente de MODELOS (el modelo usado queda registrado)."""
     CACHE.mkdir(parents=True, exist_ok=True)
     ruta = CACHE / f"{id_}.json"
     if ruta.exists():
-        return json.loads(ruta.read_text(encoding="utf-8"))
-    campos = _llamar(modelo, PROMPT.format(modalidad=modalidad, texto=(texto or "")[:5000]))
+        guardado = json.loads(ruta.read_text(encoding="utf-8"))
+        return guardado if "_modelo" in guardado else guardado | {"_modelo": modelo}
+    prompt = PROMPT.format(modalidad=modalidad, texto=(texto or "")[:5000])
+    orden = [modelo] + [m for m in MODELOS if m != modelo]
+    for k, m in enumerate(orden):
+        try:
+            campos = _llamar(m, prompt, intentos=3)
+            break
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 500, 503) or k == len(orden) - 1:
+                raise
+            print(f"  {m} sigue sin responder ({e.code}); se usa {orden[k + 1]} para {id_}")
+    campos["_modelo"] = m
     ruta.write_text(json.dumps(campos, ensure_ascii=False), encoding="utf-8")
     time.sleep(pausa)  # cuota gratuita: pocas solicitudes por minuto
     return campos
