@@ -1,0 +1,7 @@
+modelo,metrica,valor,latencia,rol,costo
+PaddleOCR 3.7.0 base,CER,0.24,5.28 s/doc,línea base,CPU · modelos PP-OCR (descarga única)
+PaddleOCR 3.7.0 Parte 1,CER,0.19,5.38 s/doc,mejorado (Parte 1),CPU · mismos modelos + clasificador de orientación por línea
+"Tesseract 5.5.2 (spa, psm 3)",CER,0.362,0.38 s/doc,alternativa,"CPU · motor clásico LSTM, sin GPU ni descarga grande"
+"faster-whisper small (base, CPU)",WER,0.16,RTF 0.11,línea base,CPU · 244 M parámetros (int8)
+faster-whisper large-v3-turbo (CPU),WER,0.112,RTF 0.21,mejorado (Parte 1),CPU · 809 M parámetros (int8)
+Qwen3-ASR 0.6B (MPS),WER,0.175,RTF 0.10,alternativa,"GPU de la Mac (MPS) · 0,6 B parámetros"
