@@ -24,9 +24,10 @@ RAW_DOC = AQUI / "datos" / "raw" / "documentos"
 RAW_AUD = AQUI / "datos" / "raw" / "audio"
 API = "https://commons.wikimedia.org/w/api.php"
 FILEPATH = "https://commons.wikimedia.org/wiki/Special:FilePath/"
-UA = {"User-Agent": "tarea2-ds-python-up/2026 (curso Data Science Python UP; uso académico)"}
+# Wikimedia exige un contacto en el User-Agent; sin él responde 429 (Too Many Requests)
+UA = {"User-Agent": "Tarea2-DSPython-UP/1.0 (https://github.com/valeriavicentev/Python-intermedio; uso académico) python-urllib"}
 PAUSA = 1.5
-LICENCIAS_OK = re.compile(r"public domain|dominio p|pd|cc0|cc by(-sa)? \d|cc-by", re.I)
+LICENCIAS_OK = re.compile(r"public domain|dominio p|pd|cc0|cc by(?:-sa)? \d|cc-by", re.I)
 LICENCIAS_NO = re.compile(r"\bnc\b|\bnd\b|non-?commercial|fair use", re.I)
 
 # ── Documentos ya verificados en la Sesión 10 (créditos en el notebook de la clase) ──
@@ -64,12 +65,26 @@ BUSQUEDAS_AUDIO = ["entrevista Lima", "entrevista Perú", "noticiario Biblioteca
                    "entrevista Cusco", "entrevista Arequipa", "Wikimedia Perú entrevista", "conferencia Lima"]
 
 
+def _pedir(url: str, timeout: int = 60, intentos: int = 6) -> bytes:
+    """GET con cortesía: pausa fija y, si el servidor pide calma (429/503), espera y reintenta."""
+    import urllib.error
+    for k in range(intentos):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout) as r:
+                datos = r.read()
+            time.sleep(PAUSA)
+            return datos
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 503) or k == intentos - 1:
+                raise
+            espera = int(e.headers.get("Retry-After") or 0) or 10 * 2 ** k
+            print(f"  … el servidor pide esperar ({e.code}); reintento en {espera} s")
+            time.sleep(espera)
+
+
 def _get_json(params: dict) -> dict:
-    url = API + "?" + urllib.parse.urlencode(params | {"format": "json"})
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
-        datos = json.load(r)
-    time.sleep(PAUSA)
-    return datos
+    url = API + "?" + urllib.parse.urlencode(params | {"format": "json", "maxlag": 5})
+    return json.loads(_pedir(url))
 
 
 def info_commons(titulos: list[str]) -> pd.DataFrame:
@@ -132,9 +147,20 @@ def _bajar(titulo: str, destino: Path, ancho: int | None = None) -> Path:
     if destino.exists():
         return destino
     url = FILEPATH + urllib.parse.quote(titulo) + (f"?width={ancho}" if ancho else "")
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=300) as r:
-        destino.write_bytes(r.read())
-    time.sleep(PAUSA)
+    destino.write_bytes(_pedir(url, timeout=300))
+    return destino
+
+
+def _recortar(ruta: Path, recorte: str) -> Path:
+    """Recorta la imagen con fracciones 'x0,y0,x1,y1' (p. ej. quitar una transcripción impresa
+    pegada debajo de un manuscrito). Guarda <id>_recorte.<ext> y deja el original intacto."""
+    from PIL import Image
+    x0, y0, x1, y1 = (float(v) for v in recorte.split(","))
+    destino = ruta.with_name(ruta.stem + "_recorte" + ruta.suffix)
+    if not destino.exists():
+        img = Image.open(ruta)
+        w, h = img.size
+        img.crop((int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h))).save(destino)
     return destino
 
 
@@ -160,10 +186,14 @@ def bajar_seleccion() -> pd.DataFrame:
                 continue
             ext = Path(f.titulo).suffix.lower().replace(".jpeg", ".jpg")
             ruta = _bajar(f.titulo, RAW_DOC / f"{did}{ext if ext in ('.jpg', '.png') else '.jpg'}", ancho=1600)
+            recorte = getattr(f, "recorte", None)
+            if isinstance(recorte, str) and recorte:
+                ruta = _recortar(ruta, recorte)
             fuentes.append({"id": did, "modalidad": "documento", "tipo": f.tipo, "descripcion": f.descripcion,
                             "archivo": str(ruta.relative_to(AQUI)), "fuente_url": m["pagina"],
                             "licencia": m["licencia"], "autor": m["autor"], "fecha_extraccion": hoy,
-                            "acceso": "descargas.py bajar (Wikimedia Commons, Special:FilePath, ancho 1600 px)"})
+                            "acceso": "descargas.py bajar (Wikimedia Commons, Special:FilePath, ancho 1600 px"
+                                      + (f"; recorte {f.recorte}" if isinstance(getattr(f, "recorte", None), str) else "") + ")"})
         else:  # captura propia ya copiada por la estudiante a datos/raw/documentos/
             fuentes.append({"id": did, "modalidad": "documento", "tipo": f.tipo, "descripcion": f.descripcion,
                             "archivo": f"datos/raw/documentos/{f.archivo_local}", "fuente_url": "",
@@ -196,10 +226,41 @@ def bajar_openslr73(n_por_sexo: int = 12) -> pd.DataFrame:
     return datos.bajar_openslr73(n_por_sexo=n_por_sexo)
 
 
+def miniaturas(ancho: int = 500) -> None:
+    """Baja miniaturas de datos/preseleccion_documentos.csv a datos/raw/revision/ para revisarlas a ojo."""
+    destino = AQUI / "datos" / "raw" / "revision"
+    destino.mkdir(parents=True, exist_ok=True)
+    for f in pd.read_csv(AQUI / "datos" / "preseleccion_documentos.csv").itertuples():
+        try:
+            _bajar(f.titulo, destino / f"{f.pre_id}.jpg", ancho=ancho)
+            print(f"  ✓ {f.pre_id} {f.titulo[:70]}")
+        except Exception as e:
+            print(f"  ✗ {f.pre_id} {f.titulo[:70]}: {e}")
+
+
+def buscar_mas(tipo: str, consultas: list[str]) -> None:
+    """Agrega a datos/candidatos_documentos.csv los resultados de nuevas búsquedas de un tipo."""
+    ruta = AQUI / "datos" / "candidatos_documentos.csv"
+    previos = pd.read_csv(ruta)
+    nuevos = [(t, tipo, "", q) for q in consultas for t in buscar_commons(q)]
+    nuevos = pd.DataFrame(nuevos, columns=["titulo", "tipo", "descripcion", "busqueda"])
+    nuevos = nuevos[~nuevos["titulo"].isin(previos["titulo"])].drop_duplicates("titulo")
+    if nuevos.empty:
+        print("Sin resultados nuevos")
+        return
+    nuevos = nuevos.merge(info_commons(nuevos["titulo"].tolist()), on="titulo", how="left")
+    pd.concat([previos, nuevos]).to_csv(ruta, index=False)
+    print(nuevos[["titulo", "licencia", "licencia_ok"]].to_string(index=False))
+
+
 if __name__ == "__main__":
     accion = sys.argv[1] if len(sys.argv) > 1 else "buscar"
     if accion == "buscar":
         candidatos()
+    elif accion == "mas":          # python descargas.py mas manuscrito "consulta 1" "consulta 2"
+        buscar_mas(sys.argv[2], sys.argv[3:])
+    elif accion == "miniaturas":
+        miniaturas()
     elif accion == "bajar":
         bajar_seleccion()
         print(f"OpenSLR 73: {len(bajar_openslr73())} frases")

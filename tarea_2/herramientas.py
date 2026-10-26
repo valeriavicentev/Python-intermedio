@@ -85,8 +85,8 @@ def marcar_duplicados(tabla: pd.DataFrame, col_ruta: str) -> pd.DataFrame:
 
 
 # ───────────────────────────────────────────── audio
-def cortar_en_clips(audio: np.ndarray, largo_obj: float = 120.0, largo_max: float = 180.0) -> list[tuple[float, float]]:
-    """Corta un audio largo en clips de ~2 min, siempre en una pausa (según el VAD de voz.py).
+def cortar_en_clips(audio: np.ndarray, largo_obj: float = 45.0, largo_max: float = 75.0) -> list[tuple[float, float]]:
+    """Corta un audio largo en clips de ~45 s, siempre en una pausa (según el VAD de voz.py).
 
     Devuelve (inicio, fin) en segundos. Los audios de menos de `largo_max` quedan enteros.
     """
@@ -100,7 +100,7 @@ def cortar_en_clips(audio: np.ndarray, largo_obj: float = 120.0, largo_max: floa
         if b - ini >= largo_obj:
             cortes.append((ini, b))
             ini = b
-    if total - ini > 20:            # el resto se vuelve otro clip si tiene al menos 20 s
+    if total - ini > 15:            # el resto se vuelve otro clip si tiene al menos 15 s
         cortes.append((ini, total))
     elif cortes:
         cortes[-1] = (cortes[-1][0], total)
@@ -136,6 +136,19 @@ PATRONES = {
 }
 
 
+def _trozos(texto: str, largo: int) -> list[str]:
+    salida = []
+    while texto:
+        if len(texto) <= largo:
+            salida.append(texto)
+            break
+        corte = texto.rfind(" ", 0, largo)
+        corte = corte if corte > 0 else largo
+        salida.append(texto[:corte])
+        texto = texto[corte:].lstrip()
+    return salida
+
+
 def sugerir_personas(textos: pd.Series, umbral: float = 0.85) -> pd.DataFrame:
     """Sugiere nombres de persona con NER (mrm8488/bert-spanish-cased-finetuned-ner).
 
@@ -146,7 +159,7 @@ def sugerir_personas(textos: pd.Series, umbral: float = 0.85) -> pd.DataFrame:
     ner = pipeline("ner", model="mrm8488/bert-spanish-cased-finetuned-ner", aggregation_strategy="simple")
     filas = []
     for idx, t in textos.fillna("").items():
-        for trozo in [t[i:i + 1500] for i in range(0, len(t), 1500)]:
+        for trozo in _trozos(t, 600):          # BERT admite 512 tokens: trozos cortos, cortados en un espacio
             for e in ner(trozo):
                 if e["entity_group"] == "PER" and e["score"] >= umbral and len(e["word"]) > 3:
                     filas.append({"id": idx, "nombre": e["word"].strip(), "score": round(float(e["score"]), 3)})
