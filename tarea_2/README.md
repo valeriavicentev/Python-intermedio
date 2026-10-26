@@ -2,7 +2,7 @@
 
 > **Pregunta:** ¿Podemos convertir documentos escaneados y entrevistas en audio en un archivo de texto estructurado y buscable?
 
-**Dashboard público:** _(enlace de Streamlit Community Cloud)_
+**Dashboard público:** https://python-intermedio-tarea-2.streamlit.app
 
 ## Resumen
 
@@ -14,19 +14,45 @@ Los modelos se comparan con CER/WER sobre 10 documentos y 10 clips transcritos a
 
 | Resultado (muestra de evaluación) | Valor |
 |---|---|
-| CER del OCR elegido | _(02_evaluacion.ipynb)_ |
-| WER del ASR elegido | _(02_evaluacion.ipynb)_ |
-| Acuerdo LLM–humano | _(x/20)_ |
+| CER del OCR elegido (PaddleOCR 3.7, configuración de la Parte 1) | **0,19** |
+| WER del ASR elegido (faster-whisper large-v3-turbo, CPU) | **0,11** |
+| Acuerdo LLM–humano (Gemini 3.1 Flash-Lite / 3 Flash) | **17/20 (85 %)** |
+
+| Modelo | Métrica | Valor | Latencia |
+|---|---|---|---|
+| PaddleOCR base | CER | 0,24 | 5,3 s/doc |
+| PaddleOCR configuración Parte 1 | CER | **0,19** | 5,4 s/doc |
+| Tesseract 5.5 (spa) | CER | 0,36 | 0,4 s/doc |
+| faster-whisper small (base) | WER | 0,16 | RTF 0,11 |
+| faster-whisper large-v3-turbo | WER | **0,11** | RTF 0,21 |
+| Qwen3-ASR 0.6B (GPU Mac) | WER | 0,18 | RTF 0,10 |
 
 ## Hallazgos
 
-1. _(completar con los resultados)_
-2. _(completar con los resultados)_
+1. **La dificultad del OCR depende más del soporte que del modelo.** En impresos limpios todos los OCR casi no se
+   equivocan (CER 0,02 en la resolución de Mache, incluso Tesseract), pero en manuscritos el mejor modelo sigue fallando
+   en 4 de cada 10 caracteres (CER 0,38) y Tesseract es casi inútil (0,84). Ninguna configuración gana en todo: la
+   orientación por línea de la Parte 1 mejora mucho las fotos de placas y carteles (CER medio 0,47 → 0,31) pero empeora
+   impresos y manuscritos; el CER agregado (0,19 frente a 0,24) la favorece porque pesa por caracteres y lo domina el
+   documento más largo.
+2. **En audio, el modelo grande compensa y el desafío es la calle, no la música.** Whisper turbo comete ~30 % menos
+   errores que la línea base (WER 0,11 frente a 0,16) y aun así procesa en CPU una hora de audio en ~13 minutos (RTF 0,21).
+   Contra lo esperado, los noticiarios con música de fondo fueron fáciles (WER 0,04: locutor profesional, dicción clara)
+   y lo difícil fueron las entrevistas en la calle (WER 0,14–0,20: ruido, voces superpuestas, habla espontánea).
+   La extracción con Gemini fue correcta en 17 de 20 casos auditados; los 3 errores tienen el mismo patrón: el LLM
+   **completó con conocimiento externo** datos que el texto OCR no dice (lugar «Lima», «San Valentín»), justo en los
+   documentos con OCR más ruidoso.
 
 ## Limitaciones técnicas
 
-1. _(completar)_
-2. _(completar)_
+1. **Muestra de evaluación pequeña.** Las métricas salen de 10 documentos y 10 clips (≈530 palabras de documentos y
+   ≈820 de audio) transcritos por una sola persona, sin segundo revisor; un caso largo pesa mucho en el promedio y las
+   diferencias de pocos puntos entre modelos no son concluyentes. Una referencia de audio se transcribió primero sobre el
+   archivo equivocado y se corrigió (documentado en `02_evaluacion.ipynb`).
+2. **Dependencia de servicios y entornos.** El cómputo corrió en una laptop sin GPU NVIDIA; dos grabaciones largas se
+   excluyeron para acotar tiempos. La cuota gratuita de Gemini se agotó a mitad de la extracción (17 casos con
+   *3 Flash* y 65 con *3.1 Flash-Lite*, registrado por fila en `extraccion_llm.csv`), y la seudonimización por nombres
+   depende de un NER que sugiere candidatos con errores (fragmentos como «##cia») y de revisión humana.
 
 ## Estructura
 
