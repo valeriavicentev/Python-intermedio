@@ -1,0 +1,45 @@
+{
+  "titulo": "¿Cuánto se quemó realmente?",
+  "escenas": [
+    {
+      "frase": "Entre el quince y el veintiuno de octubre, los satélites detectaron más de dos mil setecientos focos de calor en el Perú. Pero, ¿cuánto se quemó realmente?",
+      "cifra": "2 700",
+      "etiqueta": "Más de 2 700 focos de calor · 15 al 21 de octubre"
+    },
+    {
+      "frase": "Con datos abiertos de la NASA y la Agencia Espacial Europea, y Python, analicé los diez incendios con más focos del país.",
+      "cifra": "10",
+      "etiqueta": "Incendios con más focos, analizados"
+    },
+    {
+      "frase": "Comparé imágenes satelitales de antes y después, y medí el área quemada.",
+      "cifra": "",
+      "etiqueta": "Antes y después, desde el satélite"
+    },
+    {
+      "frase": "En la sierra ardió sobre todo el pastizal que alimenta al ganado. En la selva, bosque.",
+      "cifra": "",
+      "etiqueta": "Sierra: pastizal · Selva: bosque"
+    },
+    {
+      "frase": "Solo en cinco incendios se quemaron más de cinco mil doscientas hectáreas.",
+      "cifra": "5 200",
+      "etiqueta": "Hectáreas quemadas en solo cinco incendios"
+    },
+    {
+      "frase": "Y la otra mitad no se pudo medir: las nubes taparon el fuego.",
+      "cifra": "",
+      "etiqueta": "La otra mitad: tapada por nubes"
+    },
+    {
+      "frase": "Es una estimación, con limitaciones, pero muestra lo que se puede ver desde el espacio.",
+      "cifra": "",
+      "etiqueta": "Una estimación, con limitaciones"
+    },
+    {
+      "frase": "Revisa el mapa interactivo y el antes y después de cada incendio en el dashboard. El link está en mi perfil.",
+      "cifra": "",
+      "etiqueta": "Mira el dashboard: link en mi perfil"
+    }
+  ]
+}

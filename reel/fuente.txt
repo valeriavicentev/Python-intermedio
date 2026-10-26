@@ -1,0 +1,6 @@
+Entre el 15 y el 21 de octubre, los satélites detectaron más de 2 700 focos de calor en el Perú. Pero ¿cuánto se quemó realmente?
+Con datos abiertos de la NASA y la Agencia Espacial Europea, y Python, analicé los 10 incendios con más focos del país. Comparé imágenes satelitales de antes y después y medí el área quemada.
+En la sierra ardió sobre todo el pastizal que alimenta al ganado. En la selva, bosque. Solo en cinco incendios se quemaron más de 5 200 hectáreas.
+Y la otra mitad no se pudo medir: las nubes taparon el fuego.
+Es una estimación, con limitaciones, pero muestra lo que se puede ver desde el espacio.
+Revisa el mapa interactivo y el antes y después de cada incendio en el dashboard. El link está en mi perfil.
