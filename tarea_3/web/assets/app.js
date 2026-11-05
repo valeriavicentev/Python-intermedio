@@ -134,7 +134,7 @@ let map, lyrCoro, lyrInt, lyrProy, lyrLegend;
 const SEQ = ['#e7e3fc', '#c3b9f6', '#9483ef', '#5f45e7', '#3415E0', '#2F1F3E'];
 function initMap() {
   map = L.map('map', {scrollWheelZoom: false, zoomSnap: 0.25}); map.fitBounds([[-18.4, -81.4], [-0.1, -68.6]]);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {attribution: '© OpenStreetMap · © CARTO', subdomains: 'abcd', maxZoom: 12}).addTo(map);
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {attribution: 'Mapa base: Esri, HERE, Garmin, © OpenStreetMap', maxZoom: 12}).addTo(map);
   lyrLegend = L.control({position: 'bottomleft'});
   lyrLegend.onAdd = () => L.DomUtil.create('div', 'map-legend');
   lyrLegend.addTo(map);

@@ -1,0 +1,47 @@
+{
+  "titulo": "¿A dónde fue el dinero de El Niño?",
+  "escenas": [
+    {
+      "frase": "Entre dos mil veintitrés y dos mil veintiséis, el Estado autorizó más de siete mil millones de soles para enfrentar El Niño. ¿Qué pasó con ese dinero?",
+      "cifra": "S/ 7,139 M",
+      "etiqueta": "autorizados por 64 normas para El Niño (2023–2026)",
+      "captura": "inicio"
+    },
+    {
+      "frase": "Solo se gastó la mitad. Y de lo autorizado este año para el nuevo Niño, al veintiocho de octubre se había gastado menos del quince por ciento.",
+      "cifra": "14.9%",
+      "etiqueta": "gastado de lo autorizado en 2026, al 28 de octubre",
+      "captura": "cuando"
+    },
+    {
+      "frase": "El ochenta y cinco por ciento del dinero figura en Lima, porque lo registran entidades nacionales. No se puede saber en qué región se gastó.",
+      "cifra": "85.2%",
+      "etiqueta": "del dinero registrado con meta en Lima",
+      "captura": "donde"
+    },
+    {
+      "frase": "Cuarenta y dos de cincuenta y ocho contratos de obra se firmaron antes de la norma. El dinero pagó obras que ya estaban en curso.",
+      "cifra": "42 de 58",
+      "etiqueta": "contratos firmados antes de la norma que les dio el dinero",
+      "captura": "quien"
+    },
+    {
+      "frase": "Veintiuna quebradas de Lima Este recibieron casi cincuenta millones de soles y hoy figuran cerradas sin culminar.",
+      "cifra": "21 quebradas",
+      "etiqueta": "de Lima Este cerradas sin culminar (S/ 49.4 M del FEN)",
+      "captura": "obras"
+    },
+    {
+      "frase": "La Contraloría advirtió situaciones adversas en noventa y siete informes, y en Infobras hay seis obras paralizadas.",
+      "cifra": "97 informes",
+      "etiqueta": "de la Contraloría advierten situaciones adversas",
+      "captura": "alertas"
+    },
+    {
+      "frase": "Antes del próximo Niño, la pregunta es si esta vez el dinero llegará a las obras. Explora el tablero y revisa cada cifra.",
+      "cifra": "",
+      "etiqueta": "Explora el tablero",
+      "captura": "cierre"
+    }
+  ]
+}
