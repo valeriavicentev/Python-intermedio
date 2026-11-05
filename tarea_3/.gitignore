@@ -1,0 +1,10 @@
+# Archivos pesados del MEF (>100 MB): se documenta cómo descargarlos en el README
+datos/originales/DETALLE_INVERSIONES.csv
+datos/originales/PROCESO_SELECCION.csv
+datos/originales/ocds/
+.DS_Store
+__pycache__/
+.venv/
+reel/mi_voz*
+# PDF de la Contraloría (~190 MB): se bajan con scripts/descargar_contraloria.py
+datos/originales/contraloria/

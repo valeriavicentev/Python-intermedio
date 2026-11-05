@@ -1,0 +1,91 @@
+[
+ {
+  "titulo": "Quebradas de Lima Este (ANA)",
+  "proyectos": "21 CUI · Ley 31912 y DU 015-2023",
+  "texto": "La Contraloría advirtió en noviembre de 2023 el retraso de las 21 fichas técnicas. En marzo de 2024 reportó que el ejecutor, el Consorcio SQA - LGQ, presentó cartas fianza por adelanto directo a nombre de una unidad ejecutora equivocada; esas fianzas suman S/ 7,16 M, casi lo mismo que el devengado FEN de las quebradas. En julio de 2024 señaló que la ANA aprobó y pagó expedientes técnicos sin el contenido mínimo y que, tras 92 días hábiles, la contratación directa no tenía contrato ni registro en el SEACE. Hoy las 21 figuran cerradas sin culminar.",
+  "informes": [
+   [
+    "28894-2023-CG/AGR-SOO",
+    "2023CSIL33200212"
+   ],
+   [
+    "14721-2024-CG/GRLIM-SCC",
+    "2024CSIL40100100"
+   ],
+   [
+    "10864-2024-CG/GRLIM-SCC",
+    "2024CSIL40100061"
+   ]
+  ],
+  "fuentes_extra": "MEF, ficha SSI (estado del proyecto) · SEACE (sin contrato registrado)"
+ },
+ {
+  "titulo": "Puentes de Áncash, paquete 3 (MTC)",
+  "proyectos": "6 CUI · Provías Descentralizado",
+  "texto": "Según Infobras, los contratos de 2019 de estos puentes se resolvieron entre marzo y junio de 2022: unos por decisión del MTC y otros del contratista, por incumplimiento de obligaciones esenciales. Los saldos de obra contratados en 2023 figuran paralizados desde 2024, en algunos casos por la «negatividad del posesionario». En noviembre de 2024 la Contraloría advirtió que la entidad no había registrado esas obras en el inventario de obras paralizadas del MEF.",
+  "informes": [
+   [
+    "213-2024-OCI/5568-SOO",
+    "2024CSI556800211"
+   ],
+   [
+    "220-2024-OCI/5568-SOO",
+    "2024CSI556800218"
+   ]
+  ],
+  "fuentes_extra": "Contraloría, Infobras (estado de los contratos)"
+ },
+ {
+  "titulo": "Puentes de Piura y Tumbes, paquete 10 (MTC)",
+  "proyectos": "7 CUI · Provías Descentralizado",
+  "texto": "En la liquidación de la obra 2, el contratista pidió S/ 7,94 M por mayores gastos generales y S/ 1,60 M por mayores costos directos vinculados a una ampliación de plazo, y S/ 381 017 por mayores metrados que la modalidad de contratación no permite reconocer. La Contraloría también advirtió una subcontratación sin autorización. El puente San Juan de la Virgen está paralizado desde el 21 de marzo de 2024 porque el contratista resolvió el contrato.",
+  "informes": [
+   [
+    "008-2025-OCI/5304-SOO",
+    "2025CSI530400008"
+   ],
+   [
+    "076-2023-OCI/5304-SCC",
+    "2023CSI530400078"
+   ]
+  ]
+ },
+ {
+  "titulo": "Canal La Peña, Tumbes (MIDAGRI)",
+  "proyectos": "CUI 2425378 · Proyecto Especial Binacional Puyango-Tumbes",
+  "texto": "Es el proyecto con más situaciones adversas: 22 en 14 informes entre 2024 y 2026. El contrato original terminó resuelto y uno posterior fue declarado nulo. La Contraloría advirtió que la entidad avanzó con una contratación directa pese a una orden arbitral que disponía abstenerse y que permitió continuar la recepción de una obra que no alcanzaba sus objetivos funcionales. En junio de 2026 reportó que no se aplicaron penalidades al contratista ni al supervisor.",
+  "informes": [
+   [
+    "020-2024-OCI/3414-SCC",
+    "2024CSI341400021"
+   ],
+   [
+    "005-2025-OCI/3414-SCC",
+    "2025CSI341400005"
+   ],
+   [
+    "003-2026-OCI/3414-SCC",
+    "2026CSI341400003"
+   ]
+  ]
+ },
+ {
+  "titulo": "Laboratorio geofísico del IGP",
+  "proyectos": "CUI 2234253 · Instituto Geofísico del Perú",
+  "texto": "Los ganadores de la adjudicación AS-1-2023-IGP-2 presentaron documentación inexacta para acreditar la experiencia del personal clave. Después, la Contraloría encontró partidas que incumplen las especificaciones técnicas, trabajos no ejecutados que se valorizaron y el plazo contractual vencido sin avance al 100%.",
+  "informes": [
+   [
+    "015-2023-OCI/0220-SCC",
+    "2023CSI022000016"
+   ],
+   [
+    "023-2024-OCI/0220-SCC",
+    "2024CSI022000023"
+   ],
+   [
+    "001-2026-OCI/0220-SCC",
+    "2026CSI022000001"
+   ]
+  ]
+ }
+]

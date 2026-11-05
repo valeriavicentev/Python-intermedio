@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>El dinero de El Niño</title>
+<meta name="description" content="¿A dónde fue el dinero autorizado por los decretos para el Fenómeno El Niño (2023-2026), quién lo ejecutó y en qué estado están las obras?">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="kicker">Fenómeno El Niño · Perú 2023–2026</div>
+  <h1>¿A dónde fue el dinero de El Niño, quién lo ejecutó y en qué estado están las obras?</h1>
+  <p class="lede">Entre 2023 y 2026 el Estado autorizó más de S/ 7 mil millones para prevenir y responder a El Niño mediante decretos de urgencia, decretos supremos y leyes. Este tablero sigue ese dinero desde la norma que lo autorizó hasta el gasto, los contratos y el avance de las obras, ahora que se declara un nuevo Niño costero.</p>
+  <div class="meta"><span><b>Cobertura:</b> Perú, años fiscales 2023, 2024 y 2026 (2025 sin registros FEN)</span><span><b>Corte de datos:</b> MEF, 28 oct. 2026 · fichas SSI, 4 nov. 2026</span><span><b>Fuentes:</b> MEF, OECE (SEACE), Contraloría, El Peruano</span></div>
+</div></header>
+<nav class="toc"><div class="wrap"><a href="#cuando">Cuándo</a><a href="#donde">A dónde</a><a href="#quien">Quién</a><a href="#obras">Obras</a><a href="#alertas">Alertas de control</a><a href="#hallazgos">Hallazgos</a><a href="#metodo">Metodología</a></div></nav>
+<main class="wrap">
+  <div class="filters" id="filters">
+    <label>Año fiscal<select id="f-anio"><option value="">Todos</option><option>2023</option><option>2024</option><option>2026</option></select></label>
+    <label>Nivel de gobierno<select id="f-nivel"><option value="">Todos</option></select></label>
+    <label>Departamento (meta)<select id="f-dep"><option value="">Todos</option></select></label>
+    <label>Tipo de norma<select id="f-norma"><option value="">Todas</option></select></label>
+    <button id="f-reset" type="button">Limpiar filtros</button>
+  </div>
+  <div class="filter-note" id="filter-note"></div>
+  <div class="kpis" id="kpis">
+    <div class="kpi"><div class="lab">Autorizado (marco)</div><div class="val" id="k-marco">—</div><div class="sub" id="k-marco-sub"></div></div>
+    <div class="kpi"><div class="lab">Gastado (devengado)</div><div class="val" id="k-dev">—</div><div class="sub" id="k-dev-sub"></div></div>
+    <div class="kpi"><div class="lab">Sin gastar</div><div class="val" id="k-saldo">—</div><div class="sub" id="k-saldo-sub"></div></div>
+    <div class="kpi"><div class="lab">Mayor ejecutora</div><div class="val" id="k-ejec" style="font-size:20px">—</div><div class="sub" id="k-ejec-sub"></div></div>
+    <div class="kpi"><div class="lab">Obras cerradas sin culminar o paralizadas</div><div class="val" id="k-obras">—</div><div class="sub" id="k-obras-sub"></div></div>
+  </div>
+  <div class="src"><b>Fuente:</b> MEF, Datos Abiertos – Ejecución del gasto de emergencias FEN 2023–2026 (descargado el 28/10/2026) (montos y ejecutoras); MEF, ficha de Seguimiento de Inversiones (SSI) por CUI (consultada el 4/11/2026) e Contraloría, Infobras (consultado el 4/11/2026) (estado de las obras).</div>
+
+  <section id="cuando"><h2>Cuándo se autorizó y cuánto se gastó</h2>
+    <p class="intro">Cada barra es una norma, ubicada en la fecha en que se publicó. La parte oscura es lo que se llegó a gastar (devengado) al cierre del año fiscal, o a la fecha de corte en 2026.</p>
+    <div class="card"><h3>Normas que asignaron dinero para El Niño</h3><div class="note">Monto autorizado y devengado por norma · pasa el cursor sobre una barra</div>
+      <div class="legend"><span><i style="background:var(--auth)"></i>Autorizado</span><span><i style="background:var(--dev)"></i>Devengado</span></div>
+      <div class="chart" id="c-timeline"></div><div class="src"><b>Fuente:</b> MEF, Datos Abiertos – Ejecución del gasto de emergencias FEN 2023–2026 (descargado el 28/10/2026); El Peruano, textos de las normas (fecha de publicación).</div></div>
+    <div class="card"><h3>Autorizado y gastado por año fiscal</h3><div class="note">El año 2026 está en curso: el devengado llega hasta el 28 de octubre</div><div class="chart" id="c-anios"></div><div class="src"><b>Fuente:</b> MEF, Datos Abiertos – Ejecución del gasto de emergencias FEN 2023–2026 (descargado el 28/10/2026).</div></div>
+  </section>
+
+  <section id="donde"><h2>A dónde fue el dinero</h2>
+    <p class="intro">El color de cada región muestra el gasto devengado según el lugar donde se registró la meta presupuestal. Los puntos son las intervenciones que listan los anexos de los decretos: limpieza de cauces, diques, barreras y proyectos. Los fucsia se repiten en 2023 y 2026; los círculos grandes con borde son proyectos con CUI, coloreados según su estado.</p>
+    <div class="card">
+      <div class="maptools"><label><input type="checkbox" id="m-coro" checked> Gasto por región</label><label><input type="checkbox" id="m-lima"> Incluir la sede central en Lima</label><label><input type="checkbox" id="m-int" checked> Intervenciones de los anexos</label><label><input type="checkbox" id="m-proy" checked> Proyectos con CUI</label></div>
+      <div id="map"></div>
+      <div class="note" id="map-note" style="margin-top:8px"></div><div class="src"><b>Fuente:</b> MEF, Datos Abiertos – Ejecución del gasto de emergencias FEN 2023–2026 (descargado el 28/10/2026) (gasto por departamento de la meta); anexos de los decretos de urgencia publicados en El Peruano (intervenciones); MEF, Banco de Inversiones y MEF, ficha de Seguimiento de Inversiones (SSI) por CUI (consultada el 4/11/2026) (proyectos con CUI y su estado); INEI, límites departamentales (versión de juaneladio/peru-geojson). Mapa base: © OpenStreetMap · © CARTO.</div></div>
+    <div class="card"><h3>Gasto por región (sin la sede central en Lima)</h3><div class="note">Devengado de gobiernos regionales, locales y nacionales con meta fuera de Lima</div><div class="chart" id="c-dep"></div><div class="src"><b>Fuente:</b> MEF, Datos Abiertos – Ejecución del gasto de emergencias FEN 2023–2026 (descargado el 28/10/2026).</div></div>
+  </section>
+
+  <section id="quien"><h2>Quién lo ejecutó</h2>
+    <p class="intro">Las unidades ejecutoras son las oficinas públicas que gastan el dinero. Pocas concentran la mayor parte, y varias gastaron muy poco de lo que recibieron.</p>
+    <div class="card"><h3>Las 12 ejecutoras con más dinero autorizado</h3><div class="note">Haz clic en una barra para ver sus normas</div>
+      <div class="legend"><span><i style="background:var(--auth)"></i>Autorizado</span><span><i style="background:var(--dev)"></i>Devengado</span></div>
+      <div class="chart" id="c-ejec"></div><div class="note" id="ejec-detail"></div><div class="src"><b>Fuente:</b> MEF, Datos Abiertos – Ejecución del gasto de emergencias FEN 2023–2026 (descargado el 28/10/2026).</div></div>
+    <div class="card"><h3>Empresas contratadas por las ejecutoras FEN (actividades sin CUI)</h3>
+      <div class="note">Contratos del SEACE (OECE, datos OCDS) firmados por las 20 ejecutoras con más dinero FEN, desde la publicación de la norma hasta fin de año, cuyo objeto cita el FEN o describe una intervención de emergencia o prevención. Sigue el filtro de año.</div>
+      <div class="legend"><span><i style="background:var(--accent)"></i>Cita El Niño, la norma o el peligro inminente</span><span><i style="background:var(--neutral)"></i>Vínculo inferido por el tema del contrato</span></div>
+      <div class="seace-sum" id="seace-sum"></div>
+      <div class="chart" id="c-prov"></div>
+      <div class="filters" style="padding-top:12px"><label>Buscar empresa, RUC u objeto<input id="s-q" type="search" placeholder="Ej.: descolmatación, Ferreyros…"></label><label>Vínculo<select id="s-v"><option value="">Todos</option><option>Cita FEN, la norma o peligro inminente</option><option>Tema de emergencia o prevención</option></select></label></div>
+      <div class="table-wrap" style="max-height:380px"><table id="t-seace"><thead><tr><th>Fecha</th><th>Ejecutora</th><th>Proveedor</th><th class="num">Monto</th><th>Procedimiento</th><th>Objeto</th></tr></thead><tbody></tbody></table></div><div class="src"><b>Fuente:</b> OECE, Contrataciones abiertas del SEACE en formato OCDS, 2023–2026 (descargado el 4/11/2026); MEF, Datos Abiertos – Ejecución del gasto de emergencias FEN 2023–2026 (descargado el 28/10/2026) (ejecutoras y fecha de cada norma).</div></div>
+    <div class="card"><h3>¿Contratos nuevos o contratos viejos?</h3><div class="note">Contratos del SEACE vinculados a los proyectos con CUI, según si se firmaron antes o después de la norma FEN que les asignó dinero</div><div class="chart" id="c-contratos"></div><div class="src"><b>Fuente:</b> MEF, ficha de Seguimiento de Inversiones (SSI) por CUI (consultada el 4/11/2026), que enlaza los contratos del SEACE (OECE) de cada CUI; MEF, Datos Abiertos – Ejecución del gasto de emergencias FEN 2023–2026 (descargado el 28/10/2026) (fecha de la norma).</div></div>
+  </section>
+
+  <section id="obras"><h2>En qué estado están las obras</h2>
+    <p class="intro">Solo una parte del dinero son proyectos de inversión con código único (CUI), que permiten seguir el contrato y el avance físico. El estado y el avance combinan el Banco de Inversiones del MEF (ficha SSI) y el registro de obras de la Contraloría (Infobras). Cuando ambos reportan avance físico, se muestran los dos; si coinciden (diferencia de 5 puntos o menos), se indica.</p>
+    <div class="grid2">
+      <div class="card"><h3>Proyectos por estado</h3><div class="note">Número de proyectos y monto FEN autorizado</div><div class="chart" id="c-estado"></div><div class="src"><b>Fuente:</b> MEF, ficha de Seguimiento de Inversiones (SSI) por CUI (consultada el 4/11/2026); Contraloría, Infobras (consultado el 4/11/2026); MEF, Datos Abiertos – Ejecución del gasto de emergencias FEN 2023–2026 (descargado el 28/10/2026) (monto FEN).</div></div>
+      <div class="card"><h3>Avance financiero por estado</h3><div class="note">Devengado acumulado entre costo actualizado, por proyecto</div><div class="chart" id="c-avance"></div><div class="src"><b>Fuente:</b> MEF, ficha de Seguimiento de Inversiones (SSI) por CUI (consultada el 4/11/2026).</div></div>
+    </div>
+    <div class="card"><h3>Proyectos financiados por las normas FEN</h3>
+      <div class="filters" style="padding-top:4px"><label>Buscar proyecto, ejecutora o contratista<input id="t-q" type="search" placeholder="Ej.: quebrada, puente, ANIN…"></label><label>Estado<select id="t-estado"><option value="">Todos</option></select></label></div>
+      <div class="table-wrap"><table id="t-proy"><thead><tr><th data-k="nombre">Proyecto</th><th data-k="ejecutora">Ejecutora</th><th data-k="marco_fen" class="num">FEN autorizado</th><th data-k="dev_fen" class="num">FEN devengado</th><th data-k="avance_financiero" class="num">Avance</th><th data-k="estado_obra">Estado</th><th data-k="contratistas_obra">Contratista(s) de obra</th><th data-k="n_informes" class="num">Informes CGR</th></tr></thead><tbody></tbody></table></div>
+      <div class="note" id="t-note" style="margin-top:8px"></div><div class="src"><b>Fuente:</b> MEF, Datos Abiertos – Ejecución del gasto de emergencias FEN 2023–2026 (descargado el 28/10/2026) (montos FEN); MEF, Banco de Inversiones y MEF, ficha de Seguimiento de Inversiones (SSI) por CUI (consultada el 4/11/2026) (avance financiero, estado y contratos del SEACE); Contraloría, Infobras (consultado el 4/11/2026) (avance físico y paralizaciones); Contraloría, informes de control (número de informes).</div></div>
+  </section>
+
+  <section id="alertas"><h2>Alertas de control y paralizaciones</h2>
+    <p class="intro">La Contraloría emitió informes de control simultáneo sobre los proyectos financiados con normas FEN. Estos informes no establecen responsabilidades: advierten <b>situaciones adversas</b> para que la entidad las corrija. Aquí se cruzan con las paralizaciones y las resoluciones de contrato registradas en Infobras. No sigue los filtros globales.</p>
+    <div class="seace-sum" id="al-sum"></div>
+    <div class="src"><b>Fuente:</b> Contraloría, fichas resumen de los informes de control simultáneo vinculados a cada CUI en la ficha SSI del MEF (consultadas el 4/11/2026); clasificación propia de las situaciones adversas; Contraloría, Infobras (consultado el 4/11/2026) (paralizaciones y contratos resueltos).</div>
+    <div class="grid2">
+      <div class="card"><h3>Tipos de situaciones adversas</h3><div class="note">Número de informes que advierten cada tipo · un informe puede tener varios · haz clic para filtrar la tabla</div><div class="chart" id="c-alertas"></div><div class="src"><b>Fuente:</b> Contraloría, fichas resumen de los informes de control simultáneo vinculados a cada CUI en la ficha SSI del MEF (consultadas el 4/11/2026); clasificación propia de las situaciones adversas.</div></div>
+      <div class="card"><h3>Proyectos con más situaciones adversas</h3><div class="note">Suma de situaciones adversas en los informes de cada proyecto · el color indica el estado de la obra</div><div class="chart" id="c-alproy"></div><div class="src"><b>Fuente:</b> Contraloría, fichas resumen de los informes de control simultáneo vinculados a cada CUI en la ficha SSI del MEF (consultadas el 4/11/2026); clasificación propia de las situaciones adversas; MEF, ficha de Seguimiento de Inversiones (SSI) por CUI (consultada el 4/11/2026) e Contraloría, Infobras (consultado el 4/11/2026) (estado de la obra).</div></div>
+    </div>
+    <div class="casos" id="casos"></div>
+    <div class="card"><h3>Informes de control con situaciones adversas</h3>
+      <div class="filters" style="padding-top:4px"><label>Tipo de situación<select id="al-cat"><option value="">Todos</option></select></label><label>Buscar proyecto o informe<input id="al-q" type="search" placeholder="Ej.: quebrada, puente, 2024…"></label></div>
+      <div class="table-wrap" style="max-height:420px"><table id="t-alertas"><thead><tr><th>Fecha</th><th>Informe</th><th>Proyecto</th><th class="num">Situaciones</th><th>Tipos</th><th>Resumen</th></tr></thead><tbody></tbody></table></div>
+      <div class="note" id="al-note" style="margin-top:8px"></div><div class="src"><b>Fuente:</b> Contraloría, fichas resumen de los informes de control simultáneo vinculados a cada CUI en la ficha SSI del MEF (consultadas el 4/11/2026); clasificación propia de las situaciones adversas. Cada fila enlaza a su ficha resumen.</div></div>
+    <div class="card" id="sanciones"><h3>Sanciones del Tribunal de Contrataciones a proveedores con contratos FEN</h3>
+      <div class="note">Se revisó la Ficha Única del Proveedor (OECE) de los 132 proveedores con RUC identificados en los contratos FEN. Una sanción temporal inhabilita para contratar con el Estado durante su vigencia; una multa obliga a pagar y, si no se paga, también suspende. El Tribunal sanciona a las empresas, no a los proyectos.</div>
+      <div class="seace-sum" id="sa-sum"></div>
+      <div class="table-wrap" style="max-height:420px"><table id="t-sanciones"><thead><tr><th>Proveedor</th><th>Sanción</th><th>Vigencia</th><th>Motivo</th><th class="num">Contratos FEN</th><th>Ejecutora</th></tr></thead><tbody></tbody></table></div>
+      <div class="note" id="sa-note" style="margin-top:8px"></div><div class="src"><b>Fuente:</b> OECE, Ficha Única del Proveedor: sanciones del Tribunal de Contrataciones y penalidades (consultada el 4/11/2026); contratos FEN de MEF, ficha de Seguimiento de Inversiones (SSI) por CUI (consultada el 4/11/2026) y de OECE, Contrataciones abiertas (OCDS).</div></div>
+  </section>
+
+  <section id="hallazgos"><h2>Hallazgos principales</h2><div class="findings" id="findings"></div></section>
+  <section id="metodo"><h2>Metodología, fuentes y limitaciones</h2><div class="method" id="method"></div></section>
+</main>
+<footer><div class="wrap">Elaborado por Valeria Vicente Vásquez · Curso Python Intermedio (d2cml-ai) · Datos abiertos con licencias públicas · <a href="https://github.com/valeriavicentev/Python-intermedio/tree/main/tarea_3">Código y datos en GitHub</a></div></footer>
+<div class="tip" id="tip"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

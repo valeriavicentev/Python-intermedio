@@ -1,0 +1,29 @@
+10181337341|MULTA|NO APLICA|||0|b) Incumplir injustificadamente con su obligación de perfeccionar el contrato o de perfeccionar acuerdos marco.
+10316638215|MULTA|NO APLICA|||0|b) Incumplir injustificadamente con su obligación de perfeccionar el contrato o de formalizar Acuerdos Marco.
+10181885934|TEMPORAL|5 MESES|09/05/2024|09/10/2024|0|f) Ocasionar que la Entidad resuelva el contrato, siempre que dicha resolución haya quedado consentida o firme en vía conciliatoria o arbitral.
+20154727826|TEMPORAL|5 MESES|17/11/2021|17/04/2022|0|i) Presentar información inexacta a las Entidades, al Tribunal, al RNP, al OSCE o a Perú Compras.
+20399019355|TEMPORAL|3 MESES|11/04/2026|11/07/2026|0|l) Presentar información inexacta a las entidades contratantes, al Tribunal, al RNP, al OECE o a Perú Compras.
+20483851171|TEMPORAL|5 MESES|25/04/2022|25/09/2022|0|Presentar información inexacta a las Entidades, al Tribunal o al RNP, relacionada con un requerimiento o factor de evaluación.
+20502797230|MULTA|4 MESES|||0|b) Incumplir injustificadamente con su obligación de perfeccionar el contrato o de formalizar Acuerdos Marco.
+20564145093|TEMPORAL|5 MESES|17/01/2022|17/06/2022|0|Contratar con el Estado estando en cualquiera de los supuestos de impedimento previstos en el art. 11 de la Ley.
+20565501781|TEMPORAL|3 MESES|04/03/2025|04/06/2025|0|c) Contratar con el Estado estando impedido conforme a Ley.
+20565501781|TEMPORAL|3 MESES|13/05/2025|13/08/2025|0|c) Contratar con el Estado estando impedido conforme a Ley.
+20565501781|TEMPORAL|4 MESES|18/06/2025|18/10/2025|0|c) Contratar con el Estado estando impedido conforme a Ley.
+20565501781|TEMPORAL|4 MESES|07/08/2025|07/12/2025|0|c) Contratar con el Estado estando impedido conforme a Ley.
+20565501781|TEMPORAL|5 MESES|21/10/2025|21/03/2026|0|i) Contratar con el Estado estando impedido conforme a ley.
+20565501781|TEMPORAL|5 MESES|21/10/2025|21/03/2026|0|c) Contratar con el Estado estando impedido conforme a Ley.
+20565501781|TEMPORAL|4 MESES|03/09/2026|03/01/2027|1|c) Contratar con el Estado estando impedido conforme a Ley.
+20600148347|TEMPORAL|24 MESES|06/05/2026|06/05/2028|1|j) Presentar documentos falsos o adulterados a las Entidades, al Tribunal, al RNP, al OSCE o a Perú Compras.
+20600148347|MULTA|4 MESES|24/10/2023|24/02/2024|0|a) Desistirse o retirar injustificadamente su oferta.
+20601023769|MULTA|CONDICIONADO|||0|b) Incumplir injustificadamente con su obligación de perfeccionar el contrato o de formalizar Acuerdos Marco.
+20601732671|MULTA|NO APLICA|||0|b) Incumplir injustificadamente con su obligación de perfeccionar el contrato o de formalizar Acuerdos Marco.
+20602181139|TEMPORAL|3 MESES|27/09/2024|27/12/2024|0|i) Presentar información inexacta a las Entidades, al Tribunal, al RNP, al OSCE o a Perú Compras.
+20603229771|TEMPORAL|24 MESES|01/07/2025|01/07/2027|1|j) Presentar documentos falsos o adulterados a las Entidades, al Tribunal, al RNP, al OSCE o a Perú Compras.
+20605087966|TEMPORAL|25 MESES|19/09/2025|19/10/2027|1|j) Presentar documentos falsos o adulterados a las Entidades, al Tribunal, al RNP, al OSCE o a Perú Compras.
+20605340149|TEMPORAL|6 MESES|15/01/2024|15/07/2024|0|f) Ocasionar que la Entidad resuelva el contrato, siempre que dicha resolución haya quedado consentida o firme en vía conciliatoria o arbitral.
+20392462105|TEMPORAL|8 MESES|11/09/2024|10/04/2025|0|Presentación de documentación falsa y/o inexacta a las entidades y/o OSCE.
+20392462105|TEMPORAL|7 MESES|09/03/2022|09/10/2022|0|Presentar información inexacta a las Entidades, al Tribunal o al RNP, relacionada con un requerimiento o factor de evaluación.
+20602336876|TEMPORAL|5 MESES|11/02/2026|11/07/2026|0|f) Ocasionar que la Entidad resuelva el contrato, siempre que dicha resolución haya quedado consentida o firme en vía conciliatoria o arbitral.
+20602336876|MULTA|4 MESES|||0|b) Incumplir injustificadamente con su obligación de perfeccionar el contrato o de formalizar Acuerdos Marco.
+20602336876|MULTA|5 MESES|||0|b) Incumplir injustificadamente con su obligación de perfeccionar el contrato o de formalizar Acuerdos Marco.
+20602336876|TEMPORAL|7 MESES|22/03/2024|22/10/2024|0|f) Ocasionar que la Entidad resuelva el contrato, siempre que dicha resolución haya quedado consentida o firme en vía conciliatoria o arbitral.
