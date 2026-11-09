@@ -1,0 +1,19 @@
+VALIDACIÓN ENAHO 2024 (código INEI 966)
+============================================================
+[OK  ] Llaves de hogar únicas en la sumaria: 33,691 hogares
+[OK  ] Llaves de persona únicas en el módulo 02: 117,721 filas
+[OK  ] Residentes habituales = 108,664: 108,664
+[OK  ] Unión m:1 sin perder ni duplicar personas: 108,664 filas, 0 sin hogar
+[OK  ] Distritos mineros presentes en la muestra: 48 de 69 distritos con unidad metálica tienen hogares encuestados  (informativo)
+[OK  ] Unión con el módulo 05 (1:1) sin duplicar: 108,664 filas
+[OK  ] Ocupados en minería identificados: 654 personas en la muestra  (informativo)
+[OK  ] Pobreza nacional (personas, facpob07) a ≤0.1 pp de 27.6 %: 27.53 %
+[OK  ] Pobreza nacional (sumaria, factor07×mieperho) a ≤0.1 pp de 27.6 %: 27.58 %
+[OK  ] Pobreza urbana ≈ 24.8 %: 24.74 %
+[OK  ] Pobreza rural ≈ 39.3 %: 39.44 %
+[OK  ] 25 códigos departamentales (01-25): 25
+[OK  ] Factor de expansión sin faltantes ni ceros: población expandida 34,147,768
+[OK  ] Ponderar cambia el resultado (no es un promedio simple): simple 25.61 % vs ponderado 27.53 %  (informativo)
+============================================================
+Esenciales aprobadas: 11/11
+RESULTADO: APROBADO

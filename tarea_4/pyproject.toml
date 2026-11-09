@@ -1,0 +1,21 @@
+[project]
+name = "tarea-4-mineria-pobreza"
+version = "0.1.0"
+description = "Agente de investigación: minería, canon y pobreza en el Perú (MCP del BCRP + Skills de ENAHO)"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp>=4,<5",
+    "httpx",
+    "pandas",
+    "pyarrow",
+    "geopandas",
+    "matplotlib",
+    "tabulate",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["mcp"]
+testpaths = ["mcp"]

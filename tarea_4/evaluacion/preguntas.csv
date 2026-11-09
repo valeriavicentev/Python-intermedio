@@ -1,0 +1,11 @@
+id,tipo,pregunta,verdad,tolerancia,fuente_verdad
+bcrp_ipc_set26,BCRP,"¿Cuál fue la inflación interanual (variación del IPC en 12 meses) de Lima Metropolitana en setiembre de 2026, en %?",4.5487,0.05,"BCRP PN01273PM, 2026-09 (valor verificado en la Sesión 04)"
+bcrp_cobre_precio_ago26,BCRP,"¿Cuál fue el precio promedio del cobre en agosto de 2026 según el BCRP, en centavos de US$ por libra?",689.7,3.5,"BCRP PN38784BM, 2026-08 (valor verificado en la Sesión 04)"
+bcrp_pbi_2025,BCRP,"¿Cuánto creció el PBI real del Perú en 2025 según el BCRP, en %?",3.4306,0.05,"BCRP PM04923AA, 2025 (valor verificado en la Sesión 04)"
+bcrp_cobre_prod_2024,BCRP,¿Cuántas miles de toneladas métricas finas de cobre produjo el Perú en 2024 según el BCRP?,2469.68,10.0,"BCRP PM05146AA, 2024 — calculado por evaluacion/verdades.py con la API, sin el MCP"
+enaho_nacional,ENAHO,"Según la ENAHO 2024 del INEI, ¿qué porcentaje de la población peruana era pobre monetariamente en 2024?",27.6,0.1,"INEI, ENAHO 2024; referencia del issue y de la Sesión 16"
+enaho_rural,ENAHO,"Según la ENAHO 2024, ¿cuál fue la tasa de pobreza monetaria en el área rural del Perú en 2024, en %?",39.3,0.2,"INEI, ENAHO 2024; referencia del issue"
+enaho_cajamarca,ENAHO,"Según la ENAHO 2024, ¿cuál fue la tasa de pobreza monetaria del departamento de Cajamarca en 2024, en %?",45.0,0.2,Referencia Sesión 16 (referencias/pobreza_departamento_2024.csv)
+enaho_moquegua,ENAHO,"Según la ENAHO 2024, ¿cuál fue la tasa de pobreza monetaria del departamento de Moquegua en 2024, en %?",11.0,0.2,Referencia Sesión 16 (referencias/pobreza_departamento_2024.csv)
+mixta_cobre,Mixta,"¿Cuál fue la tasa de pobreza monetaria 2024 (ENAHO) del departamento que más cobre produjo en 2024 según las series departamentales del BCRP, en %?",11.0,0.2,"Departamento: máximo de las series RD…DA de cobre 2024 (API BCRP); pobreza: referencia Sesión 16 — calculado por verdades.py → Moquegua (475,930); pobreza 11.0 %"
+mixta_oro,Mixta,"¿Cuál fue la tasa de pobreza monetaria 2024 (ENAHO) del departamento que más oro produjo en 2024 según las series departamentales del BCRP, en %?",30.2,0.2,"Departamento: máximo de las series RD…DA de oro 2024 (API BCRP); pobreza: referencia Sesión 16 — calculado por verdades.py → La Libertad (34,550,716); pobreza 30.2 %"

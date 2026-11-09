@@ -1,0 +1,9 @@
+datos/*.zip
+datos/*.dta
+datos/catalogo_bcrp.csv
+salidas/*.parquet
+.venv/
+__pycache__/
+.pytest_cache/
+*.tmp
+.DS_Store
