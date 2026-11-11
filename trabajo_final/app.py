@@ -30,8 +30,7 @@ st.markdown(
        #00FA8C verde, #A59837 oliva, #7A463D marrón. Fondo negro, texto #F6F6F6. */
     html, body, [class*="css"], .stMarkdown { font-family: 'Inter', sans-serif; }
     .stApp { background: #000000; color: #F6F6F6; }
-    .marca { font-weight: 800; letter-spacing: -0.03em; font-size: 3rem; line-height: 1.05; color: #FADD00; }
-    .marca span { color: #FA2400; }
+    .marca { font-weight: 800; letter-spacing: -0.03em; font-size: 3rem; line-height: 1.05; color: #00FA8C; }
     .bajada { color: #F6F6F6; font-weight: 300; font-size: 1.1rem; line-height: 1.6; margin: .6rem 0 1.2rem; max-width: 54rem; }
     .bajada a, .stMarkdown a { color: #00FA8C !important; text-decoration: underline; }
     .empresa { font-weight: 800; font-size: 1.9rem; letter-spacing: -0.02em; line-height: 1.1; color: #FADD00; }
@@ -130,12 +129,12 @@ elegida = st.query_params.get("empresa")
 # Portada y búsqueda
 # =====================================================================
 if not elegida or elegida not in set(E["empresa_id"]):
-    st.markdown('<div class="marca">Escáner <span>Minero</span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="marca">Escáner Minero</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="bajada">Esta es una radiografía de la actividad minera en el Perú. Busca a una empresa '
         "para saber si opera en el país, dónde se encuentran sus unidades de producción y el nivel de pobreza "
         "de la zona. También puedes conocer si tiene sanciones del "
-        '<a href="https://www.gob.pe/oefa" target="_blank">Organismo de Evaluación y Fiscalización Ambiental (OEFA)</a>, '
+        "Organismo de Evaluación y Fiscalización Ambiental (OEFA), "
         "si figura en reportes de conflictos sociales de la Defensoría del Pueblo y la inversión pública que ha "
         "realizado.</div>",
         unsafe_allow_html=True,
