@@ -1,0 +1,68 @@
+{
+ "anio": 2025,
+ "metalicas_musd": 62738.2172273703,
+ "metalicas_2024_musd": 48334.8598013829,
+ "total_pais_musd": 93992.95346232338,
+ "productos": [
+  {
+   "producto": "Cobre",
+   "musd": 28921.77636261
+  },
+  {
+   "producto": "Oro",
+   "musd": 23312.92859082
+  },
+  {
+   "producto": "Plomo",
+   "musd": 3312.96046662
+  },
+  {
+   "producto": "Zinc",
+   "musd": 2771.69052975
+  },
+  {
+   "producto": "Molibdeno",
+   "musd": 1661.51961624696
+  },
+  {
+   "producto": "Hierro",
+   "musd": 1404.92367962
+  },
+  {
+   "producto": "Estaño",
+   "musd": 1154.95638814
+  },
+  {
+   "producto": "Plata",
+   "musd": 184.19504382
+  }
+ ],
+ "destinos": [
+  {
+   "pais": "China",
+   "musd": 30148.763219620003,
+   "part": 0.49533928835817903
+  },
+  {
+   "pais": "India",
+   "musd": 6468.314111179999,
+   "part": 0.10627335142636911
+  },
+  {
+   "pais": "Canadá",
+   "musd": 4425.204249979998,
+   "part": 0.0727053878813245
+  },
+  {
+   "pais": "Emiratos Árabes Unidos",
+   "musd": 2854.4811400799963,
+   "part": 0.0468986620200366
+  },
+  {
+   "pais": "Estados Unidos",
+   "musd": 2745.8686275699993,
+   "part": 0.04511417606080879
+  }
+ ],
+ "fuente": "MINEM, Anuario Minero 2025 (cifras de 2025 preliminares)"
+}

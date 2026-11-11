@@ -152,6 +152,7 @@ def main() -> None:
     prod_out = cargar_produccion(U)
     inv_out = cargar_inversion(U)
     guardar_transferencias()
+    guardar_exportaciones()
 
     # 7) Defensoría (opcional): menciones de cada empresa en los reportes
     conflictos_out = cargar_defensoria(U)
@@ -323,6 +324,48 @@ def guardar_transferencias() -> None:
                               "soles": pd.to_numeric(r[c], errors="coerce")})
     pd.DataFrame(filas).to_csv(PROC / "transferencias_departamento.csv", index=False)
     print(f"Transferencias: {len(filas)} registros departamento-concepto-año.")
+
+
+def guardar_exportaciones() -> None:
+    """Resumen de exportaciones mineras (Anuario Minero 2025): total, productos y destinos."""
+    if not ANUARIO.exists():
+        return
+    import json
+
+    tot = pd.read_excel(ANUARIO, sheet_name="Exportaciones", header=None)
+    enc = tot.index[tot[0].astype(str).str.startswith("PRODUCTO")][0]
+    cols = _anios(tot.loc[enc])
+    c25 = next(c for c, a in cols.items() if a == 2025)
+    c24 = next(c for c, a in cols.items() if a == 2024)
+    fila = lambda nombre: tot.loc[tot[0].astype(str).str.strip().str.upper().str.startswith(nombre)].iloc[0]
+    met, total = fila("MINERO METÁLICOS"), fila("TOTAL")
+
+    em = pd.read_excel(ANUARIO, sheet_name="Export Min", header=None)
+    enc = em.index[em[0].astype(str).str.startswith("PRODUCTO")][0]
+    cols_m = _anios(em.loc[enc])
+    k25 = next(c for c, a in cols_m.items() if a == 2025)
+    productos = []
+    for _, r in em.loc[enc + 1:].iterrows():
+        n = str(r[0])
+        if n.upper().startswith("TOTAL"):
+            break
+        if "/" in n and not n.upper().startswith("OTROS"):
+            productos.append({"producto": n.split("/")[0].strip().capitalize(), "musd": float(r[k25])})
+    productos.sort(key=lambda x: -x["musd"])
+
+    de = pd.read_excel(ANUARIO, sheet_name="Destino export", header=None)
+    destinos = [{"pais": str(r[0]).strip().title(), "musd": float(r[2]), "part": float(r[3])}
+                for _, r in de.iloc[4:9].iterrows()]
+
+    resumen = {
+        "anio": 2025,
+        "metalicas_musd": float(met[c25]), "metalicas_2024_musd": float(met[c24]),
+        "total_pais_musd": float(total[c25]),
+        "productos": productos, "destinos": destinos,
+        "fuente": "MINEM, Anuario Minero 2025 (cifras de 2025 preliminares)",
+    }
+    (PROC / "exportaciones_2025.json").write_text(json.dumps(resumen, ensure_ascii=False, indent=1))
+    print(f"Exportaciones metálicas 2025: US$ {resumen['metalicas_musd']:,.0f} millones.")
 
 
 def cargar_ruias(U: Universo) -> pd.DataFrame | None:

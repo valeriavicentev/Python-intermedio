@@ -118,3 +118,47 @@ def construir(
     mapa.get_root().html.add_child(folium.Element(LEYENDA))
     folium.LayerControl(collapsed=True).add_to(mapa)
     return mapa
+
+
+# ---------------------------------------------------------------------
+# Portada: mapa de calor de la actividad minera en todo el Perú
+# ---------------------------------------------------------------------
+def mapa_calor(unidades: pd.DataFrame) -> folium.Map:
+    """Mapa base topográfico (verdes y azules, al estilo de Google Maps), calor por densidad
+    de unidades mineras y un punto por unidad para ubicarlas al hacer zoom."""
+    from folium.plugins import HeatMap
+
+    mapa = folium.Map(location=[-9.3, -75.0], zoom_start=5, tiles=None, control_scale=True,
+                      min_zoom=4, max_bounds=True)
+    folium.TileLayer(
+        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+        attr="Tiles &copy; Esri &mdash; Esri, HERE, Garmin, USGS, &copy; OpenStreetMap",
+        name="Relieve", max_zoom=17,
+    ).add_to(mapa)
+    folium.TileLayer("OpenStreetMap", name="Calles").add_to(mapa)
+
+    puntos = unidades[["LATITUD", "LONGITUD"]].dropna().values.tolist()
+    HeatMap(
+        puntos, name="Concentración de unidades", radius=26, blur=22, min_opacity=0.35, max_zoom=9,
+        gradient={0.2: "#2C00FA", 0.55: "#00B4D8", 0.85: "#00FA8C", 1.0: "#FADD00"},
+    ).add_to(mapa)
+
+    grupo = folium.FeatureGroup(name="Unidades mineras").add_to(mapa)
+    for _, u in unidades.dropna(subset=["LATITUD", "LONGITUD"]).iterrows():
+        folium.CircleMarker(
+            location=[u["LATITUD"], u["LONGITUD"]], radius=4, color="#000000", weight=1,
+            fill=True, fill_color="#FA2400", fill_opacity=0.95,
+            tooltip=f"<b>{u['unidad']}</b><br>{u['titular']}<br>{u['producto']}<br><i>Clic para ver la empresa</i>",
+        ).add_to(grupo)
+
+    mapa.get_root().html.add_child(folium.Element(
+        """<div style="position: fixed; bottom: 24px; left: 12px; z-index: 9999; background: #000; color: #F6F6F6;
+        border: 1px solid #F6F6F6; padding: 8px 10px; border-radius: 6px; font: 12px Inter, Arial, sans-serif;">
+        <div style="font-weight:600;margin-bottom:4px;">Concentración de unidades mineras</div>
+        <div style="width:160px;height:10px;background:linear-gradient(to right,#2C00FA,#00B4D8,#00FA8C,#FADD00);"></div>
+        <div style="display:flex;justify-content:space-between;width:160px;"><span>menos</span><span>más</span></div>
+        <div style="margin-top:6px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;
+        background:#FA2400;border:1px solid #000;"></span> Unidad minera en producción</div></div>"""
+    ))
+    folium.LayerControl(collapsed=True).add_to(mapa)
+    return mapa

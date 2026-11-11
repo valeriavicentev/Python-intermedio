@@ -9,11 +9,13 @@ en qué conflictos sociales aparecen.
 
 from __future__ import annotations
 
+import json
 import os
 
 import geopandas as gpd
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 from streamlit_folium import st_folium
 
 from radar import mapa as M
@@ -57,6 +59,14 @@ st.markdown(
             border: none; font-weight: 600; }
     .stButton button[kind="secondary"] { border-color: #FADD00; color: #FADD00; background: #000000; }
     h4, h5 { color: #F6F6F6; }
+    .expo { border: 1px solid #00FA8C; border-radius: 8px; padding: 1rem 1.1rem; background: #0D0D0D; }
+    .expo .t { color: #00FA8C; font-weight: 700; font-size: 1.05rem; }
+    .expo .big { color: #FADD00; font-weight: 800; font-size: 2rem; line-height: 1.15; margin: .3rem 0; }
+    .expo .s { color: #F6F6F6; font-size: .9rem; margin: .4rem 0; }
+    .expo table { width: 100%; border-collapse: collapse; margin: .6rem 0; font-size: .92rem; }
+    .expo td { padding: .28rem 0; border-bottom: 1px solid #2a2a2a; color: #F6F6F6; }
+    .expo td.d { text-align: right; color: #FADD00; font-variant-numeric: tabular-nums; }
+    .expo .f { color: #A59837; font-size: .78rem; margin-top: .5rem; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -128,6 +138,64 @@ def tarjeta(f: pd.Series, key: str) -> None:
         der.button("Abrir", key=key, on_click=ir_a, args=(f["empresa_id"],), use_container_width=True)
 
 
+def contador(cifras: list[tuple[int, str]]) -> None:
+    """Cifras grandes que cuentan desde cero al cargar la página."""
+    celdas = "".join(
+        f'<div class="c"><div class="n" data-v="{v}">0</div><div class="l">{l}</div></div>' for v, l in cifras
+    )
+    components.html(
+        f"""<style>
+        body {{ margin: 0; background: #000; font-family: Inter, Arial, sans-serif; }}
+        .fila {{ display: flex; flex-wrap: wrap; gap: 8px 32px; justify-content: space-between; }}
+        .c {{ min-width: 150px; }}
+        .n {{ color: #FADD00; font-weight: 800; font-size: 64px; line-height: 1; letter-spacing: -0.03em;
+              font-variant-numeric: tabular-nums; }}
+        .l {{ color: #F6F6F6; font-size: 15px; margin-top: 6px; }}
+        @media (max-width: 700px) {{ .n {{ font-size: 40px; }} }}
+        </style>
+        <div class="fila">{celdas}</div>
+        <script>
+        const dur = 1600, t0 = performance.now();
+        const els = [...document.querySelectorAll('.n')];
+        function paso(t) {{
+          const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+          els.forEach(el => el.textContent = Math.round(el.dataset.v * e).toLocaleString('es-PE'));
+          if (k < 1) requestAnimationFrame(paso);
+        }}
+        requestAnimationFrame(paso);
+        </script>""",
+        height=120,
+    )
+
+
+@st.cache_data
+def exportaciones() -> dict | None:
+    ruta = PROC / "exportaciones_2025.json"
+    return json.loads(ruta.read_text()) if ruta.exists() else None
+
+
+def recuadro_exportaciones(x: dict) -> None:
+    var = (x["metalicas_musd"] / x["metalicas_2024_musd"] - 1) * 100
+    part = x["metalicas_musd"] / x["total_pais_musd"] * 100
+    filas = "".join(
+        f'<tr><td>{p["producto"]}</td><td class="d">US$ {p["musd"]:,.0f} M</td>'
+        f'<td class="d">{p["musd"] / x["metalicas_musd"] * 100:.0f} %</td></tr>'
+        for p in x["productos"][:6]
+    )
+    destinos = ", ".join(f'{d["pais"]} ({d["part"] * 100:.0f} %)' for d in x["destinos"][:3])
+    st.markdown(
+        f"""<div class="expo">
+        <div class="t">Exportaciones mineras {x["anio"]}</div>
+        <div class="big">US$ {x["metalicas_musd"] / 1000:,.1f} mil millones</div>
+        <div class="s">{part:.0f} % de todo lo que exporta el Perú · {var:+.0f} % frente a 2024</div>
+        <table>{filas}</table>
+        <div class="s"><b>Principales destinos:</b> {destinos}</div>
+        <div class="f">Fuente: {x["fuente"]}. Minería metálica.</div>
+        </div>""",
+        unsafe_allow_html=True,
+    )
+
+
 B = base()
 E = B.empresas
 elegida = st.query_params.get("empresa")
@@ -136,7 +204,8 @@ elegida = st.query_params.get("empresa")
 # Portada y búsqueda
 # =====================================================================
 if not elegida or elegida not in set(E["empresa_id"]):
-    st.markdown('<div class="marca">Escáner Minero</div>', unsafe_allow_html=True)
+    arriba = st.empty()  # el contador se llena cuando ya se conoce el filtro
+    st.markdown('<div class="marca" style="margin-top:.6rem;">Escáner Minero</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="bajada">Esta es una radiografía de la actividad minera en el Perú. Busca a una empresa '
         "para saber si opera en el país, dónde se encuentran sus unidades de producción y el nivel de pobreza "
@@ -157,13 +226,38 @@ if not elegida or elegida not in set(E["empresa_id"]):
     if filtro:
         E = E[E["minerales"].apply(lambda ms: any(m in ms for m in filtro))]
 
-    c = st.columns(5)
-    c[0].metric("Empresas mineras", len(E))
-    c[1].metric("Unidades en producción", int(E["n_unidades"].sum()))
-    c[2].metric("Expedientes OEFA", int(E.get("n_expedientes_ruias", pd.Series([0])).sum()))
-    c[3].metric("Obras por impuestos", int(B.oxi.loc[B.oxi["empresa_id"].isin(E["empresa_id"]), "obra"].nunique()))
-    c[4].metric("Menciones en conflictos",
-                0 if B.conflictos is None else int(B.conflictos["empresa_id"].isin(E["empresa_id"]).sum()))
+    with arriba.container():
+        contador([
+            (len(E), "empresas mineras"),
+            (int(E["n_unidades"].sum()), "unidades en producción"),
+            (int(E["n_expedientes_ruias"].sum()), "expedientes del OEFA"),
+            (int(B.oxi.loc[B.oxi["empresa_id"].isin(E["empresa_id"]), "obra"].nunique()), "obras por impuestos"),
+            (0 if B.conflictos is None else int(B.conflictos["empresa_id"].isin(E["empresa_id"]).sum()),
+             "menciones en conflictos"),
+        ])
+
+    if not consulta:
+        col_mapa, col_expo = st.columns([2.2, 1], gap="large")
+        with col_mapa:
+            uds = B.unidades[B.unidades["empresa_id"].isin(E["empresa_id"])]
+            clic = st_folium(M.mapa_calor(uds), height=540, use_container_width=True,
+                             returned_objects=["last_object_clicked"], key=f"calor-{len(uds)}")
+            punto = (clic or {}).get("last_object_clicked")
+            if punto:
+                d = (uds["LATITUD"] - punto["lat"]).abs() + (uds["LONGITUD"] - punto["lng"]).abs()
+                u = uds.loc[d.idxmin()]
+                if d.min() < 0.01:
+                    a1, a2 = st.columns([3, 1])
+                    a1.markdown(f"**{u['unidad']}** · {u['titular']} · {str(u['distrito']).title()}, "
+                                f"{str(u['region']).title()}")
+                    a2.button("Ver empresa", on_click=ir_a, args=(u["empresa_id"],), key="desde-mapa",
+                              use_container_width=True)
+            st.caption("Haz zoom para ubicar cada unidad y clic en un punto para abrir la empresa. "
+                       "El calor muestra dónde se concentran las unidades en producción (MINEM).")
+        with col_expo:
+            x = exportaciones()
+            if x:
+                recuadro_exportaciones(x)
 
     if consulta:
         res = B.buscar(consulta)
