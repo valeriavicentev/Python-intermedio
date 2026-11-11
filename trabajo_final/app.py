@@ -203,7 +203,7 @@ def recuadro_exportaciones(x: dict) -> None:
     part = x["metalicas_musd"] / x["total_pais_musd"] * 100
     filas = "".join(
         f'<tr><td>{p["producto"]}</td><td class="d">{p["musd"]:,.0f}</td>'
-        f'<td class="d">{p["musd"] / x["total_pais_musd"] * 100:.1f} %</td></tr>'
+        f'<td class="d">{p["musd"] / x["metalicas_musd"] * 100:.0f} %</td></tr>'
         for p in x["productos"][:6]
     )
     destinos = ", ".join(f'{d["pais"]} ({d["part"] * 100:.0f} %)' for d in x["destinos"][:3])
@@ -215,7 +215,7 @@ def recuadro_exportaciones(x: dict) -> None:
         <div class="s">Es <b>{var:.0f} % más</b> que en 2024, cuando se exportaron
         US$ {x["metalicas_2024_musd"] / 1000:,.1f} mil millones.</div>
         <table>
-          <tr><th>Metal</th><th class="d">Valor exportado<br>(millones de US$)</th><th class="d">Participación a<br>nivel nacional</th></tr>
+          <tr><th>Metal</th><th class="d">Valor exportado<br>(millones de US$)</th><th class="d">% de las exportaciones<br>de metales</th></tr>
           {filas}
         </table>
         <div class="s"><b>Principales compradores:</b> {destinos}</div>
