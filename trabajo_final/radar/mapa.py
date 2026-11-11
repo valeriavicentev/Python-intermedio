@@ -120,7 +120,7 @@ def construir(
     return mapa
 
 
-def ficha_unidad(u: pd.Series, produccion_html: str = "") -> str:
+def ficha_unidad(u: pd.Series, produccion_html: str = "", aproximada: bool = False) -> str:
     """Recuadro al pasar sobre una unidad: ubicación, minerales y producción declarada."""
     from radar.buscador import minerales
 
@@ -138,15 +138,20 @@ def ficha_unidad(u: pd.Series, produccion_html: str = "") -> str:
         f"<div>{u['titular']}</div>"
         f"<div style='margin-top:6px;'><b>Distrito:</b> {t(u['distrito'])}<br><b>Provincia:</b> {t(u['provincia'])}"
         f"<br><b>Región:</b> {t(u['region'])}</div>"
-        f"<div style='margin-top:6px;'><b>Minerales:</b> {', '.join(minerales(u['producto'])) or '—'}</div>"
-        f"{prod}</div>"
+        + (f"<div style='margin-top:6px;color:#7A463D;'>Ubicación aproximada: centro del distrito."
+           f" Fuente: {u.get('fuente_ubicacion') or 'OEFA'}."
+           f"{' Distritos de la unidad: ' + u['distritos_oefa'] + '.' if isinstance(u.get('distritos_oefa'), str) else ''}</div>"
+           if aproximada else
+           f"<div style='margin-top:6px;'><b>Minerales:</b> {', '.join(minerales(u['producto'])) or '—'}</div>")
+        + f"{prod}</div>"
     )
 
 
 # ---------------------------------------------------------------------
 # Portada: mapa de calor de la actividad minera en todo el Perú
 # ---------------------------------------------------------------------
-def mapa_calor(unidades: pd.DataFrame, produccion: dict[str, str] | None = None) -> folium.Map:
+def mapa_calor(unidades: pd.DataFrame, produccion: dict[str, str] | None = None,
+               aproximadas: pd.DataFrame | None = None) -> folium.Map:
     """Mapa base topográfico (verdes y azules, al estilo de Google Maps), calor por densidad
     de unidades mineras y un punto por unidad para ubicarlas al hacer zoom."""
     from folium.plugins import HeatMap
@@ -174,6 +179,16 @@ def mapa_calor(unidades: pd.DataFrame, produccion: dict[str, str] | None = None)
             tooltip=folium.Tooltip(ficha_unidad(u, (produccion or {}).get(u["empresa_id"], "")), sticky=True),
         ).add_to(grupo)
 
+    if aproximadas is not None and len(aproximadas):
+        grupo2 = folium.FeatureGroup(name="Unidades con ubicación aproximada (OEFA o fuente pública)").add_to(mapa)
+        for _, u in aproximadas.dropna(subset=["LATITUD", "LONGITUD"]).iterrows():
+            folium.CircleMarker(
+                location=[u["LATITUD"], u["LONGITUD"]], radius=5, color="#FADD00", weight=2.5,
+                fill=True, fill_color="#000000", fill_opacity=0.6,
+                tooltip=folium.Tooltip(ficha_unidad(u, (produccion or {}).get(u["empresa_id"], ""), aproximada=True),
+                                       sticky=True),
+            ).add_to(grupo2)
+
     mapa.get_root().html.add_child(folium.Element(
         """<div style="position: fixed; bottom: 24px; left: 12px; z-index: 9999; background: #000; color: #F6F6F6;
         border: 1px solid #F6F6F6; padding: 8px 10px; border-radius: 6px; font: 12px Inter, Arial, sans-serif;">
@@ -181,7 +196,9 @@ def mapa_calor(unidades: pd.DataFrame, produccion: dict[str, str] | None = None)
         <div style="width:160px;height:10px;background:linear-gradient(to right,#2C00FA,#00B4D8,#00FA8C,#FADD00);"></div>
         <div style="display:flex;justify-content:space-between;width:160px;"><span>menos</span><span>más</span></div>
         <div style="margin-top:6px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;
-        background:#FA2400;border:1px solid #000;"></span> Unidad minera en producción</div></div>"""
+        background:#FA2400;border:1px solid #000;"></span> Unidad en producción (MINEM)</div>
+        <div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;
+        background:#000;border:2px solid #FADD00;"></span> Ubicación aproximada (centro del distrito)</div></div>"""
     ))
     folium.LayerControl(collapsed=True).add_to(mapa)
     return mapa

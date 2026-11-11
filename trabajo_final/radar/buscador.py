@@ -53,6 +53,7 @@ class Base:
     ruias: pd.DataFrame | None = None
     produccion: pd.DataFrame | None = None
     transferencias: pd.DataFrame | None = None
+    unidades_oefa: pd.DataFrame | None = None
 
     @classmethod
     def cargar(cls) -> "Base":
@@ -67,6 +68,7 @@ class Base:
             ruias=_leer("empresa_ruias.csv", dtype=str),
             produccion=_leer("empresa_produccion.csv"),
             transferencias=_leer("transferencias_departamento.csv"),
+            unidades_oefa=_leer("empresa_unidades_oefa.csv", dtype=tipos),
         )
         # Minerales que produce cada empresa, según sus unidades
         por_emp = b.unidades.groupby("empresa_id")["producto"].apply(
@@ -120,6 +122,7 @@ class Base:
             ruias=de(self.ruias),
             produccion=de(self.produccion),
             transferencias=self.transferencias,
+            unidades_oefa=de(self.unidades_oefa),
         )
 
 
@@ -134,12 +137,23 @@ class Perfil:
     ruias: pd.DataFrame = field(default_factory=pd.DataFrame)
     produccion: pd.DataFrame = field(default_factory=pd.DataFrame)
     transferencias: pd.DataFrame | None = None
+    unidades_oefa: pd.DataFrame = field(default_factory=pd.DataFrame)
+
+    @property
+    def ubicaciones(self) -> pd.DataFrame:
+        """Unidades del MINEM (coordenadas exactas) o, si no hay, las del OEFA (centro del distrito)."""
+        if not self.unidades.empty:
+            return self.unidades.assign(aproximada=False)
+        if not self.unidades_oefa.empty:
+            return self.unidades_oefa.assign(aproximada=True, punto_coincide=True, producto="", metodo="")
+        return pd.DataFrame()
 
     def transferencias_donde_opera(self, anio: int = 2025) -> pd.DataFrame:
         """Canon, regalías y derecho de vigencia de los departamentos donde tiene unidades."""
-        if self.transferencias is None or self.unidades.empty:
+        ub = self.ubicaciones
+        if self.transferencias is None or ub.empty:
             return pd.DataFrame()
-        deps = {sin_tildes(d).upper() for d in self.unidades["region"].dropna()}
+        deps = {sin_tildes(d).upper() for d in ub["region"].dropna()}
         t = self.transferencias[(self.transferencias["anio"] == anio) & self.transferencias["departamento"].isin(deps)]
         return t.pivot_table(index="departamento", columns="concepto", values="soles", aggfunc="sum").reset_index()
 
@@ -168,6 +182,13 @@ class Perfil:
             nota = "" if u["punto_coincide"] else " (OJO: sus coordenadas caen en otro distrito; verificar)"
             L.append(f"  - {u['unidad']} en {str(u['distrito']).title()} ({str(u['region']).title()}), "
                      f"{str(u['metodo']).lower()}, {u['producto']}; {pob}{nota}.")
+
+        if self.unidades.empty and not self.unidades_oefa.empty:
+            L += ["", f"[F6] {FUENTES['F6']}, unidades fiscalizadas (ubicación por distrito, aproximada):"]
+            for _, u in self.unidades_oefa.iterrows():
+                pob = "sin dato de pobreza" if pd.isna(u["pobreza"]) else f"pobreza distrital {u['pobreza']:.1f} %"
+                L.append(f"  - {u['unidad']} en {str(u['distrito']).title()}, {str(u['provincia']).title()} "
+                         f"({str(u['region']).title()}); {pob}.")
 
         L += ["", f"[F3] {FUENTES['F3']}:"]
         if self.multas.empty:

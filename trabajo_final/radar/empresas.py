@@ -34,20 +34,37 @@ def sin_tildes(texto: str) -> str:
     return "".join(c for c in texto if not unicodedata.combining(c))
 
 
-def clave(nombre: str) -> str:
+def clave(nombre: str, renombrar: bool = True) -> str:
     """Clave de cruce: 'Compañía Minera Poderosa S.A.' -> 'COMPANIA MINERA PODEROSA'."""
     if not isinstance(nombre, str):
         return ""
     t = sin_tildes(nombre).upper()
     t = re.sub(r"\(.*?\)", " ", t)           # notas: "(Ex Compañía Minera Milpo)"
+    t = t.split(" - ")[0]                     # "EL DORADO RESOURCES S.A.C. - EL DORADO RESOURCES S.A.C."
     t = re.sub(r"[.,;:&/\-]", " ", t)
     t = re.sub(r"\bCIA\b", "COMPANIA", t)
     t = re.sub(r"\s+", " ", t).strip()
     t = _FORMAS_RE.sub(" ", t)
-    return re.sub(r"\s+", " ", t).strip()
+    t = re.sub(r"\s+", " ", t).strip()
+    return RENOMBRES.get(t, t) if renombrar else t
 
 
-ESTADO_RE = re.compile(r"MINISTERIO|MUNICIPALIDAD|GOBIERNO REGIONAL|DIRECCION REGIONAL", re.IGNORECASE)
+# Cambios de razón social documentados en las notas del Anuario Minero 2025 (MINEM):
+# el nombre antiguo se une con el actual.
+RENOMBRES = {
+    "ALPAYANA": "SOBREANDES",
+    "COMPANIA MINERA MILPO": "NEXA RESOURCES PERU",
+    "MILPO ANDINA PERU": "NEXA RESOURCES EL PORVENIR",
+    "COMPANIA MINERA ATACOCHA": "NEXA RESOURCES ATACOCHA",
+    "SANTANDER PERUVIAN MINE": "COMPANIA MINERA SANTANDER",
+}
+
+
+# Entidades del Estado y empresas que el OEFA clasifica en minería pero no lo son
+ESTADO_RE = re.compile(
+    r"MINISTERIO|MUNICIPALIDAD|GOBIERNO REGIONAL|DIRECCION REGIONAL|CURTIDOS|ESTACION DE SERVICIOS|GRIFO|^OTRAS?$",
+    re.IGNORECASE,
+)
 
 
 def es_estado(nombre: str) -> bool:

@@ -158,6 +158,14 @@ def main() -> None:
     conflictos_out = cargar_defensoria(U)
 
     # ---------- tabla de empresas ----------
+    # Nombre a mostrar: entre los alias cuyo nombre normalizado es la clave final (no un nombre
+    # antiguo como «Alpayana»), el más corto y sin notas entre paréntesis.
+    al = pd.DataFrame(U.alias)
+    al["propio"] = al["nombre_en_fuente"].map(lambda n: clave(n, renombrar=False)) == al["clave"]
+    al["largo"] = al["nombre_en_fuente"].str.len() + al["nombre_en_fuente"].str.contains(r"\(| - ").astype(int) * 500
+    mejor = al.sort_values(["propio", "largo"], ascending=[False, True]).drop_duplicates("clave")
+    for c, n in zip(mejor["clave"], mejor["nombre_en_fuente"]):
+        U.empresas[c]["nombre"] = n
     emp = pd.DataFrame([{"clave": c, **d} for c, d in U.empresas.items()])
     emp["empresa_id"] = emp["nombre"].map(slug)
     dup = emp["empresa_id"].duplicated(keep=False)
@@ -207,6 +215,28 @@ def main() -> None:
         con_id(conflictos_out).to_csv(PROC / "empresa_conflictos.csv", index=False)
     if prod_out is not None:
         con_id(prod_out).to_csv(PROC / "empresa_produccion.csv", index=False)
+    if RUIAS_FILAS is not None:
+        con_minem = set(unidades["clave"])
+        geo = gpd.read_file(PROC / "distritos.geojson")
+        uo = ubicar_unidades_oefa(RUIAS_FILAS[~RUIAS_FILAS["clave"].isin(con_minem)], geo)
+        # Multas firmes: traen unidad y distrito
+        ya = con_minem | set(uo["clave"])
+        mfu = multas_out[~multas_out["clave"].isin(ya)].rename(columns={"empresa": "empresa"})
+        uo = pd.concat([uo, ubicar_por_lugar(mfu, geo, "OEFA, resoluciones con multa firme")], ignore_index=True)
+        # Ubicaciones buscadas a mano en fuentes públicas (data/raw/manual/)
+        man_ruta = RAW / "manual" / "ubicaciones_manuales.csv"
+        if man_ruta.exists():
+            man = pd.read_csv(man_ruta)
+            mapa_man = U.agregar("Ubicación buscada en fuentes públicas", man["empresa"].unique().tolist(), crear=False)
+            man["clave"] = man["empresa"].map(mapa_man)
+            faltan = man[man["clave"].isna()]
+            if len(faltan):
+                print("  manual sin empresa en el escáner:", faltan["empresa"].tolist())
+            ya = con_minem | set(uo["clave"])
+            uo = pd.concat([uo, ubicar_por_lugar(man[man["clave"].notna() & ~man["clave"].isin(ya)], geo, "manual")],
+                           ignore_index=True)
+        con_id(uo).to_csv(PROC / "empresa_unidades_oefa.csv", index=False)
+        print(f"Unidades OEFA (ubicación aproximada): {len(uo)} de {uo['clave'].nunique()} empresas sin unidades del MINEM.")
 
     aprox = sum(a["coincidencia"] == "aproximada" for a in U.alias)
     print(f"Empresas: {len(resumen)} | alias: {len(U.alias)} ({aprox} aproximados)")
@@ -219,6 +249,7 @@ def sin_tildes_col(s: pd.Series) -> pd.Series:
 
 
 ANUARIO = RAW / "minem" / "anuario_minero_2025_anexos.xlsx"
+RUIAS_FILAS: pd.DataFrame | None = None
 DEPARTAMENTOS = {
     "AMAZONAS", "ANCASH", "APURIMAC", "AREQUIPA", "AYACUCHO", "CAJAMARCA", "CALLAO", "CUSCO", "HUANCAVELICA",
     "HUANUCO", "ICA", "JUNIN", "LA LIBERTAD", "LAMBAYEQUE", "LIMA", "LORETO", "MADRE DE DIOS", "MOQUEGUA",
@@ -290,7 +321,7 @@ def cargar_inversion(U: Universo) -> pd.DataFrame | None:
     filas = []
     for _, r in df.iloc[4:].iterrows():
         nombre = r[1]
-        if isinstance(nombre, str) and nombre.strip() and not nombre.upper().startswith(("TOTAL", "OTROS")):
+        if isinstance(nombre, str) and nombre.strip() and not nombre.upper().startswith(("TOTAL", "OTROS", "OTRAS")):
             filas.append({"empresa": sin_nota(nombre), "inversion_2024_usd": pd.to_numeric(r[2], errors="coerce"),
                           "inversion_2025_usd": pd.to_numeric(r[3], errors="coerce")})
     inv = pd.DataFrame(filas).dropna(subset=["inversion_2025_usd"])
@@ -368,6 +399,70 @@ def guardar_exportaciones() -> None:
     print(f"Exportaciones metálicas 2025: US$ {resumen['metalicas_musd']:,.0f} millones.")
 
 
+def ubicar_unidades_oefa(r: pd.DataFrame, distritos) -> pd.DataFrame:
+    """Unidades fiscalizadas por el OEFA (RUIAS) ubicadas en el centro de su distrito.
+
+    Complementa la lista del MINEM, que no trae a muchas empresas. La ubicación es
+    aproximada: el RUIAS da el distrito, no coordenadas.
+    """
+    import geopandas as gpd
+
+    d = distritos.copy()
+    d["lugar"] = [lugar(*x) for x in d[["NOMBDEP", "NOMBPROV", "NOMBDIST"]].values]
+    centros = d.to_crs("EPSG:32718").geometry.centroid.to_crs("EPSG:4326")
+    d["LATITUD"], d["LONGITUD"] = centros.y, centros.x
+    d = d.set_index("lugar")
+
+    u = r[(r["NOMBRE_UNIDAD_FISCALIZABLE"].fillna("-") != "-") & (r["DISTRITO"].fillna("-") != "-")]
+    u = u.drop_duplicates(["clave", "NOMBRE_UNIDAD_FISCALIZABLE"])
+    filas = []
+    for _, x in u.iterrows():
+        dists = [t.strip() for t in str(x["DISTRITO"]).split(",") if t.strip()]
+        deps = [t.strip() for t in str(x["DEPARTAMENTO"]).split(",") if t.strip()]
+        provs = [t.strip() for t in str(x["PROVINCIA"]).split(",") if t.strip()]
+        # Si declara varios departamentos o provincias, se usa la primera combinación que existe
+        candidatos = [lugar(dp, pv, ds) for ds in dists for dp in deps for pv in provs]
+        lug = next((c for c in candidatos if c in d.index), None)
+        if lug is None:
+            continue
+        g = d.loc[lug]
+        dists = [lug.split("|")[2].title()] + [t for t in dists if sin_tildes(t).upper() != lug.split("|")[2]]
+        filas.append({
+            "clave": x["clave"], "unidad": str(x["NOMBRE_UNIDAD_FISCALIZABLE"]).upper(),
+            "titular": x["NOMBRE_ADMINISTRADO"], "region": lug.split("|")[0],
+            "provincia": lug.split("|")[1], "distrito": lug.split("|")[2],
+            "distritos_oefa": ", ".join(dists), "IDDIST": g["IDDIST"], "pobreza": g["pobreza"],
+            "LATITUD": g["LATITUD"], "LONGITUD": g["LONGITUD"],
+            "fuente_ubicacion": "OEFA, Registro Único de Infractores Ambientales Sancionados", "fuente_url": "",
+        })
+    return pd.DataFrame(filas)
+
+
+def ubicar_por_lugar(filas: pd.DataFrame, distritos, fuente: str) -> pd.DataFrame:
+    """Ubica unidades con departamento, provincia y distrito (multas firmes o lista manual)."""
+    d = distritos.copy()
+    d["lugar"] = [lugar(*x) for x in d[["NOMBDEP", "NOMBPROV", "NOMBDIST"]].values]
+    centros = d.to_crs("EPSG:32718").geometry.centroid.to_crs("EPSG:4326")
+    d["LATITUD"], d["LONGITUD"] = centros.y, centros.x
+    d = d.set_index("lugar")
+    out = []
+    for _, x in filas.iterrows():
+        lug = lugar(x["departamento"], x["provincia"], x["distrito"])
+        if lug not in d.index:
+            print(f"  sin distrito en el mapa: {x['unidad']} ({lug})")
+            continue
+        g = d.loc[lug]
+        out.append({
+            "clave": x["clave"], "unidad": str(x["unidad"]).upper(), "titular": x["empresa"],
+            "region": lug.split("|")[0], "provincia": lug.split("|")[1], "distrito": lug.split("|")[2],
+            "distritos_oefa": None, "IDDIST": g["IDDIST"], "pobreza": g["pobreza"],
+            "LATITUD": g["LATITUD"], "LONGITUD": g["LONGITUD"],
+            "fuente_ubicacion": x.get("nota") if fuente == "manual" else fuente,
+            "fuente_url": x.get("fuente_url", "") if isinstance(x.get("fuente_url"), str) else "",
+        })
+    return pd.DataFrame(out).drop_duplicates(["clave", "unidad"]) if out else pd.DataFrame()
+
+
 def cargar_ruias(U: Universo) -> pd.DataFrame | None:
     """RUIAS: historial de sanciones, una fila por expediente.
 
@@ -379,12 +474,16 @@ def cargar_ruias(U: Universo) -> pd.DataFrame | None:
         print("RUIAS: no está (data/raw/oefa/oefa_ruias.csv). Se omite.")
         return None
     r = pd.read_csv(ruta, sep=None, engine="python", encoding="utf-8-sig", dtype=str)
-    mineras_ruc = set(r.loc[r["SUBSECTOR_ECONOMICO"].fillna("").str.contains("Miner"), "ID_DOC_ADMINISTRADO"])
+    mineras_ruc = set(r.loc[r["SUBSECTOR_ECONOMICO"].fillna("").str.contains("Miner")
+                            | r["NOMBRE_ADMINISTRADO"].fillna("").str.contains(r"MINER|MINING|MINAS", case=False),
+                            "ID_DOC_ADMINISTRADO"])
     r = r[r["ID_DOC_ADMINISTRADO"].isin(mineras_ruc) & ~r["NOMBRE_ADMINISTRADO"].map(es_estado)].copy()
     nombres = r.drop_duplicates("ID_DOC_ADMINISTRADO")
     mapa = U.agregar("OEFA RUIAS", nombres["NOMBRE_ADMINISTRADO"].tolist(),
                      ruc=dict(zip(nombres["NOMBRE_ADMINISTRADO"], nombres["ID_DOC_ADMINISTRADO"])))
     r["clave"] = r["NOMBRE_ADMINISTRADO"].map(mapa)
+    global RUIAS_FILAS
+    RUIAS_FILAS = r.copy()
     r["uit"] = pd.to_numeric(r["MULTA_EXPEDIENTE"].str.replace(",", "."), errors="coerce")
     r["fecha"] = pd.to_datetime(r["FECHA_RD"], format="%Y%m%d", errors="coerce")
     exp = (

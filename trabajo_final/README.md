@@ -171,6 +171,14 @@ Manolo, y el criterio de mostrar el método del cruce y no inventar cifras.
   incluida la pequeña minería en proceso de formalización (REINFO), queda fuera: no
   aparece en estos registros con nombre de empresa.
 
+- **Ubicación de las unidades:** la lista del MINEM con coordenadas (dataset del curso)
+  tiene 142 unidades y deja fuera a muchas empresas. Para otras 123 empresas el escáner
+  ubica sus unidades en el centro de su distrito, a partir del OEFA (RUIAS y multas
+  firmes) o, para siete productoras grandes, de fuentes públicas citadas una por una en
+  `data/raw/manual/ubicaciones_manuales.csv` (círculos amarillos en el mapa). 13 de 235
+  empresas siguen sin ubicación; ninguna declaró producción en 2025.
+- **Cambios de razón social:** se unen los nombres antiguos y actuales que documenta el
+  Anuario Minero 2025 (por ejemplo, Alpayana → Sobreandes; Milpo → Nexa Resources Perú).
 - **Cruce por nombre:** la lista de unidades del MINEM no trae RUC. Las coincidencias
   se muestran en la pestaña «Cómo se cruzó» de cada perfil.
 - **Cobertura:** las multas firmes cubren 2024–2025; el RUIAS, 2017–2023; las obras por

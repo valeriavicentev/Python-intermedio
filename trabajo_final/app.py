@@ -236,7 +236,7 @@ if not elegida or elegida not in set(E["empresa_id"]):
     arriba = st.empty()  # el contador se llena cuando ya se conoce el filtro
     st.markdown('<div class="marca" style="margin-top:.6rem;">Escáner Minero</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="bajada">Esta es una radiografía de la actividad minera en el Perú. Busca a una empresa '
+        '<div class="bajada">Esta es una radiografía de la actividad minera formal en el Perú. Busca a una empresa '
         "para saber si opera en el país, dónde se encuentran sus unidades de producción y el nivel de pobreza "
         "de la zona. También puedes conocer si tiene sanciones del "
         "Organismo de Evaluación y Fiscalización Ambiental (OEFA), "
@@ -269,22 +269,32 @@ if not elegida or elegida not in set(E["empresa_id"]):
         col_mapa, col_expo = st.columns([2.2, 1], gap="large")
         with col_mapa:
             uds = B.unidades[B.unidades["empresa_id"].isin(E["empresa_id"])]
-            clic = st_folium(M.mapa_calor(uds, produccion_html()), height=540, use_container_width=True,
-                             returned_objects=["last_object_clicked"], key=f"calor-{len(uds)}")
+            aprox = (B.unidades_oefa[B.unidades_oefa["empresa_id"].isin(E["empresa_id"])]
+                     if B.unidades_oefa is not None else pd.DataFrame())
+            clic = st_folium(M.mapa_calor(uds, produccion_html(), aprox), height=540, use_container_width=True,
+                             returned_objects=["last_object_clicked"], key=f"calor-{len(uds)}-{len(aprox)}")
             punto = (clic or {}).get("last_object_clicked")
-            if punto:
+            todas = pd.concat([uds.assign(aproximada=False), aprox.assign(aproximada=True, producto="")],
+                              ignore_index=True)
+            if punto and len(todas):
+                uds = todas
                 d = (uds["LATITUD"] - punto["lat"]).abs() + (uds["LONGITUD"] - punto["lng"]).abs()
                 u = uds.loc[d.idxmin()]
                 if d.min() < 0.01:
                     a1, a2 = st.columns([3, 1])
                     a1.markdown(f"**{u['unidad']}** · {u['titular']}  \n"
                                 f"Distrito {str(u['distrito']).title()}, provincia {str(u['provincia']).title()}, "
-                                f"región {str(u['region']).title()} · {', '.join(minerales(u['producto']))}")
+                                f"región {str(u['region']).title()}"
+                                + (" · ubicación aproximada" if u["aproximada"]
+                                   else f" · {', '.join(minerales(u['producto']))}"))
                     a2.button("Ver empresa", on_click=ir_a, args=(u["empresa_id"],), key="desde-mapa",
                               use_container_width=True)
             st.caption("Haz zoom para ubicar cada unidad y pasa el cursor sobre un punto para ver su ficha. "
                        "Al hacer clic, aparece aquí abajo el botón para abrir la empresa. "
-                       "El calor muestra dónde se concentran las unidades en producción (MINEM).")
+                       "El calor muestra dónde se concentran las unidades en producción del MINEM (puntos rojos). "
+                       "Los círculos amarillos son unidades de empresas que no están en esa lista, ubicadas en el "
+                       "centro de su distrito según el OEFA (sanciones y multas) o, para algunas productoras, según "
+                       "fuentes públicas citadas en su ficha.")
         with col_expo:
             x = exportaciones()
             if x:
@@ -346,10 +356,11 @@ if f["minerales"]:
 st.write("")
 
 k = st.columns(6)
-k[0].metric("Unidades mineras", len(p.unidades))
+UB = p.ubicaciones
+k[0].metric("Unidades mineras", len(UB))
 k[1].metric(
     "Pobreza media donde opera",
-    "—" if p.unidades["pobreza"].dropna().empty else f"{p.unidades['pobreza'].mean():.1f} %",
+    "—" if UB.empty or UB["pobreza"].dropna().empty else f"{UB['pobreza'].mean():.1f} %",
 )
 k[2].metric("Multas firmes", soles(p.multas["multa_soles"].sum()) if not p.multas.empty else "0")
 k[3].metric("Expedientes OEFA", len(p.ruias))
@@ -402,31 +413,45 @@ with t_prod:
                    "no solo por esta empresa. Fuente: MEF e INGEMMET, vía Anuario Minero 2025.")
 
 with t_op:
-    if p.unidades.empty:
-        st.info("Esta empresa no tiene unidades en la lista de unidades mineras en producción del MINEM usada aquí.")
+    if UB.empty:
+        st.info("No encontramos dónde opera esta empresa: no está en la lista de unidades en producción del MINEM "
+                "usada aquí ni tiene unidades con distrito en el registro de sanciones del OEFA. "
+                "Aparece en el escáner por otras fuentes (por ejemplo, su producción declarada al MINEM).")
     else:
+        aproximada = bool(UB["aproximada"].iloc[0])
         D = distritos()
-        deps = set(p.unidades["region"].str.upper())
+        deps = set(UB["region"].str.upper())
         vista = D[D["NOMBDEP"].isin(deps)]
         col_m, col_t = st.columns([1.5, 1], gap="large")
         with col_m:
-            st_folium(M.construir(vista, p.unidades, None, encuadrar=True), height=460,
+            st_folium(M.construir(vista, UB, None, encuadrar=True), height=460,
                       use_container_width=True, returned_objects=[], key=f"mapa-{elegida}")
         with col_t:
-            tabla = p.unidades.assign(
-                Distrito=p.unidades["distrito"].str.title(),
-                Región=p.unidades["region"].str.title(),
-                Ubicación=p.unidades["punto_coincide"].map({True: "coincide", False: "por verificar"}),
-            )[["unidad", "Distrito", "Región", "producto", "pobreza", "Ubicación"]]
+            if aproximada:
+                tabla = UB.assign(Distrito=UB["distrito"].str.title(), Provincia=UB["provincia"].str.title(),
+                                  Región=UB["region"].str.title())[["unidad", "Distrito", "Provincia", "Región", "pobreza"]]
+            else:
+                tabla = UB.assign(
+                    Distrito=UB["distrito"].str.title(), Región=UB["region"].str.title(),
+                    Ubicación=UB["punto_coincide"].map({True: "coincide", False: "por verificar"}),
+                )[["unidad", "Distrito", "Región", "producto", "pobreza", "Ubicación"]]
             st.dataframe(
                 tabla.rename(columns={"unidad": "Unidad", "producto": "Producto", "pobreza": "Pobreza (%)"}),
                 hide_index=True, use_container_width=True,
                 column_config={"Pobreza (%)": st.column_config.ProgressColumn(format="%.1f", min_value=0, max_value=100)},
             )
-            st.caption(
-                "Pobreza monetaria del distrito (INEI). «Por verificar»: las coordenadas del registro "
-                "caen fuera del distrito que declara su UBIGEO."
-            )
+            if aproximada:
+                fuentes = sorted({str(x) for x in UB["fuente_ubicacion"].dropna()})
+                urls = sorted({str(x) for x in UB.get("fuente_url", pd.Series(dtype=str)).dropna() if str(x).startswith("http")})
+                st.caption("Esta empresa no está en la lista de unidades en producción del MINEM. Sabemos el distrito "
+                           "pero no las coordenadas: cada punto está en el centro del distrito. Fuente de la ubicación: "
+                           + "; ".join(fuentes) + ". Pobreza monetaria del distrito (INEI).")
+                for u_ in urls:
+                    st.markdown(f"<span class='nota'>Fuente: <a href='{u_}' target='_blank'>{u_}</a></span>",
+                                unsafe_allow_html=True)
+            else:
+                st.caption("Pobreza monetaria del distrito (INEI). «Por verificar»: las coordenadas del registro "
+                           "caen fuera del distrito que declara su UBIGEO.")
 
 with t_san:
     st.markdown("##### Multas firmes (OEFA, 2024–2025)")

@@ -13,6 +13,7 @@
 | `oxi/oxi_ranking_empresas.xlsx` | Ranking de empresas por monto invertido en OxI 2009–2025, con RUC | ProInversión, descarga manual |
 | `oxi/oxi_convocatorias_20261110.xlsx` | Convocatorias OxI en proceso y adjudicadas (sin empresa financista; no se usa en el cruce) | ProInversión, descarga manual |
 | `minem/anuario_minero_2025_anexos.xlsx` | Anexos del Anuario Minero 2025: producción por empresa (cobre, oro, zinc, plata, plomo, molibdeno, hierro, estaño), inversión por empresa y transferencias de canon, regalías y derecho de vigencia por departamento | MINEM, descarga manual |
+| `manual/ubicaciones_manuales.csv` | Distrito de siete productoras que no están en la lista del MINEM ni tienen distrito en el OEFA, con la fuente pública de cada una | Búsqueda propia |
 | `defensoria/reporte_conflictos_268.pdf` … `270.pdf` | Reportes mensuales de conflictos sociales (julio a agosto 2026) | [Defensoría del Pueblo](https://www.defensoria.gob.pe/categorias_de_documentos/reportes/), con `scripts/descargar_datos.py` |
 
 ## Procesados (data/processed/)
