@@ -1,9 +1,9 @@
 # Escáner Minero · Gallo Negro
 
-**Un buscador para que periodistas y comunidades escriban el nombre de una empresa
-minera y vean, en una sola ficha, dónde opera, cómo viven esos distritos, cómo la
-sancionó el OEFA, qué obras financió por Obras por Impuestos y en qué conflictos
-sociales aparece.**
+**Una radiografía de la actividad minera en el Perú: escribe el nombre de una empresa y
+mira en una sola ficha qué produce y cuánto pesa en la producción nacional, dónde
+opera, cómo viven esos distritos, el canon que reciben esas regiones, cómo la sancionó
+el OEFA, qué obras financió por Obras por Impuestos y en qué conflictos sociales aparece.**
 
 > Demo: **[https://escaner-minero-peru.streamlit.app/](https://escaner-minero-peru.streamlit.app/)**
 > Video de respaldo: `PENDIENTE: enlace al video de 60 a 90 segundos`
@@ -21,10 +21,11 @@ investigar a una empresa antes de salir a campo.
 
 ## 2. Problema
 
-Para saber quién es una empresa minera hoy hay que abrir cinco portales que no se
-hablan entre sí: el MINEM para sus unidades, el INEI para la pobreza de esos distritos,
-el OEFA para sus sanciones, ProInversión para sus obras por impuestos y la Defensoría
-del Pueblo para los conflictos, este último en PDF de cien páginas. Ninguno usa el mismo
+Para saber quién es una empresa minera hoy hay que abrir seis portales que no se
+hablan entre sí: el MINEM para sus unidades y su producción, el INEI para la pobreza de
+esos distritos, el MEF para el canon, el OEFA para sus sanciones, ProInversión para sus
+obras por impuestos y la Defensoría del Pueblo para los conflictos, este último en PDF
+de cien páginas. Ninguno usa el mismo
 identificador: el mismo titular aparece como «CIA MINERA PODEROSA S A» en una fuente y
 «COMPAÑÍA MINERA PODEROSA S.A.» en otra.
 
@@ -39,11 +40,12 @@ investigación previa o reportajes sin contexto.
 Inspirado en [Suprema Fortuna](https://supremafortuna.ojo-publico.com/) de Ojo Público y
 en [Manolo](https://github.com/manolo-rocks), el escáner hace tres cosas:
 
-1. **Busca** por nombre o RUC entre 218 empresas mineras.
-2. **Reúne** en una ficha por empresa, con enlace propio para compartir: unidades en el
-   mapa con la pobreza de su distrito, multas firmes y expedientes del OEFA, obras por
-   impuestos (marcando las que caen donde opera) y fragmentos de los reportes de
-   conflictos con enlace al original.
+1. **Busca** por nombre o RUC entre 232 empresas mineras, y filtra por mineral.
+2. **Reúne** en una ficha por empresa, con enlace propio para compartir: minerales que
+   produce y su participación en la producción nacional 2025, inversión minera, unidades
+   en el mapa con la pobreza de su distrito, canon y regalías de los departamentos donde
+   opera, multas firmes y expedientes del OEFA, obras por impuestos (marcando las que
+   caen donde opera) y fragmentos de los reportes de conflictos con enlace al original.
 3. **Propone una pauta**: Gemini lee solo los registros de esa empresa y devuelve una
    ficha estructurada (titular, pregunta, datos con fuente, actores, preguntas de
    entrevista, lo que falta verificar). Un verificador revisa que cada cifra exista en
@@ -53,9 +55,9 @@ en [Manolo](https://github.com/manolo-rocks), el escáner hace tres cosas:
 común solo es confiable si es transparente: cada perfil muestra con qué nombre aparece la
 empresa en cada fuente y si se unió por RUC o por nombre.
 
-| Búsqueda | Perfil | Obras por Impuestos | Conflictos |
-|---|---|---|---|
-| ![](docs/img/02_busqueda.png) | ![](docs/img/03_perfil.png) | ![](docs/img/05_obras.png) | ![](docs/img/06_conflictos.png) |
+| Búsqueda | Perfil | Producción y canon | Obras por Impuestos | Conflictos |
+|---|---|---|---|---|
+| ![](docs/img/02_busqueda.png) | ![](docs/img/03_perfil.png) | ![](docs/img/04_produccion.png) | ![](docs/img/05_obras.png) | ![](docs/img/06_conflictos.png) |
 
 ## 4. ¿Por qué ahora?
 
@@ -103,6 +105,7 @@ desde sus portales (ver [`data/README.md`](data/README.md)).
 flowchart LR
     subgraph Fuentes
       A[MINEM<br/>unidades mineras]
+      M[MINEM Anuario 2025<br/>producción, inversión,<br/>canon por departamento]
       B[INEI<br/>pobreza distrital]
       C[OEFA<br/>multas firmes + RUIAS]
       D[ProInversión<br/>obras por impuestos]
@@ -110,7 +113,7 @@ flowchart LR
     end
     E -->|descargar_datos.py<br/>raspador| E2[PDF locales]
     A & B --> G[preparar_datos.py<br/>GeoPandas: spatial join<br/>y radios de 20 km]
-    G & C & D & E2 --> X[preparar_empresas.py<br/>cruce por RUC o nombre normalizado<br/>+ búsqueda en el texto de los PDF]
+    G & C & D & E2 & M --> X[preparar_empresas.py<br/>cruce por RUC o nombre normalizado<br/>+ búsqueda en el texto de los PDF]
     X --> P[(data/processed)]
     P --> APP[app.py · Streamlit]
     APP --> S[Búsqueda]
@@ -173,6 +176,9 @@ Manolo, y el criterio de mostrar el método del cruce y no inventar cifras.
   fragmentos son pistas y cada uno enlaza al reporte original.
 - **Obras por Impuestos:** el monto es el total de cada obra, aunque se haya financiado
   en consorcio.
+- **Producción y canon:** la producción 2025 del Anuario Minero es preliminar y cubre
+  ocho metales. El canon y las regalías son del departamento entero, por toda su
+  actividad minera, no de una sola empresa.
 - Ningún registro prueba responsabilidad: el escáner muestra cruces para verificar.
 
 ## Licencia

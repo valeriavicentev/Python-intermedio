@@ -38,3 +38,10 @@ def test_verificador_marca_cifras_inventadas():
     ficha = P.generar_sin_ia(p)
     ficha.datos_clave.append(P.DatoClave(dato="Contaminó 4 321 hectáreas.", fuente="F3"))
     assert P.verificar(ficha, p)
+
+
+def test_produccion_y_canon_del_anuario():
+    p = B.perfil(B.buscar("bambas")["empresa_id"].iloc[0])
+    cobre = p.produccion[(p.produccion["metal"] == "cobre") & (p.produccion["anio"] == 2025)]
+    assert 0.1 < cobre["participacion"].iloc[0] < 0.2
+    assert "APURIMAC" in set(p.transferencias_donde_opera()["departamento"])

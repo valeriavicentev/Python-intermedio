@@ -1,0 +1,751 @@
+departamento,concepto,anio,soles
+AMAZONAS,canon minero,2016,14.990000000000009
+AMAZONAS,canon minero,2017,0.0
+AMAZONAS,canon minero,2018,0.0
+AMAZONAS,canon minero,2019,6.95
+AMAZONAS,canon minero,2020,2053.7999999999993
+AMAZONAS,canon minero,2021,66.22999999999999
+AMAZONAS,canon minero,2022,445.46
+AMAZONAS,canon minero,2023,561.7099999999992
+AMAZONAS,canon minero,2024,442.12000000000035
+AMAZONAS,canon minero,2025,742.0500000000005
+ANCASH,canon minero,2016,313663812.89999986
+ANCASH,canon minero,2017,494474963.6800001
+ANCASH,canon minero,2018,1085384780.1800008
+ANCASH,canon minero,2019,1031284773.3799993
+ANCASH,canon minero,2020,762972221.6799995
+ANCASH,canon minero,2021,848977061.2400001
+ANCASH,canon minero,2022,2086366169.0300007
+ANCASH,canon minero,2023,1405742153.3799996
+ANCASH,canon minero,2024,1225744176.8799996
+ANCASH,canon minero,2025,1346249640.0400002
+APURIMAC,canon minero,2016,3207066.3199999984
+APURIMAC,canon minero,2017,16469485.630000003
+APURIMAC,canon minero,2018,11708222.229999999
+APURIMAC,canon minero,2019,12646510.309999999
+APURIMAC,canon minero,2020,17097515.37
+APURIMAC,canon minero,2021,5899825.1000000015
+APURIMAC,canon minero,2022,316473680.73999983
+APURIMAC,canon minero,2023,119689152.0
+APURIMAC,canon minero,2024,158176840.79999992
+APURIMAC,canon minero,2025,393862069.2300001
+AREQUIPA,canon minero,2016,21985207.26999999
+AREQUIPA,canon minero,2017,258608519.86999997
+AREQUIPA,canon minero,2018,531759344.5599998
+AREQUIPA,canon minero,2019,409620300.06999993
+AREQUIPA,canon minero,2020,248719168.84999993
+AREQUIPA,canon minero,2021,215808290.17000002
+AREQUIPA,canon minero,2022,1118649480.3899999
+AREQUIPA,canon minero,2023,858603333.44
+AREQUIPA,canon minero,2024,954970474.4900001
+AREQUIPA,canon minero,2025,1035984771.22
+AYACUCHO,canon minero,2016,15023096.520000007
+AYACUCHO,canon minero,2017,10813574.669999998
+AYACUCHO,canon minero,2018,32699667.589999996
+AYACUCHO,canon minero,2019,20710318.759999998
+AYACUCHO,canon minero,2020,54078141.35999999
+AYACUCHO,canon minero,2021,71708375.74999997
+AYACUCHO,canon minero,2022,122562005.59999996
+AYACUCHO,canon minero,2023,76054465.52999999
+AYACUCHO,canon minero,2024,51744513.92000002
+AYACUCHO,canon minero,2025,82250532.3
+CAJAMARCA,canon minero,2016,259240025.0500001
+CAJAMARCA,canon minero,2017,213290981.32999992
+CAJAMARCA,canon minero,2018,137435110.45000005
+CAJAMARCA,canon minero,2019,129640244.66000003
+CAJAMARCA,canon minero,2020,219039733.00999993
+CAJAMARCA,canon minero,2021,274907427.99000007
+CAJAMARCA,canon minero,2022,299908188.6600002
+CAJAMARCA,canon minero,2023,168617298.01000002
+CAJAMARCA,canon minero,2024,145622747.08
+CAJAMARCA,canon minero,2025,349077826.5
+CALLAO,canon minero,2016,5134.92
+CALLAO,canon minero,2017,8256.16
+CALLAO,canon minero,2018,2401.3900000000003
+CALLAO,canon minero,2019,4502.23
+CALLAO,canon minero,2020,10984.09
+CALLAO,canon minero,2021,40343.880000000005
+CALLAO,canon minero,2022,166297.11
+CALLAO,canon minero,2023,242359.59999999998
+CALLAO,canon minero,2024,1081.55
+CALLAO,canon minero,2025,558.11
+CUSCO,canon minero,2016,49043314.48000001
+CUSCO,canon minero,2017,81305449.94000003
+CUSCO,canon minero,2018,211561342.27999997
+CUSCO,canon minero,2019,227958678.30999994
+CUSCO,canon minero,2020,221747391.53
+CUSCO,canon minero,2021,239167040.05
+CUSCO,canon minero,2022,519763813.0400001
+CUSCO,canon minero,2023,232575250.8
+CUSCO,canon minero,2024,369214305.4800001
+CUSCO,canon minero,2025,398520376.25999993
+HUANCAVELICA,canon minero,2016,95516.82999999994
+HUANCAVELICA,canon minero,2017,980189.5000000001
+HUANCAVELICA,canon minero,2018,2789100.56
+HUANCAVELICA,canon minero,2019,2264132.05
+HUANCAVELICA,canon minero,2020,3445190.349999998
+HUANCAVELICA,canon minero,2021,2202516.1500000004
+HUANCAVELICA,canon minero,2022,4975895.869999999
+HUANCAVELICA,canon minero,2023,5854078.390000001
+HUANCAVELICA,canon minero,2024,17189252.61
+HUANCAVELICA,canon minero,2025,39963858.69999999
+HUANUCO,canon minero,2016,22759.97
+HUANUCO,canon minero,2017,3631134.7200000007
+HUANUCO,canon minero,2018,12422326.800000006
+HUANUCO,canon minero,2019,7546069.6
+HUANUCO,canon minero,2020,2381333.910000001
+HUANUCO,canon minero,2021,1161645.0
+HUANUCO,canon minero,2022,4263.4000000000015
+HUANUCO,canon minero,2023,3831.1499999999996
+HUANUCO,canon minero,2024,6851.029999999997
+HUANUCO,canon minero,2025,2613084.080000001
+ICA,canon minero,2016,56638874.04000001
+ICA,canon minero,2017,93245662.60000002
+ICA,canon minero,2018,166903539.21
+ICA,canon minero,2019,99776063.21000004
+ICA,canon minero,2020,177605902.90999997
+ICA,canon minero,2021,260483616.35999995
+ICA,canon minero,2022,827667762.9700003
+ICA,canon minero,2023,707485634.0299999
+ICA,canon minero,2024,644009684.2499999
+ICA,canon minero,2025,671547777.4300001
+JUNIN,canon minero,2016,25434253.29999999
+JUNIN,canon minero,2017,62385858.49999996
+JUNIN,canon minero,2018,138938998.34999996
+JUNIN,canon minero,2019,106827611.59000002
+JUNIN,canon minero,2020,34468898.82
+JUNIN,canon minero,2021,53934215.04999999
+JUNIN,canon minero,2022,306762241.19000006
+JUNIN,canon minero,2023,209960498.38
+JUNIN,canon minero,2024,133376360.53999999
+JUNIN,canon minero,2025,248667379.20000005
+LA LIBERTAD,canon minero,2016,253360992.87
+LA LIBERTAD,canon minero,2017,254956497.04999998
+LA LIBERTAD,canon minero,2018,259096897.83
+LA LIBERTAD,canon minero,2019,223779154.97999993
+LA LIBERTAD,canon minero,2020,173015567.05000004
+LA LIBERTAD,canon minero,2021,208172795.80000007
+LA LIBERTAD,canon minero,2022,300867695.25999993
+LA LIBERTAD,canon minero,2023,227526375.12999997
+LA LIBERTAD,canon minero,2024,222786909.44999993
+LA LIBERTAD,canon minero,2025,359485809.40999997
+LAMBAYEQUE,canon minero,2016,4315.139999999999
+LAMBAYEQUE,canon minero,2017,6720.920000000003
+LAMBAYEQUE,canon minero,2018,5439.0700000000015
+LAMBAYEQUE,canon minero,2019,2607.8199999999997
+LAMBAYEQUE,canon minero,2020,1950.3700000000003
+LAMBAYEQUE,canon minero,2021,10425.669999999998
+LAMBAYEQUE,canon minero,2022,20996.690000000002
+LAMBAYEQUE,canon minero,2023,15132.730000000003
+LAMBAYEQUE,canon minero,2024,12134.760000000004
+LAMBAYEQUE,canon minero,2025,12308.73
+LIMA,canon minero,2016,41111915.069999956
+LIMA,canon minero,2017,75575204.48000011
+LIMA,canon minero,2018,101580341.20999993
+LIMA,canon minero,2019,105260682.24000004
+LIMA,canon minero,2020,71001110.25000001
+LIMA,canon minero,2021,64887353.60000001
+LIMA,canon minero,2022,156343275.23999992
+LIMA,canon minero,2023,97063111.16
+LIMA,canon minero,2024,61952658.94
+LIMA,canon minero,2025,139226672.66999996
+LORETO,canon minero,2016,0.0
+LORETO,canon minero,2017,0.0
+LORETO,canon minero,2018,0.0
+LORETO,canon minero,2019,0.0
+LORETO,canon minero,2020,554.11
+LORETO,canon minero,2021,534.7700000000001
+LORETO,canon minero,2022,496.4999999999999
+LORETO,canon minero,2023,449.83000000000004
+LORETO,canon minero,2024,2265.3199999999997
+LORETO,canon minero,2025,9253.75
+MADRE DE DIOS,canon minero,2016,582873.76
+MADRE DE DIOS,canon minero,2017,884570.4300000002
+MADRE DE DIOS,canon minero,2018,1462575.05
+MADRE DE DIOS,canon minero,2019,1546136.0499999998
+MADRE DE DIOS,canon minero,2020,2197856.73
+MADRE DE DIOS,canon minero,2021,3792919.7799999993
+MADRE DE DIOS,canon minero,2022,4454728.49
+MADRE DE DIOS,canon minero,2023,4016114.62
+MADRE DE DIOS,canon minero,2024,5118104.57
+MADRE DE DIOS,canon minero,2025,5835103.930000001
+MOQUEGUA,canon minero,2016,189395284.74
+MOQUEGUA,canon minero,2017,87391273.04000002
+MOQUEGUA,canon minero,2018,162314150.38
+MOQUEGUA,canon minero,2019,193952100.26999998
+MOQUEGUA,canon minero,2020,179542675.66000003
+MOQUEGUA,canon minero,2021,244039268.54
+MOQUEGUA,canon minero,2022,573944871.75
+MOQUEGUA,canon minero,2023,282174535.95
+MOQUEGUA,canon minero,2024,662778565.46
+MOQUEGUA,canon minero,2025,643520344.03
+PASCO,canon minero,2016,12959532.629999999
+PASCO,canon minero,2017,44307510.89999999
+PASCO,canon minero,2018,69258149.19
+PASCO,canon minero,2019,65758505.04
+PASCO,canon minero,2020,28264960.720000003
+PASCO,canon minero,2021,13171974.0
+PASCO,canon minero,2022,69778242.99
+PASCO,canon minero,2023,54159557.519999996
+PASCO,canon minero,2024,55804370.65000001
+PASCO,canon minero,2025,118613135.38000001
+PIURA,canon minero,2016,31623008.730000008
+PIURA,canon minero,2017,5204824.199999999
+PIURA,canon minero,2018,697580.3299999997
+PIURA,canon minero,2019,818638.2799999998
+PIURA,canon minero,2020,6200096.799999999
+PIURA,canon minero,2021,5767676.979999999
+PIURA,canon minero,2022,30381196.899999995
+PIURA,canon minero,2023,144050915.20999998
+PIURA,canon minero,2024,155764108.39000002
+PIURA,canon minero,2025,136214575.0899999
+PUNO,canon minero,2016,87174903.68999997
+PUNO,canon minero,2017,91418285.56999998
+PUNO,canon minero,2018,91765736.77000004
+PUNO,canon minero,2019,67626909.47999999
+PUNO,canon minero,2020,104601597.1
+PUNO,canon minero,2021,78994142.25
+PUNO,canon minero,2022,293937779.37000006
+PUNO,canon minero,2023,220979712.68000007
+PUNO,canon minero,2024,187059281.71999994
+PUNO,canon minero,2025,302475655.88
+SAN MARTIN,canon minero,2016,943407.7799999999
+SAN MARTIN,canon minero,2017,1055998.0299999998
+SAN MARTIN,canon minero,2018,1077439.94
+SAN MARTIN,canon minero,2019,1062264.6600000004
+SAN MARTIN,canon minero,2020,999648.5199999998
+SAN MARTIN,canon minero,2021,657888.7200000002
+SAN MARTIN,canon minero,2022,1438632.1599999992
+SAN MARTIN,canon minero,2023,1471791.250000001
+SAN MARTIN,canon minero,2024,1366103.3399999996
+SAN MARTIN,canon minero,2025,1820647.6200000003
+TACNA,canon minero,2016,177659542.19000003
+TACNA,canon minero,2017,94715680.08999999
+TACNA,canon minero,2018,166692977.56
+TACNA,canon minero,2019,219003987.89000002
+TACNA,canon minero,2020,341034251.1600001
+TACNA,canon minero,2021,387924184.32000005
+TACNA,canon minero,2022,840677621.76
+TACNA,canon minero,2023,437310674.52
+TACNA,canon minero,2024,526678580.04
+TACNA,canon minero,2025,716678093.0
+TUMBES,canon minero,2016,0.0
+TUMBES,canon minero,2017,46461.25
+TUMBES,canon minero,2018,22714.5
+TUMBES,canon minero,2019,26256.420000000002
+TUMBES,canon minero,2020,1116.0499999999997
+TUMBES,canon minero,2021,2371.0
+TUMBES,canon minero,2022,4407.67
+TUMBES,canon minero,2023,19.83
+TUMBES,canon minero,2024,684.7500000000001
+TUMBES,canon minero,2025,962.4
+UCAYALI,canon minero,2016,0.0
+UCAYALI,canon minero,2017,0.0
+UCAYALI,canon minero,2018,0.0
+UCAYALI,canon minero,2019,0.0
+UCAYALI,canon minero,2020,204.17
+UCAYALI,canon minero,2021,0.0
+UCAYALI,canon minero,2022,323.17
+UCAYALI,canon minero,2023,343.12000000000006
+UCAYALI,canon minero,2024,646.1099999999999
+UCAYALI,canon minero,2025,2230.25
+AMAZONAS,regalías mineras,2016,65.02000000000002
+AMAZONAS,regalías mineras,2017,66.57
+AMAZONAS,regalías mineras,2018,15.779999999999998
+AMAZONAS,regalías mineras,2019,496.6900000000003
+AMAZONAS,regalías mineras,2020,0.0
+AMAZONAS,regalías mineras,2021,0.0
+AMAZONAS,regalías mineras,2022,0.0
+AMAZONAS,regalías mineras,2023,0.0
+AMAZONAS,regalías mineras,2024,0.0
+AMAZONAS,regalías mineras,2025,0.0
+ANCASH,regalías mineras,2016,67873027.98999998
+ANCASH,regalías mineras,2017,253105686.56999993
+ANCASH,regalías mineras,2018,436969243.44
+ANCASH,regalías mineras,2019,289108548.65000015
+ANCASH,regalías mineras,2020,141873742.14999998
+ANCASH,regalías mineras,2021,619563981.9099998
+ANCASH,regalías mineras,2022,798463349.8699996
+ANCASH,regalías mineras,2023,356204712.3100001
+ANCASH,regalías mineras,2024,331287142.3500002
+ANCASH,regalías mineras,2025,412274524.6400002
+APURIMAC,regalías mineras,2016,97602573.13
+APURIMAC,regalías mineras,2017,299021879.33999974
+APURIMAC,regalías mineras,2018,262400716.7299999
+APURIMAC,regalías mineras,2019,205180204.41
+APURIMAC,regalías mineras,2020,224292334.49999985
+APURIMAC,regalías mineras,2021,381879177.25999993
+APURIMAC,regalías mineras,2022,255627741.18999994
+APURIMAC,regalías mineras,2023,356088789.54000014
+APURIMAC,regalías mineras,2024,317357742.93999976
+APURIMAC,regalías mineras,2025,474361141.8000002
+AREQUIPA,regalías mineras,2016,364284360.0999999
+AREQUIPA,regalías mineras,2017,254940364.47000003
+AREQUIPA,regalías mineras,2018,308562000.8699999
+AREQUIPA,regalías mineras,2019,589779087.0000001
+AREQUIPA,regalías mineras,2020,456368326.8099998
+AREQUIPA,regalías mineras,2021,1239119452.05
+AREQUIPA,regalías mineras,2022,324726355.44
+AREQUIPA,regalías mineras,2023,217137729.47
+AREQUIPA,regalías mineras,2024,197474783.64000005
+AREQUIPA,regalías mineras,2025,193112655.03
+AYACUCHO,regalías mineras,2016,14553544.04
+AYACUCHO,regalías mineras,2017,18670393.109999992
+AYACUCHO,regalías mineras,2018,20897868.690000005
+AYACUCHO,regalías mineras,2019,14951917.12
+AYACUCHO,regalías mineras,2020,14050203.010000002
+AYACUCHO,regalías mineras,2021,26887617.290000007
+AYACUCHO,regalías mineras,2022,25050601.439999998
+AYACUCHO,regalías mineras,2023,18726605.330000006
+AYACUCHO,regalías mineras,2024,22080482.780000005
+AYACUCHO,regalías mineras,2025,33466667.819999993
+CAJAMARCA,regalías mineras,2016,41966269.260000005
+CAJAMARCA,regalías mineras,2017,43408346.93
+CAJAMARCA,regalías mineras,2018,40466660.56
+CAJAMARCA,regalías mineras,2019,44445044.38999999
+CAJAMARCA,regalías mineras,2020,64230825.64000001
+CAJAMARCA,regalías mineras,2021,109079291.27
+CAJAMARCA,regalías mineras,2022,72829337.92
+CAJAMARCA,regalías mineras,2023,57746406.000000015
+CAJAMARCA,regalías mineras,2024,67294789.36999999
+CAJAMARCA,regalías mineras,2025,211354188.56999996
+CALLAO,regalías mineras,2016,0.0
+CALLAO,regalías mineras,2017,0.0
+CALLAO,regalías mineras,2018,0.0
+CALLAO,regalías mineras,2019,0.0
+CALLAO,regalías mineras,2020,0.0
+CALLAO,regalías mineras,2021,0.0
+CALLAO,regalías mineras,2022,0.0
+CALLAO,regalías mineras,2023,0.0
+CALLAO,regalías mineras,2024,0.0
+CALLAO,regalías mineras,2025,0.0
+CUSCO,regalías mineras,2016,113826598.11999997
+CUSCO,regalías mineras,2017,133946565.97000001
+CUSCO,regalías mineras,2018,162616331.24999997
+CUSCO,regalías mineras,2019,133465439.31
+CUSCO,regalías mineras,2020,112395727.99999997
+CUSCO,regalías mineras,2021,230283167.26999998
+CUSCO,regalías mineras,2022,177704433.04999992
+CUSCO,regalías mineras,2023,179604903.09000003
+CUSCO,regalías mineras,2024,187131815.29000002
+CUSCO,regalías mineras,2025,171580365.04000002
+HUANCAVELICA,regalías mineras,2016,5115195.51
+HUANCAVELICA,regalías mineras,2017,4942204.27
+HUANCAVELICA,regalías mineras,2018,5145003.589999999
+HUANCAVELICA,regalías mineras,2019,4912752.090000001
+HUANCAVELICA,regalías mineras,2020,3472204.84
+HUANCAVELICA,regalías mineras,2021,4532646.41
+HUANCAVELICA,regalías mineras,2022,5391846.2
+HUANCAVELICA,regalías mineras,2023,6012225.629999998
+HUANCAVELICA,regalías mineras,2024,8996058.739999998
+HUANCAVELICA,regalías mineras,2025,12358484.789999995
+HUANUCO,regalías mineras,2016,2101637.0300000003
+HUANUCO,regalías mineras,2017,4617777.360000003
+HUANUCO,regalías mineras,2018,8015600.680000001
+HUANUCO,regalías mineras,2019,2870467.6599999988
+HUANUCO,regalías mineras,2020,1864809.4
+HUANUCO,regalías mineras,2021,0.0
+HUANUCO,regalías mineras,2022,125412.68000000004
+HUANUCO,regalías mineras,2023,2106458.579999999
+HUANUCO,regalías mineras,2024,3257053.2299999986
+HUANUCO,regalías mineras,2025,4145652.59
+ICA,regalías mineras,2016,10621980.54
+ICA,regalías mineras,2017,21840925.919999998
+ICA,regalías mineras,2018,13181073.239999998
+ICA,regalías mineras,2019,29300948.29
+ICA,regalías mineras,2020,51528132.05
+ICA,regalías mineras,2021,272944531.11
+ICA,regalías mineras,2022,467162152.86
+ICA,regalías mineras,2023,246166941.66000003
+ICA,regalías mineras,2024,220533003.36000004
+ICA,regalías mineras,2025,202851631.75000003
+JUNIN,regalías mineras,2016,25115197.12999999
+JUNIN,regalías mineras,2017,30075847.44999999
+JUNIN,regalías mineras,2018,37912818.02
+JUNIN,regalías mineras,2019,27545624.259999998
+JUNIN,regalías mineras,2020,18080641.159999993
+JUNIN,regalías mineras,2021,32102053.259999998
+JUNIN,regalías mineras,2022,44296491.93999998
+JUNIN,regalías mineras,2023,32119949.20999999
+JUNIN,regalías mineras,2024,30898164.200000003
+JUNIN,regalías mineras,2025,42780700.579999976
+LA LIBERTAD,regalías mineras,2016,39987757.650000006
+LA LIBERTAD,regalías mineras,2017,52505431.34000001
+LA LIBERTAD,regalías mineras,2018,40977897.54999998
+LA LIBERTAD,regalías mineras,2019,38349044.24999999
+LA LIBERTAD,regalías mineras,2020,54018026.13000001
+LA LIBERTAD,regalías mineras,2021,65012466.04
+LA LIBERTAD,regalías mineras,2022,61343585.300000004
+LA LIBERTAD,regalías mineras,2023,58411229.12000002
+LA LIBERTAD,regalías mineras,2024,67265890.80000001
+LA LIBERTAD,regalías mineras,2025,92052510.13000004
+LAMBAYEQUE,regalías mineras,2016,0.0
+LAMBAYEQUE,regalías mineras,2017,0.0
+LAMBAYEQUE,regalías mineras,2018,0.0
+LAMBAYEQUE,regalías mineras,2019,0.0
+LAMBAYEQUE,regalías mineras,2020,0.0
+LAMBAYEQUE,regalías mineras,2021,2300842.2099999995
+LAMBAYEQUE,regalías mineras,2022,2168900.0199999996
+LAMBAYEQUE,regalías mineras,2023,2168901.7700000005
+LAMBAYEQUE,regalías mineras,2024,2198571.5199999996
+LAMBAYEQUE,regalías mineras,2025,790652.63
+LIMA,regalías mineras,2016,29716678.1
+LIMA,regalías mineras,2017,41945982.12000001
+LIMA,regalías mineras,2018,47533281.60999999
+LIMA,regalías mineras,2019,32984802.900000006
+LIMA,regalías mineras,2020,28541574.749999993
+LIMA,regalías mineras,2021,92244634.23000002
+LIMA,regalías mineras,2022,57562651.850000046
+LIMA,regalías mineras,2023,43288333.44999998
+LIMA,regalías mineras,2024,53302998.330000006
+LIMA,regalías mineras,2025,53755346.40999999
+LORETO,regalías mineras,2016,0.0
+LORETO,regalías mineras,2017,0.0
+LORETO,regalías mineras,2018,0.0
+LORETO,regalías mineras,2019,0.0
+LORETO,regalías mineras,2020,0.0
+LORETO,regalías mineras,2021,0.0
+LORETO,regalías mineras,2022,0.0
+LORETO,regalías mineras,2023,0.0
+LORETO,regalías mineras,2024,0.0
+LORETO,regalías mineras,2025,0.0
+MADRE DE DIOS,regalías mineras,2016,0.0
+MADRE DE DIOS,regalías mineras,2017,0.0
+MADRE DE DIOS,regalías mineras,2018,0.0
+MADRE DE DIOS,regalías mineras,2019,0.0
+MADRE DE DIOS,regalías mineras,2020,0.0
+MADRE DE DIOS,regalías mineras,2021,0.0
+MADRE DE DIOS,regalías mineras,2022,0.0
+MADRE DE DIOS,regalías mineras,2023,0.0
+MADRE DE DIOS,regalías mineras,2024,0.0
+MADRE DE DIOS,regalías mineras,2025,0.0
+MOQUEGUA,regalías mineras,2016,32647279.890000004
+MOQUEGUA,regalías mineras,2017,37020008.89999999
+MOQUEGUA,regalías mineras,2018,51038111.769999996
+MOQUEGUA,regalías mineras,2019,58885164.35
+MOQUEGUA,regalías mineras,2020,53879644.410000004
+MOQUEGUA,regalías mineras,2021,164896294.55999997
+MOQUEGUA,regalías mineras,2022,192432520.05
+MOQUEGUA,regalías mineras,2023,325576214.03999996
+MOQUEGUA,regalías mineras,2024,359482800.32
+MOQUEGUA,regalías mineras,2025,370341818.47999996
+PASCO,regalías mineras,2016,22252766.829999994
+PASCO,regalías mineras,2017,30808610.84
+PASCO,regalías mineras,2018,36817070.8
+PASCO,regalías mineras,2019,29286302.299999993
+PASCO,regalías mineras,2020,21470516.94
+PASCO,regalías mineras,2021,37032536.2
+PASCO,regalías mineras,2022,47922625.470000006
+PASCO,regalías mineras,2023,38638399.760000005
+PASCO,regalías mineras,2024,47256438.25
+PASCO,regalías mineras,2025,63809881.95000001
+PIURA,regalías mineras,2016,649624.6500000001
+PIURA,regalías mineras,2017,456410.1099999999
+PIURA,regalías mineras,2018,768670.29
+PIURA,regalías mineras,2019,1024823.6399999997
+PIURA,regalías mineras,2020,746932.99
+PIURA,regalías mineras,2021,966898.8199999998
+PIURA,regalías mineras,2022,1364664.8199999998
+PIURA,regalías mineras,2023,1359913.4500000002
+PIURA,regalías mineras,2024,1276476.5799999998
+PIURA,regalías mineras,2025,1282698.9199999997
+PUNO,regalías mineras,2016,20726605.27999999
+PUNO,regalías mineras,2017,31707595.720000006
+PUNO,regalías mineras,2018,27546842.11
+PUNO,regalías mineras,2019,22901802.57999999
+PUNO,regalías mineras,2020,15431745.90000001
+PUNO,regalías mineras,2021,41371817.51
+PUNO,regalías mineras,2022,115716249.10999998
+PUNO,regalías mineras,2023,32854811.379999995
+PUNO,regalías mineras,2024,57396038.61
+PUNO,regalías mineras,2025,94083505.99999997
+SAN MARTIN,regalías mineras,2016,266208.89999999997
+SAN MARTIN,regalías mineras,2017,267523.19000000006
+SAN MARTIN,regalías mineras,2018,248601.83
+SAN MARTIN,regalías mineras,2019,236628.35999999984
+SAN MARTIN,regalías mineras,2020,125551.05
+SAN MARTIN,regalías mineras,2021,384904.2800000001
+SAN MARTIN,regalías mineras,2022,442206.8400000003
+SAN MARTIN,regalías mineras,2023,429659.9300000001
+SAN MARTIN,regalías mineras,2024,465643.66
+SAN MARTIN,regalías mineras,2025,435133.73000000004
+TACNA,regalías mineras,2016,31987064.44
+TACNA,regalías mineras,2017,34847381.63999999
+TACNA,regalías mineras,2018,50731251.23
+TACNA,regalías mineras,2019,70440473.92999999
+TACNA,regalías mineras,2020,85386663.37
+TACNA,regalías mineras,2021,246399825.99999994
+TACNA,regalías mineras,2022,303369010.94
+TACNA,regalías mineras,2023,155604803.37
+TACNA,regalías mineras,2024,212009650.87999997
+TACNA,regalías mineras,2025,252373569.78
+TUMBES,regalías mineras,2016,0.0
+TUMBES,regalías mineras,2017,0.0
+TUMBES,regalías mineras,2018,0.0
+TUMBES,regalías mineras,2019,0.0
+TUMBES,regalías mineras,2020,0.0
+TUMBES,regalías mineras,2021,0.0
+TUMBES,regalías mineras,2022,0.0
+TUMBES,regalías mineras,2023,0.0
+TUMBES,regalías mineras,2024,0.0
+TUMBES,regalías mineras,2025,0.0
+UCAYALI,regalías mineras,2016,0.0
+UCAYALI,regalías mineras,2017,0.0
+UCAYALI,regalías mineras,2018,0.0
+UCAYALI,regalías mineras,2019,0.0
+UCAYALI,regalías mineras,2020,0.0
+UCAYALI,regalías mineras,2021,0.0
+UCAYALI,regalías mineras,2022,0.0
+UCAYALI,regalías mineras,2023,0.0
+UCAYALI,regalías mineras,2024,0.0
+UCAYALI,regalías mineras,2025,0.0
+AMAZONAS,derecho de vigencia y penalidad,2016,1601155.8191999998
+AMAZONAS,derecho de vigencia y penalidad,2017,1953354.58615
+AMAZONAS,derecho de vigencia y penalidad,2018,1974453.84078
+AMAZONAS,derecho de vigencia y penalidad,2019,3326069.568151492
+AMAZONAS,derecho de vigencia y penalidad,2020,3234840.5039723474
+AMAZONAS,derecho de vigencia y penalidad,2021,4304157.746967959
+AMAZONAS,derecho de vigencia y penalidad,2022,2660206.652772642
+AMAZONAS,derecho de vigencia y penalidad,2023,1561452.7140889622
+AMAZONAS,derecho de vigencia y penalidad,2024,2476406.5227423133
+AMAZONAS,derecho de vigencia y penalidad,2025,2818610.5402994696
+ANCASH,derecho de vigencia y penalidad,2016,19683843.57401172
+ANCASH,derecho de vigencia y penalidad,2017,16116486.3972037
+ANCASH,derecho de vigencia y penalidad,2018,16401537.732279997
+ANCASH,derecho de vigencia y penalidad,2019,18147321.0620176
+ANCASH,derecho de vigencia y penalidad,2020,19704941.029119894
+ANCASH,derecho de vigencia y penalidad,2021,21065367.55627625
+ANCASH,derecho de vigencia y penalidad,2022,22160450.861404005
+ANCASH,derecho de vigencia y penalidad,2023,22649382.24008018
+ANCASH,derecho de vigencia y penalidad,2024,26653565.870024364
+ANCASH,derecho de vigencia y penalidad,2025,32438018.841556553
+APURIMAC,derecho de vigencia y penalidad,2016,13118148.777829716
+APURIMAC,derecho de vigencia y penalidad,2017,11564567.970783424
+APURIMAC,derecho de vigencia y penalidad,2018,13437047.261079999
+APURIMAC,derecho de vigencia y penalidad,2019,14248684.110614132
+APURIMAC,derecho de vigencia y penalidad,2020,16183752.304699773
+APURIMAC,derecho de vigencia y penalidad,2021,18071818.87998952
+APURIMAC,derecho de vigencia y penalidad,2022,17056259.310901817
+APURIMAC,derecho de vigencia y penalidad,2023,20359718.923747145
+APURIMAC,derecho de vigencia y penalidad,2024,18503642.437571496
+APURIMAC,derecho de vigencia y penalidad,2025,25425615.019188378
+AREQUIPA,derecho de vigencia y penalidad,2016,32462472.40320989
+AREQUIPA,derecho de vigencia y penalidad,2017,27959265.008889925
+AREQUIPA,derecho de vigencia y penalidad,2018,29174524.286009997
+AREQUIPA,derecho de vigencia y penalidad,2019,43666224.35941196
+AREQUIPA,derecho de vigencia y penalidad,2020,52681374.43938442
+AREQUIPA,derecho de vigencia y penalidad,2021,52271682.96200518
+AREQUIPA,derecho de vigencia y penalidad,2022,56595615.33661085
+AREQUIPA,derecho de vigencia y penalidad,2023,56279204.98570702
+AREQUIPA,derecho de vigencia y penalidad,2024,55929576.17116545
+AREQUIPA,derecho de vigencia y penalidad,2025,56245290.026206836
+AYACUCHO,derecho de vigencia y penalidad,2016,11422728.512110028
+AYACUCHO,derecho de vigencia y penalidad,2017,11418350.291357087
+AYACUCHO,derecho de vigencia y penalidad,2018,11817789.899780001
+AYACUCHO,derecho de vigencia y penalidad,2019,11148891.771361642
+AYACUCHO,derecho de vigencia y penalidad,2020,12261922.551754456
+AYACUCHO,derecho de vigencia y penalidad,2021,13349532.51203619
+AYACUCHO,derecho de vigencia y penalidad,2022,17458774.3321655
+AYACUCHO,derecho de vigencia y penalidad,2023,13737572.486887349
+AYACUCHO,derecho de vigencia y penalidad,2024,14454386.149282295
+AYACUCHO,derecho de vigencia y penalidad,2025,15830520.9670277
+CAJAMARCA,derecho de vigencia y penalidad,2016,22651504.788073156
+CAJAMARCA,derecho de vigencia y penalidad,2017,15467683.3128823
+CAJAMARCA,derecho de vigencia y penalidad,2018,15261391.785000002
+CAJAMARCA,derecho de vigencia y penalidad,2019,17109719.613297656
+CAJAMARCA,derecho de vigencia y penalidad,2020,14656066.931657255
+CAJAMARCA,derecho de vigencia y penalidad,2021,17000906.37317901
+CAJAMARCA,derecho de vigencia y penalidad,2022,19100367.350772895
+CAJAMARCA,derecho de vigencia y penalidad,2023,15169974.816499777
+CAJAMARCA,derecho de vigencia y penalidad,2024,15480222.821712269
+CAJAMARCA,derecho de vigencia y penalidad,2025,16007651.671307195
+CALLAO,derecho de vigencia y penalidad,2016,29678.275199999996
+CALLAO,derecho de vigencia y penalidad,2017,16646.5255
+CALLAO,derecho de vigencia y penalidad,2018,29258.017620000002
+CALLAO,derecho de vigencia y penalidad,2019,41710.344770132935
+CALLAO,derecho de vigencia y penalidad,2020,55397.91809419177
+CALLAO,derecho de vigencia y penalidad,2021,19283.75964993078
+CALLAO,derecho de vigencia y penalidad,2022,14138.208319284307
+CALLAO,derecho de vigencia y penalidad,2023,11084.697523542802
+CALLAO,derecho de vigencia y penalidad,2024,18966.977828970004
+CALLAO,derecho de vigencia y penalidad,2025,9822.95864955136
+CUSCO,derecho de vigencia y penalidad,2016,17399436.363726344
+CUSCO,derecho de vigencia y penalidad,2017,12359886.652327029
+CUSCO,derecho de vigencia y penalidad,2018,13724249.130320001
+CUSCO,derecho de vigencia y penalidad,2019,12836415.018931437
+CUSCO,derecho de vigencia y penalidad,2020,13644766.348202845
+CUSCO,derecho de vigencia y penalidad,2021,15425769.97469715
+CUSCO,derecho de vigencia y penalidad,2022,14059977.000674061
+CUSCO,derecho de vigencia y penalidad,2023,12446283.488965495
+CUSCO,derecho de vigencia y penalidad,2024,18380505.498988483
+CUSCO,derecho de vigencia y penalidad,2025,22573639.25228915
+HUANCAVELICA,derecho de vigencia y penalidad,2016,11177844.496441996
+HUANCAVELICA,derecho de vigencia y penalidad,2017,9931709.544053013
+HUANCAVELICA,derecho de vigencia y penalidad,2018,10465394.681899998
+HUANCAVELICA,derecho de vigencia y penalidad,2019,10951174.228597527
+HUANCAVELICA,derecho de vigencia y penalidad,2020,11388882.185074896
+HUANCAVELICA,derecho de vigencia y penalidad,2021,11281842.934488062
+HUANCAVELICA,derecho de vigencia y penalidad,2022,13216896.840057444
+HUANCAVELICA,derecho de vigencia y penalidad,2023,12356888.27802289
+HUANCAVELICA,derecho de vigencia y penalidad,2024,13820597.953507053
+HUANCAVELICA,derecho de vigencia y penalidad,2025,16100909.74722864
+HUANUCO,derecho de vigencia y penalidad,2016,3468787.908428685
+HUANUCO,derecho de vigencia y penalidad,2017,3067174.347496457
+HUANUCO,derecho de vigencia y penalidad,2018,3213332.73462
+HUANUCO,derecho de vigencia y penalidad,2019,5048936.443236481
+HUANUCO,derecho de vigencia y penalidad,2020,4834613.097210435
+HUANUCO,derecho de vigencia y penalidad,2021,5857706.0208926
+HUANUCO,derecho de vigencia y penalidad,2022,7147844.349742384
+HUANUCO,derecho de vigencia y penalidad,2023,5332206.093002069
+HUANUCO,derecho de vigencia y penalidad,2024,7792753.410265797
+HUANUCO,derecho de vigencia y penalidad,2025,7962059.470863162
+ICA,derecho de vigencia y penalidad,2016,7160544.5188106615
+ICA,derecho de vigencia y penalidad,2017,7797338.148068217
+ICA,derecho de vigencia y penalidad,2018,6384746.253900001
+ICA,derecho de vigencia y penalidad,2019,6875117.607177734
+ICA,derecho de vigencia y penalidad,2020,6453295.475290304
+ICA,derecho de vigencia y penalidad,2021,7495506.905734463
+ICA,derecho de vigencia y penalidad,2022,7129236.350036774
+ICA,derecho de vigencia y penalidad,2023,6675799.47385503
+ICA,derecho de vigencia y penalidad,2024,8382032.634434511
+ICA,derecho de vigencia y penalidad,2025,8424980.609054398
+JUNIN,derecho de vigencia y penalidad,2016,11907866.18277155
+JUNIN,derecho de vigencia y penalidad,2017,12016793.241489362
+JUNIN,derecho de vigencia y penalidad,2018,11124462.41904
+JUNIN,derecho de vigencia y penalidad,2019,10598707.331289152
+JUNIN,derecho de vigencia y penalidad,2020,11767573.440949304
+JUNIN,derecho de vigencia y penalidad,2021,13533336.703584502
+JUNIN,derecho de vigencia y penalidad,2022,13366345.134937322
+JUNIN,derecho de vigencia y penalidad,2023,11121770.682517318
+JUNIN,derecho de vigencia y penalidad,2024,11396853.98881175
+JUNIN,derecho de vigencia y penalidad,2025,16657736.294033244
+LA LIBERTAD,derecho de vigencia y penalidad,2016,18461404.332052
+LA LIBERTAD,derecho de vigencia y penalidad,2017,17488700.072632734
+LA LIBERTAD,derecho de vigencia y penalidad,2018,15512071.78687
+LA LIBERTAD,derecho de vigencia y penalidad,2019,15532475.287670655
+LA LIBERTAD,derecho de vigencia y penalidad,2020,18661755.23946792
+LA LIBERTAD,derecho de vigencia y penalidad,2021,19728703.35033948
+LA LIBERTAD,derecho de vigencia y penalidad,2022,16884836.630902737
+LA LIBERTAD,derecho de vigencia y penalidad,2023,16964346.014076527
+LA LIBERTAD,derecho de vigencia y penalidad,2024,21556039.035597317
+LA LIBERTAD,derecho de vigencia y penalidad,2025,30139044.680028453
+LAMBAYEQUE,derecho de vigencia y penalidad,2016,3057114.5808
+LAMBAYEQUE,derecho de vigencia y penalidad,2017,2919616.7759
+LAMBAYEQUE,derecho de vigencia y penalidad,2018,2477044.44233
+LAMBAYEQUE,derecho de vigencia y penalidad,2019,2311459.640861528
+LAMBAYEQUE,derecho de vigencia y penalidad,2020,2723459.486121617
+LAMBAYEQUE,derecho de vigencia y penalidad,2021,2868128.453279472
+LAMBAYEQUE,derecho de vigencia y penalidad,2022,2937865.1047025803
+LAMBAYEQUE,derecho de vigencia y penalidad,2023,3168973.355958992
+LAMBAYEQUE,derecho de vigencia y penalidad,2024,3044743.006928213
+LAMBAYEQUE,derecho de vigencia y penalidad,2025,1928405.44227818
+LIMA,derecho de vigencia y penalidad,2016,18211836.718055543
+LIMA,derecho de vigencia y penalidad,2017,15632934.720130851
+LIMA,derecho de vigencia y penalidad,2018,14913870.52916
+LIMA,derecho de vigencia y penalidad,2019,15896304.342051039
+LIMA,derecho de vigencia y penalidad,2020,16295265.535527524
+LIMA,derecho de vigencia y penalidad,2021,21399647.57426663
+LIMA,derecho de vigencia y penalidad,2022,17402362.774366554
+LIMA,derecho de vigencia y penalidad,2023,17009150.353523698
+LIMA,derecho de vigencia y penalidad,2024,25581043.966908168
+LIMA,derecho de vigencia y penalidad,2025,40197024.977524534
+LORETO,derecho de vigencia y penalidad,2016,108743.87999999999
+LORETO,derecho de vigencia y penalidad,2017,138607.74125
+LORETO,derecho de vigencia y penalidad,2018,51698.7
+LORETO,derecho de vigencia y penalidad,2019,796532.5965657312
+LORETO,derecho de vigencia y penalidad,2020,269317.81776
+LORETO,derecho de vigencia y penalidad,2021,309691.2398362856
+LORETO,derecho de vigencia y penalidad,2022,121183.64303237599
+LORETO,derecho de vigencia y penalidad,2023,186559.55300606936
+LORETO,derecho de vigencia y penalidad,2024,309150.3453378291
+LORETO,derecho de vigencia y penalidad,2025,452908.4312490524
+MADRE DE DIOS,derecho de vigencia y penalidad,2016,6686304.408
+MADRE DE DIOS,derecho de vigencia y penalidad,2017,5663052.831700001
+MADRE DE DIOS,derecho de vigencia y penalidad,2018,4769212.339849999
+MADRE DE DIOS,derecho de vigencia y penalidad,2019,4462438.367040281
+MADRE DE DIOS,derecho de vigencia y penalidad,2020,5687389.645677635
+MADRE DE DIOS,derecho de vigencia y penalidad,2021,3863782.0252467594
+MADRE DE DIOS,derecho de vigencia y penalidad,2022,4547433.24919058
+MADRE DE DIOS,derecho de vigencia y penalidad,2023,3721045.8330204515
+MADRE DE DIOS,derecho de vigencia y penalidad,2024,3639917.4522891855
+MADRE DE DIOS,derecho de vigencia y penalidad,2025,2075670.9844181738
+MOQUEGUA,derecho de vigencia y penalidad,2016,5564880.69712172
+MOQUEGUA,derecho de vigencia y penalidad,2017,6776973.52103015
+MOQUEGUA,derecho de vigencia y penalidad,2018,6200628.235900001
+MOQUEGUA,derecho de vigencia y penalidad,2019,7311743.460511582
+MOQUEGUA,derecho de vigencia y penalidad,2020,8982509.613011308
+MOQUEGUA,derecho de vigencia y penalidad,2021,14347885.648515208
+MOQUEGUA,derecho de vigencia y penalidad,2022,11925185.830083262
+MOQUEGUA,derecho de vigencia y penalidad,2023,13499524.823049208
+MOQUEGUA,derecho de vigencia y penalidad,2024,11769901.62782583
+MOQUEGUA,derecho de vigencia y penalidad,2025,11780149.00202022
+PASCO,derecho de vigencia y penalidad,2016,9317429.3073072
+PASCO,derecho de vigencia y penalidad,2017,6912332.928843777
+PASCO,derecho de vigencia y penalidad,2018,6640309.853320001
+PASCO,derecho de vigencia y penalidad,2019,9051325.219025856
+PASCO,derecho de vigencia y penalidad,2020,9826174.589217244
+PASCO,derecho de vigencia y penalidad,2021,12725557.712012535
+PASCO,derecho de vigencia y penalidad,2022,9915591.455050755
+PASCO,derecho de vigencia y penalidad,2023,7621921.157573169
+PASCO,derecho de vigencia y penalidad,2024,7405981.736964044
+PASCO,derecho de vigencia y penalidad,2025,12839724.720540753
+PIURA,derecho de vigencia y penalidad,2016,8100714.863934266
+PIURA,derecho de vigencia y penalidad,2017,8267810.866468935
+PIURA,derecho de vigencia y penalidad,2018,8172931.2446
+PIURA,derecho de vigencia y penalidad,2019,7771425.458998176
+PIURA,derecho de vigencia y penalidad,2020,9304277.048739336
+PIURA,derecho de vigencia y penalidad,2021,9574625.777606763
+PIURA,derecho de vigencia y penalidad,2022,7655384.8702827785
+PIURA,derecho de vigencia y penalidad,2023,9854301.627801869
+PIURA,derecho de vigencia y penalidad,2024,8306326.870096673
+PIURA,derecho de vigencia y penalidad,2025,9624657.270975508
+PUNO,derecho de vigencia y penalidad,2016,15740318.953214314
+PUNO,derecho de vigencia y penalidad,2017,15201708.28797657
+PUNO,derecho de vigencia y penalidad,2018,16201062.34572
+PUNO,derecho de vigencia y penalidad,2019,13215098.5346537
+PUNO,derecho de vigencia y penalidad,2020,18714630.825198792
+PUNO,derecho de vigencia y penalidad,2021,21709324.795177195
+PUNO,derecho de vigencia y penalidad,2022,24726512.739873204
+PUNO,derecho de vigencia y penalidad,2023,22793481.670583814
+PUNO,derecho de vigencia y penalidad,2024,18888973.909508314
+PUNO,derecho de vigencia y penalidad,2025,25769122.596621674
+SAN MARTIN,derecho de vigencia y penalidad,2016,1404917.8752
+SAN MARTIN,derecho de vigencia y penalidad,2017,1136024.4621000001
+SAN MARTIN,derecho de vigencia y penalidad,2018,968765.21325
+SAN MARTIN,derecho de vigencia y penalidad,2019,1519724.3989774887
+SAN MARTIN,derecho de vigencia y penalidad,2020,1449250.9675817706
+SAN MARTIN,derecho de vigencia y penalidad,2021,2008191.685261523
+SAN MARTIN,derecho de vigencia y penalidad,2022,1547724.658759695
+SAN MARTIN,derecho de vigencia y penalidad,2023,1339656.1529704728
+SAN MARTIN,derecho de vigencia y penalidad,2024,1140300.8200155683
+SAN MARTIN,derecho de vigencia y penalidad,2025,1091194.0614854728
+TACNA,derecho de vigencia y penalidad,2016,6924185.8652621405
+TACNA,derecho de vigencia y penalidad,2017,6793918.232124758
+TACNA,derecho de vigencia y penalidad,2018,7126638.9470999995
+TACNA,derecho de vigencia y penalidad,2019,6606660.088581666
+TACNA,derecho de vigencia y penalidad,2020,5856255.69909289
+TACNA,derecho de vigencia y penalidad,2021,5426134.9286909755
+TACNA,derecho de vigencia y penalidad,2022,7905973.34591197
+TACNA,derecho de vigencia y penalidad,2023,7843085.028671302
+TACNA,derecho de vigencia y penalidad,2024,8265414.195378149
+TACNA,derecho de vigencia y penalidad,2025,9209998.703539269
+TUMBES,derecho de vigencia y penalidad,2016,70308.0
+TUMBES,derecho de vigencia y penalidad,2017,84532.25
+TUMBES,derecho de vigencia y penalidad,2018,47981.799999999996
+TUMBES,derecho de vigencia y penalidad,2019,59623.075000000004
+TUMBES,derecho de vigencia y penalidad,2020,126778.00298755187
+TUMBES,derecho de vigencia y penalidad,2021,160596.48003844675
+TUMBES,derecho de vigencia y penalidad,2022,177125.38207262434
+TUMBES,derecho de vigencia y penalidad,2023,116365.96927355777
+TUMBES,derecho de vigencia y penalidad,2024,132449.39986679205
+TUMBES,derecho de vigencia y penalidad,2025,112347.89472177462
+UCAYALI,derecho de vigencia y penalidad,2016,21522.3792
+UCAYALI,derecho de vigencia y penalidad,2017,11714.80695
+UCAYALI,derecho de vigencia y penalidad,2018,4561.65
+UCAYALI,derecho de vigencia y penalidad,2019,98514.90000000001
+UCAYALI,derecho de vigencia y penalidad,2020,152178.1565186332
+UCAYALI,derecho de vigencia y penalidad,2021,437429.05606000003
+UCAYALI,derecho de vigencia y penalidad,2022,348244.761
+UCAYALI,derecho de vigencia y penalidad,2023,285650.96658
+UCAYALI,derecho de vigencia y penalidad,2024,408801.835
+UCAYALI,derecho de vigencia y penalidad,2025,415445.4944

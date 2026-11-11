@@ -18,7 +18,23 @@ FUENTES = {
     "F4": "ProInversión, inversiones adjudicadas y concluidas por Obras por Impuestos 2009-2025",
     "F5": "Defensoría del Pueblo, reportes de conflictos sociales",
     "F6": "OEFA, Registro Único de Infractores Ambientales Sancionados (RUIAS)",
+    "F7": "MINEM, Anuario Minero 2025: producción e inversión por empresa (2025, datos preliminares)",
+    "F8": "MEF vía Anuario Minero 2025: canon, regalías y derecho de vigencia transferidos a cada departamento",
 }
+
+
+# Símbolos químicos del registro del MINEM -> nombre en español
+METALES = {
+    "Cu": "cobre", "Au": "oro", "Ag": "plata", "Zn": "zinc", "Pb": "plomo", "Mo": "molibdeno",
+    "Sn": "estaño", "Fe": "hierro", "As": "arsénico", "Bi": "bismuto", "Mn": "manganeso", "Cd": "cadmio",
+}
+
+
+def minerales(producto: str) -> list[str]:
+    """'Cu, Mo, Au, Ag' -> ['cobre', 'molibdeno', 'oro', 'plata']; los no metálicos van en minúscula."""
+    if not isinstance(producto, str):
+        return []
+    return [METALES.get(t.strip(), t.strip().lower()) for t in producto.replace(";", ",").split(",") if t.strip()]
 
 
 def _leer(nombre: str, **kw) -> pd.DataFrame | None:
@@ -35,6 +51,8 @@ class Base:
     alias: pd.DataFrame
     conflictos: pd.DataFrame | None = None
     ruias: pd.DataFrame | None = None
+    produccion: pd.DataFrame | None = None
+    transferencias: pd.DataFrame | None = None
 
     @classmethod
     def cargar(cls) -> "Base":
@@ -47,7 +65,25 @@ class Base:
             alias=_leer("empresa_alias.csv"),
             conflictos=_leer("empresa_conflictos.csv"),
             ruias=_leer("empresa_ruias.csv", dtype=str),
+            produccion=_leer("empresa_produccion.csv"),
+            transferencias=_leer("transferencias_departamento.csv"),
         )
+        # Minerales que produce cada empresa, según sus unidades
+        por_emp = b.unidades.groupby("empresa_id")["producto"].apply(
+            lambda ps: sorted({m for p in ps for m in minerales(p)}, key=lambda m: (m not in METALES.values(), m))
+        )
+        b.empresas["minerales"] = b.empresas["empresa_id"].map(por_emp).apply(lambda x: x if isinstance(x, list) else [])
+        if b.produccion is not None:  # suma los metales que declara en el Anuario Minero
+            decl = b.produccion.groupby("empresa_id")["metal"].apply(set)
+            b.empresas["minerales"] = [
+                sorted(set(ms) | decl.get(i, set()), key=lambda m: (m not in METALES.values(), m))
+                for i, ms in zip(b.empresas["empresa_id"], b.empresas["minerales"])
+            ]
+            top = (b.produccion[b.produccion["anio"] == 2025].sort_values("participacion", ascending=False)
+                   .drop_duplicates("empresa_id").set_index("empresa_id"))
+            b.empresas["metal_principal"] = b.empresas["empresa_id"].map(top["metal"])
+            b.empresas["participacion_principal"] = b.empresas["empresa_id"].map(top["participacion"])
+
         # Texto de búsqueda: nombre + todos sus alias + RUC
         alias_txt = b.alias.groupby("empresa_id")["nombre_en_fuente"].apply(lambda s: " ".join(s))
         b.empresas["_buscar"] = (
@@ -82,6 +118,8 @@ class Base:
             alias=de(self.alias),
             conflictos=de(self.conflictos),
             ruias=de(self.ruias),
+            produccion=de(self.produccion),
+            transferencias=self.transferencias,
         )
 
 
@@ -94,6 +132,16 @@ class Perfil:
     alias: pd.DataFrame
     conflictos: pd.DataFrame = field(default_factory=pd.DataFrame)
     ruias: pd.DataFrame = field(default_factory=pd.DataFrame)
+    produccion: pd.DataFrame = field(default_factory=pd.DataFrame)
+    transferencias: pd.DataFrame | None = None
+
+    def transferencias_donde_opera(self, anio: int = 2025) -> pd.DataFrame:
+        """Canon, regalías y derecho de vigencia de los departamentos donde tiene unidades."""
+        if self.transferencias is None or self.unidades.empty:
+            return pd.DataFrame()
+        deps = {sin_tildes(d).upper() for d in self.unidades["region"].dropna()}
+        t = self.transferencias[(self.transferencias["anio"] == anio) & self.transferencias["departamento"].isin(deps)]
+        return t.pivot_table(index="departamento", columns="concepto", values="soles", aggfunc="sum").reset_index()
 
     @property
     def nombre(self) -> str:
@@ -113,6 +161,8 @@ class Perfil:
 
         L += ["", f"[F1] {FUENTES['F1']} y [F2] {FUENTES['F2']}:"]
         L.append(f"- Unidades mineras registradas a su nombre: {len(self.unidades)}.")
+        if self.fila["minerales"]:
+            L.append("- Minerales que producen sus unidades: " + ", ".join(self.fila["minerales"]) + ".")
         for _, u in self.unidades.iterrows():
             pob = "sin dato de pobreza" if pd.isna(u["pobreza"]) else f"pobreza distrital {u['pobreza']:.1f} %"
             nota = "" if u["punto_coincide"] else " (OJO: sus coordenadas caen en otro distrito; verificar)"
@@ -141,6 +191,20 @@ class Perfil:
             L.append("- Departamentos con más obras: " + ", ".join(f"{k.title()} ({v})" for k, v in dpto.items()) + ".")
             donde = self.obras_donde_opera()
             L.append(f"- Obras en distritos donde tiene unidades mineras: {len(donde)}.")
+
+        if not self.produccion.empty:
+            L += ["", f"[F7] {FUENTES['F7']}:"]
+            for _, r in self.produccion[self.produccion["anio"] == 2025].sort_values("participacion", ascending=False).iterrows():
+                L.append(f"- {r['metal'].capitalize()} 2025: {r['cantidad']:,.0f} {r['unidad']}, "
+                         f"{r['participacion'] * 100:.1f} % de la producción nacional.")
+        if pd.notna(self.fila.get("inversion_2025_usd")):
+            L.append(f"- Inversión minera 2025: US$ {self.fila['inversion_2025_usd']:,.0f}.")
+        t = self.transferencias_donde_opera()
+        if not t.empty:
+            L += ["", f"[F8] {FUENTES['F8']} (montos de todo el departamento, no solo de esta empresa):"]
+            for _, r in t.iterrows():
+                L.append(f"- {r['departamento'].title()}, 2025: canon minero S/ {r.get('canon minero', 0):,.0f}; "
+                         f"regalías S/ {r.get('regalías mineras', 0):,.0f}.")
 
         if not self.conflictos.empty:
             L += ["", f"[F5] {FUENTES['F5']}:"]

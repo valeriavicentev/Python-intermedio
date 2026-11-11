@@ -148,7 +148,12 @@ def main() -> None:
     # 5) OEFA RUIAS (opcional)
     ruias_out = cargar_ruias(U)
 
-    # 6) Defensoría (opcional): menciones de cada empresa en los reportes
+    # 6) MINEM: producción por empresa e inversión (Anuario Minero 2025); transferencias por departamento
+    prod_out = cargar_produccion(U)
+    inv_out = cargar_inversion(U)
+    guardar_transferencias()
+
+    # 7) Defensoría (opcional): menciones de cada empresa en los reportes
     conflictos_out = cargar_defensoria(U)
 
     # ---------- tabla de empresas ----------
@@ -173,6 +178,12 @@ def main() -> None:
                                       ruias_uit=("multa_uit", "sum")))
     if conflictos_out is not None:
         resumen = resumen.join(agg(conflictos_out, n_reportes_conflicto=("reporte", "nunique")))
+    if prod_out is not None:
+        p25 = prod_out[prod_out["anio"] == 2025]
+        resumen = resumen.join(p25.groupby("clave")["metal"].apply(lambda m: ", ".join(sorted(set(m)))).rename("metales_2025"))
+        resumen = resumen.join(p25.groupby("clave")["participacion"].max().rename("mayor_participacion_2025"))
+    if inv_out is not None:
+        resumen = resumen.join(inv_out.groupby("clave")[["inversion_2024_usd", "inversion_2025_usd"]].sum())
     resumen = resumen.reset_index()
     for c in resumen.columns:
         if c.startswith("n_"):
@@ -193,6 +204,8 @@ def main() -> None:
         con_id(ruias_out).to_csv(PROC / "empresa_ruias.csv", index=False)
     if conflictos_out is not None:
         con_id(conflictos_out).to_csv(PROC / "empresa_conflictos.csv", index=False)
+    if prod_out is not None:
+        con_id(prod_out).to_csv(PROC / "empresa_produccion.csv", index=False)
 
     aprox = sum(a["coincidencia"] == "aproximada" for a in U.alias)
     print(f"Empresas: {len(resumen)} | alias: {len(U.alias)} ({aprox} aproximados)")
@@ -202,6 +215,114 @@ def main() -> None:
 
 def sin_tildes_col(s: pd.Series) -> pd.Series:
     return s.fillna("").map(sin_tildes).str.upper()
+
+
+ANUARIO = RAW / "minem" / "anuario_minero_2025_anexos.xlsx"
+DEPARTAMENTOS = {
+    "AMAZONAS", "ANCASH", "APURIMAC", "AREQUIPA", "AYACUCHO", "CAJAMARCA", "CALLAO", "CUSCO", "HUANCAVELICA",
+    "HUANUCO", "ICA", "JUNIN", "LA LIBERTAD", "LAMBAYEQUE", "LIMA", "LORETO", "MADRE DE DIOS", "MOQUEGUA",
+    "PASCO", "PIURA", "PUNO", "SAN MARTIN", "TACNA", "TUMBES", "UCAYALI",
+}
+
+# Hoja del anuario -> (metal, unidad)
+HOJAS_PRODUCCION = {
+    "Cu-Empresas": ("cobre", "TMF"), "Au-Empresas": ("oro", "gramos finos"),
+    "Zn-Empresas": ("zinc", "TMF"), "Ag-Empresas": ("plata", "kg finos"),
+    "Pb-Empresas": ("plomo", "TMF"), "Mo-Empresas": ("molibdeno", "TMF"),
+    "Fe-Producción": ("hierro", "TMF"), "Sn-Producción": ("estaño", "TMF"),
+}
+
+
+def sin_nota(nombre: str) -> str:
+    """'MINERA LAS BAMBAS S.A.4' -> 'MINERA LAS BAMBAS S.A.' ; 'MARCOBRE S.A.C.8, 2' -> 'MARCOBRE S.A.C.'"""
+    return re.sub(r"(?<=[.A-Za-zÁÉÍÓÚÑ)])\s*\d+(\s*,\s*\d+)*\s*$", "", str(nombre)).strip()
+
+
+def _anios(fila) -> dict[int, int]:
+    """Columna -> año, leyendo la fila de encabezado (incluye '2025 1' con nota)."""
+    out = {}
+    for i, v in enumerate(fila):
+        m = re.match(r"^\s*(20\d\d)", str(v))
+        if m and i > 0:
+            out[i] = int(m.group(1))
+    return out
+
+
+def cargar_produccion(U: Universo) -> pd.DataFrame | None:
+    """Producción por empresa y metal (MINEM, Anuario Minero 2025), con su participación nacional."""
+    if not ANUARIO.exists():
+        print("Anuario Minero: no está (data/raw/minem/). Se omite.")
+        return None
+    filas = []
+    for hoja, (metal, unidad) in HOJAS_PRODUCCION.items():
+        df = pd.read_excel(ANUARIO, sheet_name=hoja, header=None)
+        enc = df.index[df[0].astype(str).str.startswith("EMPRESA")][0]
+        cols = _anios(df.loc[enc])
+        total = None
+        for _, r in df.loc[enc + 1:].iterrows():
+            nombre = r[0]
+            if not isinstance(nombre, str) or not nombre.strip():
+                continue
+            if re.match(r"^(\d/|FUENTE|Fuente|OTROS|ESTIMADO)", nombre.strip()):
+                continue
+            if sin_tildes(nombre).upper().strip() in DEPARTAMENTOS:  # filas regionales de minería artesanal
+                continue
+            valores = {a: pd.to_numeric(r[c], errors="coerce") for c, a in cols.items()}
+            if nombre.upper().startswith("TOTAL"):
+                total = valores
+                continue
+            for a, v in valores.items():
+                if a >= 2024 and pd.notna(v) and v > 0:
+                    filas.append({"empresa": sin_nota(nombre), "metal": metal, "unidad": unidad, "anio": a,
+                                  "cantidad": float(v), "participacion": float(v) / total[a] if total else None})
+    prod = pd.DataFrame(filas)
+    mapa = U.agregar("MINEM Anuario Minero (producción)", prod["empresa"].unique().tolist())
+    prod["clave"] = prod["empresa"].map(mapa)
+    print(f"Producción: {len(prod)} registros de {prod['clave'].nunique()} empresas.")
+    return prod
+
+
+def cargar_inversion(U: Universo) -> pd.DataFrame | None:
+    if not ANUARIO.exists():
+        return None
+    df = pd.read_excel(ANUARIO, sheet_name="Inversión-Empresas", header=None)
+    filas = []
+    for _, r in df.iloc[4:].iterrows():
+        nombre = r[1]
+        if isinstance(nombre, str) and nombre.strip() and not nombre.upper().startswith(("TOTAL", "OTROS")):
+            filas.append({"empresa": sin_nota(nombre), "inversion_2024_usd": pd.to_numeric(r[2], errors="coerce"),
+                          "inversion_2025_usd": pd.to_numeric(r[3], errors="coerce")})
+    inv = pd.DataFrame(filas).dropna(subset=["inversion_2025_usd"])
+    mapa = U.agregar("MINEM Anuario Minero (inversión)", inv["empresa"].tolist())
+    inv["clave"] = inv["empresa"].map(mapa)
+    return inv
+
+
+def guardar_transferencias() -> None:
+    """Canon minero, regalías y derecho de vigencia transferidos a cada departamento (MEF vía Anuario Minero)."""
+    if not ANUARIO.exists():
+        return
+    df = pd.read_excel(ANUARIO, sheet_name="Tranferencias2", header=None)
+    enc = df.index[df[0].astype(str).str.startswith("DEPARTAMENTOS")][0]
+    cols = _anios(df.loc[enc])
+    concepto, filas = None, []
+    for _, r in df.loc[enc + 1:].iterrows():
+        nombre = r[0]
+        if not isinstance(nombre, str):
+            continue
+        n = sin_tildes(nombre).upper().strip()
+        if n.startswith("CANON"):
+            concepto = "canon minero"
+        elif n.startswith("REGALIAS"):
+            concepto = "regalías mineras"
+        elif n.startswith("DERECHO"):
+            concepto = "derecho de vigencia y penalidad"
+        elif concepto and not re.match(r"^(\d/|DATOS|FUENTE)", n):
+            for c, a in cols.items():
+                filas.append({"departamento": n, "concepto": concepto, "anio": a,
+                              "soles": pd.to_numeric(r[c], errors="coerce")})
+    pd.DataFrame(filas).to_csv(PROC / "transferencias_departamento.csv", index=False)
+    print(f"Transferencias: {len(filas)} registros departamento-concepto-año.")
 
 
 def cargar_ruias(U: Universo) -> pd.DataFrame | None:

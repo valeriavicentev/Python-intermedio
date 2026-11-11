@@ -18,7 +18,7 @@ from streamlit_folium import st_folium
 
 from radar import mapa as M
 from radar import pauta as P
-from radar.buscador import FUENTES, PROC, Base
+from radar.buscador import FUENTES, METALES, PROC, Base
 
 st.set_page_config(page_title="Escáner Minero · Gallo Negro", page_icon="◉", layout="wide")
 
@@ -36,6 +36,8 @@ st.markdown(
     .empresa { font-weight: 800; font-size: 1.9rem; letter-spacing: -0.02em; line-height: 1.1; color: #FADD00; }
     .chip { display: inline-block; border-radius: 999px; padding: 1px 10px; margin: 2px 4px 2px 0;
             font-size: .82rem; font-weight: 600; }
+    .chip.produccion { border: 1px solid #00FA8C; color: #000000; background: #00FA8C; }
+    .chip.mineral { border: 1px solid #A59837; color: #F6F6F6; background: #000000; }
     .chip.unidad { border: 1px solid #00FA8C; color: #00FA8C; background: #000000; }
     .chip.sancion { border: 1px solid #FA2400; color: #000000; background: #FA2400; }
     .chip.oxi { border: 1px solid #2C00FA; color: #FFFFFF; background: #2C00FA; }
@@ -102,6 +104,11 @@ def chips(f: pd.Series) -> str:
     partes = []
     if f["n_unidades"]:
         partes.append(f'<span class="chip unidad">{n(f["n_unidades"], "unidad", "unidades")}</span>')
+    if pd.notna(f.get("participacion_principal")) and f["participacion_principal"] >= 0.01:
+        partes.append(f'<span class="chip produccion">{f["participacion_principal"] * 100:.0f} % del '
+                      f'{f["metal_principal"]} del Perú (2025)</span>')
+    if f["minerales"]:
+        partes.append(f'<span class="chip mineral">{", ".join(f["minerales"][:5])}</span>')
     if f["n_multas"]:
         partes.append(f'<span class="chip sancion">{n(f["n_multas"], "multa firme", "multas firmes")}</span>')
     if f.get("n_expedientes_ruias", 0):
@@ -145,15 +152,22 @@ if not elegida or elegida not in set(E["empresa_id"]):
         label_visibility="collapsed",
     )
 
+    todos = sorted({m for ms in E["minerales"] for m in ms}, key=lambda m: (m not in METALES.values(), m))
+    filtro = st.multiselect("Filtrar por mineral", todos, placeholder="Todos los minerales (cobre, oro, zinc…)")
+    if filtro:
+        E = E[E["minerales"].apply(lambda ms: any(m in ms for m in filtro))]
+
     c = st.columns(5)
     c[0].metric("Empresas mineras", len(E))
     c[1].metric("Unidades en producción", int(E["n_unidades"].sum()))
     c[2].metric("Expedientes OEFA", int(E.get("n_expedientes_ruias", pd.Series([0])).sum()))
-    c[3].metric("Obras por impuestos", int(B.oxi["obra"].nunique()))
-    c[4].metric("Menciones en conflictos", len(B.conflictos) if B.conflictos is not None else 0)
+    c[3].metric("Obras por impuestos", int(B.oxi.loc[B.oxi["empresa_id"].isin(E["empresa_id"]), "obra"].nunique()))
+    c[4].metric("Menciones en conflictos",
+                0 if B.conflictos is None else int(B.conflictos["empresa_id"].isin(E["empresa_id"]).sum()))
 
     if consulta:
         res = B.buscar(consulta)
+        res = res[res["empresa_id"].isin(E["empresa_id"])]
         st.markdown(f"**{len(res)} resultado{'s' if len(res) != 1 else ''}** para «{consulta}»")
         if res.empty:
             st.caption("Prueba con una parte del nombre (por ejemplo «Bambas») o con el RUC.")
@@ -201,6 +215,9 @@ st.markdown(
     f"<span class='nota'>{ruc} · aparece en: {', '.join(fuentes_en)}</span>",
     unsafe_allow_html=True,
 )
+if f["minerales"]:
+    st.markdown("Produce: " + "".join(f'<span class="chip mineral">{m}</span>' for m in f["minerales"]),
+                unsafe_allow_html=True)
 st.write("")
 
 k = st.columns(6)
@@ -214,9 +231,50 @@ k[3].metric("Expedientes OEFA", len(p.ruias))
 k[4].metric("Obras por impuestos", f"{len(p.oxi)}")
 k[5].metric("Reportes de conflictos", p.conflictos["reporte"].nunique() if not p.conflictos.empty else 0)
 
-t_op, t_san, t_oxi, t_conf, t_ficha, t_met = st.tabs(
-    ["Dónde opera", "Sanciones ambientales", "Obras por Impuestos", "Conflictos", "Ficha de pauta (IA)", "Cómo se cruzó"]
+t_op, t_prod, t_san, t_oxi, t_conf, t_ficha, t_met = st.tabs(
+    ["Dónde opera", "Producción y canon", "Sanciones ambientales", "Obras por Impuestos", "Conflictos",
+     "Ficha de pauta (IA)", "Cómo se cruzó"]
 )
+
+with t_prod:
+    a, b2 = st.columns(2)
+    inv25 = f.get("inversion_2025_usd")
+    a.metric("Inversión minera 2025", "—" if pd.isna(inv25) else f"US$ {inv25 / 1e6:,.1f} mill.")
+    inv24 = f.get("inversion_2024_usd")
+    b2.metric("Inversión minera 2024", "—" if pd.isna(inv24) else f"US$ {inv24 / 1e6:,.1f} mill.")
+    st.markdown("##### Producción declarada al MINEM")
+    if p.produccion.empty:
+        st.caption("No figura entre las empresas productoras de metales del Anuario Minero 2025.")
+    else:
+        pr = p.produccion.pivot_table(index=["metal", "unidad"], columns="anio", values=["cantidad", "participacion"])
+        tabla = pd.DataFrame({
+            "Metal": [m.capitalize() for m, _ in pr.index],
+            "Unidad": [u for _, u in pr.index],
+            "2024": pr[("cantidad", 2024)].values if ("cantidad", 2024) in pr else None,
+            "2025": pr[("cantidad", 2025)].values if ("cantidad", 2025) in pr else None,
+            "% del país 2025": (pr[("participacion", 2025)].values * 100) if ("participacion", 2025) in pr else None,
+        }).sort_values("% del país 2025", ascending=False)
+        st.dataframe(tabla, hide_index=True, use_container_width=True, column_config={
+            "2024": st.column_config.NumberColumn(format="%,.0f"),
+            "2025": st.column_config.NumberColumn(format="%,.0f"),
+            "% del país 2025": st.column_config.ProgressColumn(format="%.1f %%", min_value=0, max_value=100),
+        })
+        st.caption("Fuente: MINEM, Anuario Minero 2025 (datos de 2025 preliminares).")
+    st.markdown("##### Canon y regalías de los departamentos donde opera (2025)")
+    t = p.transferencias_donde_opera()
+    if t.empty:
+        st.caption("Sin unidades mineras ubicadas en el registro usado.")
+    else:
+        st.dataframe(
+            t.assign(departamento=t["departamento"].str.title()).rename(columns={
+                "departamento": "Departamento", "canon minero": "Canon minero (S/)",
+                "regalías mineras": "Regalías (S/)", "derecho de vigencia y penalidad": "Derecho de vigencia (S/)"}),
+            hide_index=True, use_container_width=True,
+            column_config={c: st.column_config.NumberColumn(format="%,.0f") for c in
+                           ["Canon minero (S/)", "Regalías (S/)", "Derecho de vigencia (S/)"]},
+        )
+        st.caption("Transferencias del MEF a todo el departamento por toda la actividad minera de la región, "
+                   "no solo por esta empresa. Fuente: MEF e INGEMMET, vía Anuario Minero 2025.")
 
 with t_op:
     if p.unidades.empty:
