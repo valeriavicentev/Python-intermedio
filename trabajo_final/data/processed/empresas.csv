@@ -1,4 +1,5 @@
 nombre,ruc,empresa_id,n_unidades,n_distritos,pobreza_media,n_por_verificar,n_multas,multas_soles,n_obras_oxi,oxi_monto_obras_mill,oxi_ranking_mill,n_expedientes_ruias,ruias_uit,n_reportes_conflicto,metales_2025,mayor_participacion_2025,inversion_2024_usd,inversion_2025_usd
+ACTIVOS MINEROS S.A.C.,20103030791,activos-mineros-s-a-c,0,0,,0,4,2472000.0,0,,,41,9640.55,2,,,,
 ALTURAS MINERALS S.A.,20508100206,alturas-minerals-s-a,0,0,,0,0,,0,,,1,0.0,0,,,,
 AMERICAS POTASH PERU S.A.,20492357635,americas-potash-peru-s-a,0,0,,0,0,,0,,,2,0.0,0,,,,
 AMG-AUPLATA MINING GROUP PERU S.A.C.,20513188626,amg-auplata-mining-group-peru-s-a-c,1,1,42.367723,0,0,,0,,,6,0.0,0,,,,
@@ -11,7 +12,6 @@ ARIANA OPERACIONES MINERAS S.A.C.,20543905306,ariana-operaciones-mineras-s-a-c,0
 ARUNTANI S.A.C.,20466327612,aruntani-s-a-c,2,2,29.09926,1,1,686850.35,0,,,33,2378.01,0,,,,
 AUREX S.A.,20101076289,aurex-s-a,0,0,,0,0,,0,,,1,1175.64,0,,,,
 AZULCOCHAMINING S.A. EN LIQUIDACIÓN,20507941304,azulcochamining-s-a-en-liquidacion,0,0,,0,0,,0,,,1,127.58,0,,,,
-Activos Mineros S.A.C.,20103030791,activos-mineros-s-a-c,0,0,,0,4,2472000.0,0,,,41,9640.55,2,,,,
 BREXIA GOLDPLATA PERU S.A.C.,,brexia-goldplata-peru-s-a-c,1,1,40.761881,1,0,,0,,,0,,0,,,,
 CAL & CEMENTO SUR S.A.,,cal-cemento-sur-s-a,1,1,34.565637,0,0,,0,,,0,,0,,,,
 CAL SAN GERONIMO S.R.L.,,cal-san-geronimo-s-r-l,1,1,26.14765,1,0,,0,,,0,,0,,,,
@@ -25,17 +25,12 @@ CENTRO DE INVESTIGACION Y ESTUDIOS MINERO AMBIENTAL S.A.C - CIEMAM S.A.C.,206007
 CENTURY MINING PERU S.A.C.,20510636946,century-mining-peru-s-a-c,1,1,14.61039,0,0,,0,,,5,342.38,0,,,,
 CERAMICA MINERA LIMA EIRL.,20112348876,ceramica-minera-lima-eirl,0,0,,0,0,,0,,,2,11.9,0,,,,
 CERRO DE PASCO RESOURCES SUBSIDIARIA DEL PERU S.A.C.,20516488973,cerro-de-pasco-resources-subsidiaria-del-peru-s-a-c,0,0,,0,0,,0,,,4,8.18,0,,,,
-CIA MINERA COIMOLACHE SA,20140688640,cia-minera-coimolache-sa,1,1,60.111856,1,0,,3,15.5,14.990995082000001,3,44.06,0,oro,0.017972976301041308,15272361.0,19699033.0
 CIA MINERA COLQUIRRUMI S A,20100094305,cia-minera-colquirrumi-s-a,0,0,,0,0,,0,,,5,27.7,0,,,,
-CIA MINERA LAS CAMELIAS S A,20100171652,cia-minera-las-camelias-s-a,2,2,15.124875499999998,0,2,404012.35000000003,0,,,10,70.9,0,,,,
-CIA MINERA PODEROSA S A,20137025354,cia-minera-poderosa-s-a,2,1,35.524978,0,0,,7,99.1,68.74069617539199,3,39.0,3,oro,0.0786974204874977,154763984.0,161743044.0
-CIA MINERA RAURA S A,20100163552,cia-minera-raura-s-a,1,1,43.663957,0,0,,0,,,9,14.42,3,"plomo, zinc",0.03472345371164426,51906361.0,89218007.0
 CIA MINERA SANTA INES Y MOROCOCHA S A,20182070280,cia-minera-santa-ines-y-morococha-s-a,0,0,,0,4,217443.3,0,,,2,177.25,0,,,,
-CIA MINERA SANTA LUISA S A,20100120314,cia-minera-santa-luisa-s-a,2,1,28.567574,0,0,,0,,,12,2539.09,0,"cobre, plomo, zinc",0.022385103117461298,,
 CINSA MINERA VIRGEN DE GUADALUPE S.A.,,cinsa-minera-virgen-de-guadalupe-s-a,1,1,38.56399,0,0,,0,,,0,,0,,,,
-COMPANIA MINERA ANTAMINA S.A,20330262428,compania-minera-antamina-s-a,1,1,24.785192,0,0,,65,1876.1,1873.021192916,4,0.0,3,"cobre, molibdeno, plata, plomo, zinc",0.3431814779022061,689401491.0,695967138.0
 COMPAÑIA DE EXPLORACIONES ORION S.A.C. EN LIQUIDACIÓN,20515019422,compania-de-exploraciones-orion-s-a-c-en-liquidacion,0,0,,0,0,,0,,,5,0.0,0,,,,
 COMPAÑIA MINERA AGREGADOS CALCAREOS S.A.,,compania-minera-agregados-calcareos-s-a,4,4,24.993721400000002,1,0,,0,,,0,,0,,,,
+COMPAÑIA MINERA ANTAMINA S.A.,20330262428,compania-minera-antamina-s-a,1,1,24.785192,0,0,,65,1876.1,1873.021192916,4,0.0,3,"cobre, molibdeno, plata, plomo, zinc",0.3431814779022061,689401491.0,695967138.0
 COMPAÑIA MINERA ANTAPACCAY S.A.,20114915026,compania-minera-antapaccay-s-a,1,1,25.869896,0,0,,4,36.099999999999994,36.194372089999995,14,399.64000000000004,3,cobre,0.049077401398047844,152145295.0,142610692.0
 COMPAÑIA MINERA ARES S.A.C.,20192779333,compania-minera-ares-s-a-c,3,3,38.21454633333334,1,3,500822.05,0,,,49,467.87,0,"oro, plata",0.0464514537965615,99393205.0,94751726.0
 COMPAÑIA MINERA ARGENTUM S.A.,20507845500,compania-minera-argentum-s-a,3,2,7.593788666666666,1,0,,0,,,7,560.27,0,zinc,0.010585364369245672,11141977.0,16345246.0
@@ -44,22 +39,28 @@ COMPAÑIA MINERA BARBASTRO SOCIEDAD ANONIMA CERRADA,20511812713,compania-minera-
 COMPAÑIA MINERA CARAVELI S.A.C.,20126702737,compania-minera-caraveli-s-a-c,1,1,14.32448,0,0,,0,,,3,400.13,0,oro,0.019869590650325532,,
 COMPAÑIA MINERA CASAPALCA S.A.,,compania-minera-casapalca-s-a,1,1,4.271369,0,0,,0,,,0,,0,,,,
 COMPAÑIA MINERA CHUNGAR S.A.C.,20514608041,compania-minera-chungar-s-a-c,2,2,21.638089,0,2,463500.0,3,19.5,14.307691971,29,976.0799999999999,0,"plata, plomo, zinc",0.08077260462644931,33727744.0,85155042.0
+COMPAÑIA MINERA COIMOLACHE S.A.,20140688640,compania-minera-coimolache-s-a,1,1,60.111856,1,0,,3,15.5,14.990995082000001,3,44.06,0,oro,0.017972976301041308,15272361.0,19699033.0
 COMPAÑIA MINERA CONDESTABLE S.A.,20100056802,compania-minera-condestable-s-a,1,1,13.13157,1,0,,0,,,1,0.0,0,cobre,0.006331687279313816,17653785.0,36326912.0
 COMPAÑIA MINERA KOLPA S.A.,20600020022,compania-minera-kolpa-s-a,1,1,40.05058,0,0,,0,,,9,71.13,0,"plata, plomo, zinc",0.07122698775522635,17810803.0,32902683.0
 COMPAÑIA MINERA KURI KULLU S.A.,20513994983,compania-minera-kuri-kullu-s-a,0,0,,0,0,,0,,,1,0.0,0,,,,
 COMPAÑIA MINERA LAFAYETTE S.A.,,compania-minera-lafayette-s-a,1,1,20.47686,0,0,,0,,,0,,0,,,,
-COMPAÑIA MINERA LINCUNA S.A,20458538701,compania-minera-lincuna-s-a,1,1,20.74384,0,5,849101.1,0,,,30,4314.11,0,"plata, plomo",0.03326140991314151,,
+COMPAÑIA MINERA LAS CAMELIAS S.A.,20100171652,compania-minera-las-camelias-s-a,2,2,15.124875499999998,0,2,404012.35000000003,0,,,10,70.9,0,,,,
+COMPAÑIA MINERA LINCUNA S.A.,20458538701,compania-minera-lincuna-s-a,1,1,20.74384,0,5,849101.1,0,,,30,4314.11,0,"plata, plomo",0.03326140991314151,,
 COMPAÑIA MINERA LOS ANDES PERU GOLD S.A.C. - LOS ANDES GOLD S.A.C.,20601432278,compania-minera-los-andes-peru-gold-s-a-c-los-andes-gold-s-a,0,0,,0,0,,1,4.5,4.4901757700000005,0,,0,,,,
 COMPAÑIA MINERA LOS CHUNCHOS S.A.C.,20503532060,compania-minera-los-chunchos-s-a-c,0,0,,0,0,,0,,,2,460.88,0,,,,
 COMPAÑIA MINERA LUREN S A,20100179807,compania-minera-luren-s-a,0,0,,0,0,,0,,,2,13.67,0,,,,
+COMPAÑIA MINERA MINASPAMPA S.A.C. EN LIQUIDACION,20481509778,compania-minera-minaspampa-s-a-c-en-liquidacion,0,0,,0,2,927000.0,0,,,5,401.7,0,,,,
 COMPAÑIA MINERA MISKI MAYO S.R.L.,20506285314,compania-minera-miski-mayo-s-r-l,1,1,25.8038,0,0,,0,,,5,45.87,0,,,18218003.0,28691062.0
+COMPAÑIA MINERA PODEROSA S.A.,20137025354,compania-minera-poderosa-s-a,2,1,35.524978,0,0,,7,99.1,68.74069617539199,3,39.0,3,oro,0.0786974204874977,154763984.0,161743044.0
 COMPAÑIA MINERA QUIRUVILCA S.A. EN LIQUIDACION,20100120152,compania-minera-quiruvilca-s-a-en-liquidacion,0,0,,0,0,,0,,,12,1931.63,1,,,,
+COMPAÑIA MINERA RAURA S.A.,20100163552,compania-minera-raura-s-a,1,1,43.663957,0,0,,0,,,9,14.42,3,"plomo, zinc",0.03472345371164426,51906361.0,89218007.0
 COMPAÑIA MINERA SAN IGNACIO DE MOROCOCHA S.A.A.,20100177421,compania-minera-san-ignacio-de-morococha-s-a-a,1,1,13.756187,0,0,,0,,,8,100.00999999999999,0,,,,
 COMPAÑIA MINERA SAN NICOLAS S.A.,20109968219,compania-minera-san-nicolas-s-a,0,0,,0,1,3756997.1,0,,,7,1436.0500000000002,0,,,,
 COMPAÑIA MINERA SAN SIMON S.A.,20474053351,compania-minera-san-simon-s-a,1,1,45.091231,0,9,10212276.25,0,,,15,35242.2,0,,,,
 COMPAÑIA MINERA SAN VALENTIN S.A.,20153288519,compania-minera-san-valentin-s-a,1,1,20.04704,1,0,,0,,,13,1185.9099999999999,0,,,,
+COMPAÑIA MINERA SANTA LUISA S.A.,20100120314,compania-minera-santa-luisa-s-a,2,1,28.567574,0,0,,0,,,12,2539.09,0,"cobre, plomo, zinc",0.022385103117461298,,
 COMPAÑIA MINERA SANTANDER S.A.C.,,compania-minera-santander-s-a-c,0,0,,0,0,,0,,,0,,0,plomo,0.01765373858238893,,
-COMPAÑIA MINERA SAYAPULLO S.A. EN LIQUIDACION,20100325633,compania-minera-sayapullo-s-a-en-liquidacion,0,0,,0,2,444177.2,0,,,3,121.08,0,,,,
+COMPAÑIA MINERA SAYAPULLO S. A. EN LIQUIDACION,20100325633,compania-minera-sayapullo-s-a-en-liquidacion,0,0,,0,2,444177.2,0,,,3,121.08,0,,,,
 COMPAÑIA MINERA SHALIPAYCO S.A.C.,20515743465,compania-minera-shalipayco-s-a-c,0,0,,0,0,,0,,,3,0.01,0,,,,
 COMPAÑIA MINERA VIRGEN DE LA MERCED S.A.C.,20600661010,compania-minera-virgen-de-la-merced-s-a-c,0,0,,0,0,,0,,,1,13.03,0,,,,
 COMPAÑIA MINERA ZAFRANAL S.A.C.,,compania-minera-zafranal-s-a-c,0,0,,0,0,,0,,,0,,0,,,50438224.0,157916254.0
@@ -80,7 +81,6 @@ CORI PUNO S.A.C.,20406339361,cori-puno-s-a-c,2,1,45.41504,1,0,,0,,,3,42.25,0,,,,
 CORPORACION MINERA CASTROVIRREYNA S.A. EN LIQUIDACION,20100319820,corporacion-minera-castrovirreyna-s-a-en-liquidacion,0,0,,0,0,,0,,,9,5550.099999999999,0,,,,
 CORPORACION MINERA CENTAURO S.A.C.,20457362294,corporacion-minera-centauro-s-a-c,0,0,,0,0,,0,,,2,29.74,0,,,,
 CULTINOR S.A.C.,20565282370,cultinor-s-a-c,0,0,,0,0,,0,,,1,1.26,0,,,,
-Compañia Minera Minaspampa S.A.C.,20481509778,compania-minera-minaspampa-s-a-c,0,0,,0,2,927000.0,0,,,5,401.7,0,,,,
 DARWIN  PERU S.A.C.,20536270052,darwin-peru-s-a-c,0,0,,0,0,,0,,,1,0.0,0,,,,
 DOE RUN PERU S.R.L. EN LIQUIDACION EN MARCHA,20376303811,doe-run-peru-s-r-l-en-liquidacion-en-marcha,2,2,24.073888999999998,1,1,8381125.45,0,,,20,2247.92,0,,,,
 EL DORADO RESOURCES S.A.C.,,el-dorado-resources-s-a-c,0,0,,0,2,304298.05,0,,,0,,0,,,,

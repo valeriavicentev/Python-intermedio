@@ -10,3 +10,6 @@ __pycache__/
 
 # Sistema
 .DS_Store
+
+# Padrón reducido del RUC (SUNAT): demasiado grande para GitHub
+data/raw/sunat/

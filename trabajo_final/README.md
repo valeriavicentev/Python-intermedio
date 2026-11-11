@@ -6,7 +6,6 @@ opera, cómo viven esos distritos, el canon que reciben esas regiones, cómo la 
 el OEFA, qué obras financió por Obras por Impuestos y en qué conflictos sociales aparece.**
 
 > Demo: **[https://escaner-minero-peru.streamlit.app/](https://escaner-minero-peru.streamlit.app/)**
-> Video de respaldo: `PENDIENTE: enlace al video de 60 a 90 segundos`
 
 ![Portada del buscador](docs/img/01_portada.png)
 
@@ -91,6 +90,7 @@ Sin clave, la ficha de pauta se arma con reglas fijas (plan B para la presentaci
 python3 scripts/descargar_datos.py --reportes 3   # RUIAS del OEFA + reportes de la Defensoría
 python scripts/preparar_datos.py                  # unidades, distritos y radios de 20 km
 python scripts/preparar_empresas.py               # cruce de todas las fuentes por empresa
+python scripts/cruzar_sunat.py                    # RUC, estado y condición ante la SUNAT (padrón local)
 python -m pytest -q
 ```
 
@@ -179,6 +179,10 @@ Manolo, y el criterio de mostrar el método del cruce y no inventar cifras.
   empresas siguen sin ubicación; ninguna declaró producción en 2025.
 - **Cambios de razón social:** se unen los nombres antiguos y actuales que documenta el
   Anuario Minero 2025 (por ejemplo, Alpayana → Sobreandes; Milpo → Nexa Resources Perú).
+- **RUC y estado ante la SUNAT:** vienen del Padrón Reducido del RUC (10/11/2026), que
+  no se sube al repositorio por su tamaño. 225 de 235 empresas están en el padrón; 50 de
+  ellas figuran de baja. Para 34 empresas el RUC se encontró por nombre: conviene
+  verificarlo en la consulta RUC de la SUNAT antes de citarlo.
 - **Cruce por nombre:** la lista de unidades del MINEM no trae RUC. Las coincidencias
   se muestran en la pestaña «Cómo se cruzó» de cada perfil.
 - **Cobertura:** las multas firmes cubren 2024–2025; el RUIAS, 2017–2023; las obras por

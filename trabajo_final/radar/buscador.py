@@ -70,6 +70,17 @@ class Base:
             transferencias=_leer("transferencias_departamento.csv"),
             unidades_oefa=_leer("empresa_unidades_oefa.csv", dtype=tipos),
         )
+        # SUNAT (Padrón Reducido del RUC): RUC faltante, estado y condición de domicilio
+        sunat = _leer("empresa_sunat.csv", dtype={"ruc": str})
+        if sunat is not None:
+            sn = sunat.set_index("empresa_id")
+            b.empresas["ruc"] = b.empresas["ruc"].fillna(b.empresas["empresa_id"].map(sn["ruc"]))
+            b.empresas["estado_sunat"] = b.empresas["empresa_id"].map(sn["estado"])
+            b.empresas["condicion_sunat"] = b.empresas["empresa_id"].map(sn["condicion"])
+        else:
+            b.empresas["estado_sunat"] = None
+            b.empresas["condicion_sunat"] = None
+
         # Minerales que produce cada empresa, según sus unidades
         por_emp = b.unidades.groupby("empresa_id")["producto"].apply(
             lambda ps: sorted({m for p in ps for m in minerales(p)}, key=lambda m: (m not in METALES.values(), m))
@@ -172,6 +183,9 @@ class Perfil:
         """Contexto con fuentes etiquetadas: lo único que recibe la IA."""
         f = self.fila
         L = [f"EMPRESA: {self.nombre}" + (f", RUC {f['ruc']}" if isinstance(f["ruc"], str) else "") + "."]
+        if isinstance(f.get("estado_sunat"), str):
+            L.append(f"Estado ante la SUNAT (Padrón Reducido del RUC, noviembre 2026): {f['estado_sunat']}, "
+                     f"domicilio {f['condicion_sunat']}.")
 
         L += ["", f"[F1] {FUENTES['F1']} y [F2] {FUENTES['F2']}:"]
         L.append(f"- Unidades mineras registradas a su nombre: {len(self.unidades)}.")

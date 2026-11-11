@@ -117,6 +117,8 @@ def chips(f: pd.Series) -> str:
     partes = []
     if f["n_unidades"]:
         partes.append(f'<span class="chip unidad">{n(f["n_unidades"], "unidad", "unidades")}</span>')
+    if isinstance(f.get("estado_sunat"), str) and f["estado_sunat"] != "ACTIVO":
+        partes.append(f'<span class="chip sancion">{f["estado_sunat"].lower()} ante la SUNAT</span>')
     if pd.notna(f.get("participacion_principal")) and f["participacion_principal"] >= 0.01:
         partes.append(f'<span class="chip produccion">{f["participacion_principal"] * 100:.0f} % del '
                       f'{f["metal_principal"]} del Perú (2025)</span>')
@@ -345,6 +347,12 @@ f = p.fila
 st.button("← Volver al buscador", on_click=ir_a, args=(None,))
 st.markdown(f'<div class="empresa">{p.nombre}</div>', unsafe_allow_html=True)
 ruc = f"RUC {f['ruc']}" if isinstance(f["ruc"], str) else "RUC no disponible en las fuentes"
+if isinstance(f.get("estado_sunat"), str):
+    activo = f["estado_sunat"] == "ACTIVO" and f["condicion_sunat"] == "HABIDO"
+    color = "#00FA8C" if activo else "#FA2400"
+    st.markdown(f"<span style='color:{color};font-weight:600;'>SUNAT: {f['estado_sunat'].lower()} · "
+                f"domicilio {f['condicion_sunat'].lower()}</span> "
+                "<span class='nota'>(Padrón Reducido del RUC, 10/11/2026)</span>", unsafe_allow_html=True)
 fuentes_en = sorted(p.alias["fuente"].unique())
 st.markdown(
     f"<span class='nota'>{ruc} · aparece en: {', '.join(fuentes_en)}</span>",

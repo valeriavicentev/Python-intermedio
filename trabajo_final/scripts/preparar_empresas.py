@@ -162,7 +162,16 @@ def main() -> None:
     # antiguo como «Alpayana»), el más corto y sin notas entre paréntesis.
     al = pd.DataFrame(U.alias)
     al["propio"] = al["nombre_en_fuente"].map(lambda n: clave(n, renombrar=False)) == al["clave"]
-    al["largo"] = al["nombre_en_fuente"].str.len() + al["nombre_en_fuente"].str.contains(r"\(| - ").astype(int) * 500
+    n = al["nombre_en_fuente"]
+    al["largo"] = (
+        n.str.len()
+        + n.str.contains(r"\(| - ").astype(int) * 500                       # notas o nombres dobles
+        + n.str.contains(r"\bCIA\b|\bEMP\.", case=False).astype(int) * 300   # abreviaturas
+        + n.str.contains(r"\bS A\b|\bS A A\b|\bS A C\b").astype(int) * 300  # forma societaria sin puntos
+        + (n.str.upper() != n).astype(int) * 100                            # minúsculas mezcladas
+        + n.str.contains(r"COMPANIA", case=False).astype(int) * 200         # «COMPANIA» sin eñe
+        + (n.str.contains(r"S\.A|S\.R\.L|S\.A\.C") & ~n.str.strip().str.endswith(".")).astype(int) * 50
+    )
     mejor = al.sort_values(["propio", "largo"], ascending=[False, True]).drop_duplicates("clave")
     for c, n in zip(mejor["clave"], mejor["nombre_en_fuente"]):
         U.empresas[c]["nombre"] = n
