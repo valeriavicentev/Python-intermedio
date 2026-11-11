@@ -36,7 +36,12 @@ investigación previa o reportajes sin contexto.
   la herramienta puede simplificar mucho las búsquedas y le gustaría tenerla en su redacción;
   pide que sea más amigable y visualmente más llamativa. Como freelance no pagaría: espera
   que lo haga su editor o su redacción.
-- `PENDIENTE: conversaciones 02 y 03.`
+- **Alessandra Rozas**, periodista independiente especializada en medio ambiente, conflictos
+  sociales y minería: le pareció muy útil y destacó Obras por Impuestos; pidió sumar otros
+  proyectos de las empresas con ProInversión, como las iniciativas privadas en proyectos en
+  activos, mostrar los proyectos en cartera (como Tambogrande, en Piura) y colorear el mapa
+  por etapa: explotación, beneficio, cierre o con permiso pero sin operar.
+- `PENDIENTE: conversación 03.`
 
 ## 3. Solución e insight
 
