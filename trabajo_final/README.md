@@ -34,7 +34,8 @@ investigación previa o reportajes sin contexto.
 **Evidencia de usuarias:** notas de 3 conversaciones en [`docs/research/`](docs/research/).
 - **Fabricio Cabrera**, reportero de política y conflictos sociales (ex *Hildebrandt en sus trece*):
   la herramienta puede simplificar mucho las búsquedas y le gustaría tenerla en su redacción;
-  pide que sea más amigable y visualmente más llamativa.
+  pide que sea más amigable y visualmente más llamativa. Como freelance no pagaría: espera
+  que lo haga su editor o su redacción.
 - `PENDIENTE: conversaciones 02 y 03.`
 
 ## 3. Solución e insight
@@ -137,7 +138,9 @@ flowchart LR
 
 *Hipótesis a validar con las conversaciones de `docs/research/`.*
 
-- **Quién paga:** medios independientes y regionales, ONG de defensa del territorio,
+- **Quién paga:** la redacción, no el periodista. En la primera conversación, un reportero
+  freelance dijo que no pagaría él, pero esperaría que lo haga su editor. Clientes: medios
+  independientes y regionales, ONG de defensa del territorio,
   equipos de investigación universitaria y, en un segundo momento, áreas de
   cumplimiento o riesgo que hoy compran informes de *due diligence*.
 - **Precio:** búsqueda y perfiles gratis. Plan Redacción a S/ 49 al mes con fichas de

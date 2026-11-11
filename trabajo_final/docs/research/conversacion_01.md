@@ -2,16 +2,12 @@
 
 - Fecha: 10 de noviembre de 2026
 - Rol de la persona: reportero especializado en política peruana y conflictos sociales
-- Nombre y medio: Fabricio Cabrera, trabajó en *Hildebrandt en sus trece*
-- Canal: `PENDIENTE: presencial / llamada / mensaje`
+- Nombre: Fabricio Cabrera (autorizó citar su nombre). Trabajó en *Hildebrandt en sus trece*; hoy es periodista freelance en un medio independiente del Perú
+- Canal: llamada telefónica y luego intercambio de mensajes
 
 ## Cómo trabaja hoy
 
-`PENDIENTE: completar si lo comentó.`
-
-## Lo más difícil
-
-`PENDIENTE: completar si lo comentó.`
+Como periodista freelance para un medio independiente del Perú, cubriendo política y conflictos sociales.
 
 ## Reacción a la app
 
@@ -21,11 +17,11 @@
 
 ## Disposición a pagar
 
-`PENDIENTE: completar si lo comentó.` Señal indirecta: quiere la herramienta en su redacción.
+Él no pagaría por la herramienta, porque trabaja como freelance. Esperaría que la pague su editor o la redacción para la que trabaje.
 
 ## Qué cambiaría en el producto después de esta conversación
 
 - Priorizar la experiencia de uso y el atractivo visual de la portada y de los perfiles.
-- Explorar un plan para redacciones (cuentas compartidas, exportar fichas), en línea con el plan Redacción del modelo de negocio.
+- Confirma que quien paga es la redacción, no el periodista: el plan Redacción del modelo de negocio debe venderse a editores y medios, con cuentas para sus colaboradores freelance.
 
 *Notas resumidas a partir del comentario de la persona; no son citas textuales.*
