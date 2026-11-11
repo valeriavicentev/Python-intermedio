@@ -198,7 +198,7 @@ class Perfil:
                      f"{str(u['metodo']).lower()}, {u['producto']}; {pob}{nota}.")
 
         if self.unidades.empty and not self.unidades_oefa.empty:
-            L += ["", f"[F6] {FUENTES['F6']}, unidades fiscalizadas (ubicación por distrito, aproximada):"]
+            L += ["", "[F6] Unidades con ubicación aproximada (centro del distrito; OEFA o fuentes públicas):"]
             for _, u in self.unidades_oefa.iterrows():
                 pob = "sin dato de pobreza" if pd.isna(u["pobreza"]) else f"pobreza distrital {u['pobreza']:.1f} %"
                 L.append(f"  - {u['unidad']} en {str(u['distrito']).title()}, {str(u['provincia']).title()} "

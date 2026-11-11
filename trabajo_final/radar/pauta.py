@@ -83,29 +83,66 @@ def verificar(ficha: FichaPauta, ctx: Contexto) -> list[str]:
     return sueltas
 
 
+# Si el modelo por defecto no está disponible para la clave (error 404), se prueba con estos
+MODELOS_RESPALDO = ["gemini-flash-latest", "gemini-2.5-flash-lite"]
+
+
 def generar_con_gemini(ctx: Contexto, api_key: str, modelo: str | None = None) -> FichaPauta:
     from google import genai
+    from google.genai import errors
 
-    cliente = genai.Client(api_key=api_key)
-    respuesta = cliente.models.generate_content(
-        model=modelo or os.getenv("GEMINI_MODEL", MODELO_POR_DEFECTO),
-        contents=f"{INSTRUCCIONES}\n\nCONTEXTO:\n{ctx.como_texto()}",
-        config={
-            "response_mime_type": "application/json",
-            "response_schema": FichaPauta,
-            "temperature": 0.4,
-        },
-    )
-    if respuesta.parsed is not None:
-        return respuesta.parsed
-    return FichaPauta.model_validate_json(respuesta.text)
+    cliente = genai.Client(api_key=api_key.strip())
+    modelos = [modelo or os.getenv("GEMINI_MODEL", MODELO_POR_DEFECTO)] + MODELOS_RESPALDO
+    ultimo_error = None
+    for m in modelos:
+        try:
+            respuesta = cliente.models.generate_content(
+                model=m,
+                contents=f"{INSTRUCCIONES}\n\nCONTEXTO:\n{ctx.como_texto()}",
+                config={
+                    "response_mime_type": "application/json",
+                    "response_schema": FichaPauta,
+                    "temperature": 0.4,
+                },
+            )
+        except errors.ClientError as e:
+            ultimo_error = e
+            if getattr(e, "code", None) == 404:  # modelo no disponible: probar el siguiente
+                continue
+            raise
+        if respuesta.parsed is not None:
+            return respuesta.parsed
+        return FichaPauta.model_validate_json(respuesta.text)
+    raise ultimo_error
+
+
+def explicar_error(e: Exception) -> str:
+    """Motivo legible de un error de Gemini, sin exponer la clave."""
+    codigo = getattr(e, "code", None)
+    mensaje = str(getattr(e, "message", "") or e)[:300]
+    pistas = {
+        400: "Revisa que la clave esté bien copiada en los Secrets de Streamlit (GEMINI_API_KEY = \"...\").",
+        401: "La clave no es válida.",
+        403: "La clave no tiene permiso para usar la API de Gemini (revisa el proyecto en Google AI Studio).",
+        404: "Ningún modelo de Gemini probado está disponible para esta clave.",
+        429: "Se agotó el límite gratuito de Gemini por ahora; espera un minuto y vuelve a intentar.",
+    }
+    return f"{type(e).__name__} {codigo or ''}: {mensaje} {pistas.get(codigo, '')}".strip()
 
 
 def generar_sin_ia(perfil) -> FichaPauta:
     """Ficha base con reglas fijas, para usar sin clave de API (plan B y línea base)."""
-    datos: list[DatoClave] = [
-        DatoClave(dato=f"Unidades mineras registradas a su nombre: {len(perfil.unidades)}.", fuente="F1")
-    ]
+    ub = perfil.ubicaciones
+    datos: list[DatoClave] = []
+    if not perfil.unidades.empty:
+        datos.append(DatoClave(dato=f"Unidades mineras registradas a su nombre: {len(perfil.unidades)}.", fuente="F1"))
+    elif not ub.empty:
+        datos.append(DatoClave(dato=f"Unidades con ubicación aproximada: {len(ub)}, en "
+                               + ", ".join(sorted({str(d).title() for d in ub['distrito']})) + ".", fuente="F6"))
+    p25 = perfil.produccion[perfil.produccion["anio"] == 2025] if not perfil.produccion.empty else perfil.produccion
+    for _, r in p25.sort_values("participacion", ascending=False).head(2).iterrows():
+        datos.append(DatoClave(dato=f"{r['metal'].capitalize()} 2025: {r['participacion'] * 100:.1f} % de la producción nacional.",
+                               fuente="F7"))
     if not perfil.multas.empty:
         datos.append(DatoClave(dato=f"Multas firmes: {len(perfil.multas)}, por un total de S/ {perfil.multas['multa_soles'].sum():,.2f}.", fuente="F3"))
     if not perfil.oxi.empty:

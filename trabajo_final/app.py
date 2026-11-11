@@ -547,7 +547,7 @@ with t_ficha:
             with st.spinner("Escribiendo la ficha…"):
                 ficha = P.generar_con_gemini(p, clave) if clave else P.generar_sin_ia(p)
         except Exception as e:
-            st.warning(f"No se pudo usar Gemini ({type(e).__name__}). Uso el modo sin IA.")
+            st.warning(f"No se pudo usar Gemini. Uso el modo sin IA.  \nMotivo: {P.explicar_error(e)}")
             ficha, modo = P.generar_sin_ia(p), "modo sin IA (respaldo)"
         st.session_state["ficha"] = (elegida, ficha, modo)
 
