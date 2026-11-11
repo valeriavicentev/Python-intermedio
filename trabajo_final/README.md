@@ -5,7 +5,7 @@ minera y vean, en una sola ficha, dónde opera, cómo viven esos distritos, cóm
 sancionó el OEFA, qué obras financió por Obras por Impuestos y en qué conflictos
 sociales aparece.**
 
-> Demo: `PENDIENTE: URL de Streamlit Community Cloud`
+> Demo: **[https://escaner-minero-peru.streamlit.app/](https://escaner-minero-peru.streamlit.app/)**
 > Video de respaldo: `PENDIENTE: enlace al video de 60 a 90 segundos`
 
 ![Portada del buscador](docs/img/01_portada.png)
@@ -69,7 +69,7 @@ empresa en cada fuente y si se unió por RUC o por nombre.
 
 ## 5. Demo
 
-**URL:** `PENDIENTE`
+**URL:** [https://escaner-minero-peru.streamlit.app/](https://escaner-minero-peru.streamlit.app/)
 
 ### Correr en local
 

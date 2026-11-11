@@ -26,19 +26,36 @@ st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+    /* Paleta "sentinela quad": #FA2400 rojo, #2C00FA azul, #FADD00 amarillo,
+       #00FA8C verde, #A59837 oliva, #7A463D marrón. Fondo negro, texto #F6F6F6. */
     html, body, [class*="css"], .stMarkdown { font-family: 'Inter', sans-serif; }
-    .marca-chica { font-weight: 600; letter-spacing: -0.01em; color: #000; }
-    .marca { font-weight: 800; letter-spacing: -0.03em; font-size: 2.6rem; line-height: 1.05; }
-    .marca span { color: #F34213; }
-    .bajada { color: #444; font-weight: 300; font-size: 1.08rem; margin: .4rem 0 1rem; max-width: 52rem; }
-    .empresa { font-weight: 800; font-size: 1.9rem; letter-spacing: -0.02em; line-height: 1.1; }
-    .chip { display: inline-block; border: 1px solid #ddd; border-radius: 999px; padding: 1px 10px;
-            margin: 2px 4px 2px 0; font-size: .82rem; color: #222; background: #F6F6F6; }
-    .chip.rojo { border-color: #F34213; color: #F34213; background: #fff3ef; }
-    .nota { color: #666; font-size: .85rem; }
-    .verificado { border-left: 4px solid #2e7d32; padding: .4rem .8rem; background: #f1f8f1; }
-    .alerta { border-left: 4px solid #F34213; padding: .4rem .8rem; background: #fff3ef; }
-    .fragmento { font-size: .85rem; color: #333; background: #F6F6F6; padding: .6rem .8rem; border-radius: 6px; }
+    .stApp { background: #000000; color: #F6F6F6; }
+    .marca { font-weight: 800; letter-spacing: -0.03em; font-size: 3rem; line-height: 1.05; color: #FADD00; }
+    .marca span { color: #FA2400; }
+    .bajada { color: #F6F6F6; font-weight: 300; font-size: 1.1rem; line-height: 1.6; margin: .6rem 0 1.2rem; max-width: 54rem; }
+    .bajada a, .stMarkdown a { color: #00FA8C !important; text-decoration: underline; }
+    .empresa { font-weight: 800; font-size: 1.9rem; letter-spacing: -0.02em; line-height: 1.1; color: #FADD00; }
+    .chip { display: inline-block; border-radius: 999px; padding: 1px 10px; margin: 2px 4px 2px 0;
+            font-size: .82rem; font-weight: 600; }
+    .chip.unidad { border: 1px solid #00FA8C; color: #00FA8C; background: #000000; }
+    .chip.sancion { border: 1px solid #FA2400; color: #000000; background: #FA2400; }
+    .chip.oxi { border: 1px solid #2C00FA; color: #FFFFFF; background: #2C00FA; }
+    .chip.conflicto { border: 1px solid #FADD00; color: #000000; background: #FADD00; }
+    .nota { color: #CFCFCF; font-size: .85rem; }
+    .verificado { border-left: 4px solid #00FA8C; padding: .4rem .8rem; background: #0D0D0D; color: #F6F6F6; }
+    .alerta { border-left: 4px solid #FA2400; padding: .4rem .8rem; background: #0D0D0D; color: #F6F6F6; }
+    .fragmento { font-size: .88rem; color: #F6F6F6; background: #0D0D0D; border-left: 3px solid #FADD00;
+                 padding: .6rem .8rem; border-radius: 4px; }
+    [data-testid="stMetricValue"] { color: #FADD00; }
+    [data-testid="stMetricLabel"] p { color: #F6F6F6; }
+    [data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p { color: #CFCFCF !important; }
+    [data-testid="stVerticalBlockBorderWrapper"] { border-color: #A59837 !important; }
+    div[data-testid="stTextInput"] input { background: #F6F6F6; color: #000000; font-size: 1.05rem; caret-color: #000000; }
+    div[data-testid="stTextInput"] input::placeholder { color: #555555; opacity: 1; }
+    .stButton button[kind="primary"], .stDownloadButton button { background: #FADD00; color: #000000;
+            border: none; font-weight: 600; }
+    .stButton button[kind="secondary"] { border-color: #FADD00; color: #FADD00; background: #000000; }
+    h4, h5 { color: #F6F6F6; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -64,7 +81,11 @@ def clave_gemini() -> str | None:
 
 
 def soles(x: float) -> str:
-    return f"S/ {x:,.0f}".replace(",", " ")
+    if x >= 1_000_000:
+        return f"S/ {x / 1_000_000:.1f} mill."
+    if x >= 1_000:
+        return f"S/ {x / 1_000:.0f} mil"
+    return f"S/ {x:,.0f}"
 
 
 def ir_a(empresa_id: str | None) -> None:
@@ -81,15 +102,15 @@ def n(x: int, uno: str, varios: str) -> str:
 def chips(f: pd.Series) -> str:
     partes = []
     if f["n_unidades"]:
-        partes.append(f'<span class="chip">{n(f["n_unidades"], "unidad", "unidades")}</span>')
+        partes.append(f'<span class="chip unidad">{n(f["n_unidades"], "unidad", "unidades")}</span>')
     if f["n_multas"]:
-        partes.append(f'<span class="chip rojo">{n(f["n_multas"], "multa firme", "multas firmes")}</span>')
+        partes.append(f'<span class="chip sancion">{n(f["n_multas"], "multa firme", "multas firmes")}</span>')
     if f.get("n_expedientes_ruias", 0):
-        partes.append(f'<span class="chip rojo">{n(f["n_expedientes_ruias"], "expediente OEFA", "expedientes OEFA")}</span>')
+        partes.append(f'<span class="chip sancion">{n(f["n_expedientes_ruias"], "expediente OEFA", "expedientes OEFA")}</span>')
     if f["n_obras_oxi"]:
-        partes.append(f'<span class="chip">{n(f["n_obras_oxi"], "obra por impuestos", "obras por impuestos")}</span>')
+        partes.append(f'<span class="chip oxi">{n(f["n_obras_oxi"], "obra por impuestos", "obras por impuestos")}</span>')
     if f.get("n_reportes_conflicto", 0):
-        partes.append(f'<span class="chip rojo">en {n(f["n_reportes_conflicto"], "reporte", "reportes")} de conflictos</span>')
+        partes.append(f'<span class="chip conflicto">en {n(f["n_reportes_conflicto"], "reporte", "reportes")} de conflictos</span>')
     return "".join(partes)
 
 
@@ -109,12 +130,14 @@ elegida = st.query_params.get("empresa")
 # Portada y búsqueda
 # =====================================================================
 if not elegida or elegida not in set(E["empresa_id"]):
-    st.markdown('<div class="marca-chica">(gallo negro)</div>', unsafe_allow_html=True)
     st.markdown('<div class="marca">Escáner <span>Minero</span></div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="bajada">Busca una empresa minera y mira en un solo lugar dónde opera, cómo viven '
-        "esos distritos, cómo la sancionó el OEFA, qué obras financió por Obras por Impuestos y en qué "
-        "conflictos sociales aparece.</div>",
+        '<div class="bajada">Esta es una radiografía de la actividad minera en el Perú. Busca a una empresa '
+        "para saber si opera en el país, dónde se encuentran sus unidades de producción y el nivel de pobreza "
+        "de la zona. También puedes conocer si tiene sanciones del "
+        '<a href="https://www.gob.pe/oefa" target="_blank">Organismo de Evaluación y Fiscalización Ambiental (OEFA)</a>, '
+        "si figura en reportes de conflictos sociales de la Defensoría del Pueblo y la inversión pública que ha "
+        "realizado.</div>",
         unsafe_allow_html=True,
     )
     consulta = st.text_input(
@@ -264,7 +287,7 @@ with t_oxi:
         b.metric("Obras en consorcio", int((p.oxi["n_empresas"] > 1).sum()))
         c3.metric("Obras en distritos donde opera", len(donde))
         por_fun = p.oxi.groupby("funcion")["monto_mill"].sum().sort_values()
-        st.bar_chart(por_fun, horizontal=True, color="#F34213", x_label="Millones de soles", y_label="")
+        st.bar_chart(por_fun, horizontal=True, color="#FADD00", x_label="Millones de soles", y_label="")
         st.dataframe(
             p.oxi.assign(en_su_distrito=p.oxi["IDDIST"].isin(p.distritos_operacion).map({True: "sí", False: ""}))[
                 ["anio", "obra", "funcion", "estado", "distrito", "departamento", "pobreza", "monto_mill",
