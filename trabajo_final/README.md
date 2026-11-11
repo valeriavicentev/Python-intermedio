@@ -1,6 +1,6 @@
 # Escáner Minero · Gallo Negro
 
-**Una radiografía de la actividad minera en el Perú: escribe el nombre de una empresa y
+**Una radiografía de la actividad minera formal en el Perú: escribe el nombre de una empresa y
 mira en una sola ficha qué produce y cuánto pesa en la producción nacional, dónde
 opera, cómo viven esos distritos, el canon que reciben esas regiones, cómo la sancionó
 el OEFA, qué obras financió por Obras por Impuestos y en qué conflictos sociales aparece.**
@@ -165,6 +165,11 @@ Manolo, y el criterio de mostrar el método del cruce y no inventar cifras.
 `PENDIENTE: agregar qué corregiste o cambiaste tú.`
 
 ## 9. Limitaciones
+
+- **Solo minería formal:** el escáner cubre empresas de mediana y gran escala que
+  reportan al Estado (MINEM, OEFA, ProInversión). La minería informal y artesanal,
+  incluida la pequeña minería en proceso de formalización (REINFO), queda fuera: no
+  aparece en estos registros con nombre de empresa.
 
 - **Cruce por nombre:** la lista de unidades del MINEM no trae RUC. Las coincidencias
   se muestran en la pestaña «Cómo se cruzó» de cada perfil.
