@@ -120,10 +120,33 @@ def construir(
     return mapa
 
 
+def ficha_unidad(u: pd.Series, produccion_html: str = "") -> str:
+    """Recuadro al pasar sobre una unidad: ubicación, minerales y producción declarada."""
+    from radar.buscador import minerales
+
+    def t(x):
+        return str(x).title() if pd.notna(x) else "—"
+
+    prod = (
+        f"<div style='margin-top:6px;font-weight:600;'>Producción 2025 de la empresa declarada al MINEM</div>{produccion_html}"
+        if produccion_html else
+        "<div style='margin-top:6px;color:#666;'>La empresa no figura entre las productoras del Anuario Minero 2025.</div>"
+    )
+    return (
+        "<div style='font:13px Inter,Arial,sans-serif;width:300px;white-space:normal;'>"
+        f"<div style='font-weight:700;font-size:14px;'>{u['unidad']}</div>"
+        f"<div>{u['titular']}</div>"
+        f"<div style='margin-top:6px;'><b>Distrito:</b> {t(u['distrito'])}<br><b>Provincia:</b> {t(u['provincia'])}"
+        f"<br><b>Región:</b> {t(u['region'])}</div>"
+        f"<div style='margin-top:6px;'><b>Minerales:</b> {', '.join(minerales(u['producto'])) or '—'}</div>"
+        f"{prod}</div>"
+    )
+
+
 # ---------------------------------------------------------------------
 # Portada: mapa de calor de la actividad minera en todo el Perú
 # ---------------------------------------------------------------------
-def mapa_calor(unidades: pd.DataFrame) -> folium.Map:
+def mapa_calor(unidades: pd.DataFrame, produccion: dict[str, str] | None = None) -> folium.Map:
     """Mapa base topográfico (verdes y azules, al estilo de Google Maps), calor por densidad
     de unidades mineras y un punto por unidad para ubicarlas al hacer zoom."""
     from folium.plugins import HeatMap
@@ -148,7 +171,7 @@ def mapa_calor(unidades: pd.DataFrame) -> folium.Map:
         folium.CircleMarker(
             location=[u["LATITUD"], u["LONGITUD"]], radius=4, color="#000000", weight=1,
             fill=True, fill_color="#FA2400", fill_opacity=0.95,
-            tooltip=f"<b>{u['unidad']}</b><br>{u['titular']}<br>{u['producto']}<br><i>Clic para ver la empresa</i>",
+            tooltip=folium.Tooltip(ficha_unidad(u, (produccion or {}).get(u["empresa_id"], "")), sticky=True),
         ).add_to(grupo)
 
     mapa.get_root().html.add_child(folium.Element(

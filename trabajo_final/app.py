@@ -20,7 +20,7 @@ from streamlit_folium import st_folium
 
 from radar import mapa as M
 from radar import pauta as P
-from radar.buscador import FUENTES, METALES, PROC, Base
+from radar.buscador import FUENTES, METALES, PROC, Base, minerales
 
 st.set_page_config(page_title="Escáner Minero · Gallo Negro", page_icon="◉", layout="wide")
 
@@ -65,6 +65,9 @@ st.markdown(
     .expo .s { color: #F6F6F6; font-size: .9rem; margin: .4rem 0; }
     .expo table { width: 100%; border-collapse: collapse; margin: .6rem 0; font-size: .92rem; }
     .expo td { padding: .28rem 0; border-bottom: 1px solid #2a2a2a; color: #F6F6F6; }
+    .expo th { text-align: left; font-weight: 600; font-size: .78rem; color: #00FA8C; padding: .2rem 0 .4rem;
+               border-bottom: 1px solid #00FA8C; vertical-align: bottom; }
+    .expo th.d { text-align: right; }
     .expo td.d { text-align: right; color: #FADD00; font-variant-numeric: tabular-nums; }
     .expo .f { color: #A59837; font-size: .78rem; margin-top: .5rem; }
     </style>
@@ -168,6 +171,27 @@ def contador(cifras: list[tuple[int, str]]) -> None:
     )
 
 
+UNIDAD_LARGA = {"TMF": "toneladas finas", "kg finos": "kg finos", "gramos finos": "kg finos"}
+
+
+@st.cache_data
+def produccion_html() -> dict[str, str]:
+    """Por empresa: líneas con su producción 2025 en palabras, para el recuadro del mapa."""
+    pr = base().produccion
+    if pr is None:
+        return {}
+    pr = pr[pr["anio"] == 2025].sort_values("participacion", ascending=False)
+    out = {}
+    for eid, g in pr.groupby("empresa_id", sort=False):
+        lineas = []
+        for _, r in g.iterrows():
+            cant = r["cantidad"] / 1000 if r["unidad"] == "gramos finos" else r["cantidad"]
+            lineas.append(f"{r['metal'].capitalize()}: {cant:,.0f} {UNIDAD_LARGA[r['unidad']]} "
+                          f"({r['participacion'] * 100:.1f} % del país)")
+        out[eid] = "<br>".join(lineas)
+    return out
+
+
 @st.cache_data
 def exportaciones() -> dict | None:
     ruta = PROC / "exportaciones_2025.json"
@@ -178,19 +202,24 @@ def recuadro_exportaciones(x: dict) -> None:
     var = (x["metalicas_musd"] / x["metalicas_2024_musd"] - 1) * 100
     part = x["metalicas_musd"] / x["total_pais_musd"] * 100
     filas = "".join(
-        f'<tr><td>{p["producto"]}</td><td class="d">US$ {p["musd"]:,.0f} M</td>'
+        f'<tr><td>{p["producto"]}</td><td class="d">{p["musd"]:,.0f}</td>'
         f'<td class="d">{p["musd"] / x["metalicas_musd"] * 100:.0f} %</td></tr>'
         for p in x["productos"][:6]
     )
     destinos = ", ".join(f'{d["pais"]} ({d["part"] * 100:.0f} %)' for d in x["destinos"][:3])
     st.markdown(
         f"""<div class="expo">
-        <div class="t">Exportaciones mineras {x["anio"]}</div>
+        <div class="t">Exportaciones mineras del Perú en {x["anio"]}</div>
         <div class="big">US$ {x["metalicas_musd"] / 1000:,.1f} mil millones</div>
-        <div class="s">{part:.0f} % de todo lo que exporta el Perú · {var:+.0f} % frente a 2024</div>
-        <table>{filas}</table>
-        <div class="s"><b>Principales destinos:</b> {destinos}</div>
-        <div class="f">Fuente: {x["fuente"]}. Minería metálica.</div>
+        <div class="s">De cada 100 dólares que exportó el Perú, <b>{part:.0f}</b> vinieron de la minería metálica.</div>
+        <div class="s">Es <b>{var:.0f} % más</b> que en 2024, cuando se exportaron
+        US$ {x["metalicas_2024_musd"] / 1000:,.1f} mil millones.</div>
+        <table>
+          <tr><th>Metal</th><th class="d">Valor exportado<br>(millones de US$)</th><th class="d">Parte del total<br>minero</th></tr>
+          {filas}
+        </table>
+        <div class="s"><b>Principales compradores:</b> {destinos}</div>
+        <div class="f">Fuente: {x["fuente"]}.</div>
         </div>""",
         unsafe_allow_html=True,
     )
@@ -240,7 +269,7 @@ if not elegida or elegida not in set(E["empresa_id"]):
         col_mapa, col_expo = st.columns([2.2, 1], gap="large")
         with col_mapa:
             uds = B.unidades[B.unidades["empresa_id"].isin(E["empresa_id"])]
-            clic = st_folium(M.mapa_calor(uds), height=540, use_container_width=True,
+            clic = st_folium(M.mapa_calor(uds, produccion_html()), height=540, use_container_width=True,
                              returned_objects=["last_object_clicked"], key=f"calor-{len(uds)}")
             punto = (clic or {}).get("last_object_clicked")
             if punto:
@@ -248,11 +277,13 @@ if not elegida or elegida not in set(E["empresa_id"]):
                 u = uds.loc[d.idxmin()]
                 if d.min() < 0.01:
                     a1, a2 = st.columns([3, 1])
-                    a1.markdown(f"**{u['unidad']}** · {u['titular']} · {str(u['distrito']).title()}, "
-                                f"{str(u['region']).title()}")
+                    a1.markdown(f"**{u['unidad']}** · {u['titular']}  \n"
+                                f"Distrito {str(u['distrito']).title()}, provincia {str(u['provincia']).title()}, "
+                                f"región {str(u['region']).title()} · {', '.join(minerales(u['producto']))}")
                     a2.button("Ver empresa", on_click=ir_a, args=(u["empresa_id"],), key="desde-mapa",
                               use_container_width=True)
-            st.caption("Haz zoom para ubicar cada unidad y clic en un punto para abrir la empresa. "
+            st.caption("Haz zoom para ubicar cada unidad y pasa el cursor sobre un punto para ver su ficha. "
+                       "Al hacer clic, aparece aquí abajo el botón para abrir la empresa. "
                        "El calor muestra dónde se concentran las unidades en producción (MINEM).")
         with col_expo:
             x = exportaciones()
