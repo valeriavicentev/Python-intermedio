@@ -32,7 +32,10 @@ Un medio pequeño no tiene un equipo de datos para cruzar eso. El resultado: dí
 investigación previa o reportajes sin contexto.
 
 **Evidencia de usuarias:** notas de 3 conversaciones en [`docs/research/`](docs/research/).
-`PENDIENTE: resumir aquí en 3 líneas lo que dijeron.`
+- **Fabricio Cabrera**, reportero de política y conflictos sociales (ex *Hildebrandt en sus trece*):
+  la herramienta puede simplificar mucho las búsquedas y le gustaría tenerla en su redacción;
+  pide que sea más amigable y visualmente más llamativa.
+- `PENDIENTE: conversaciones 02 y 03.`
 
 ## 3. Solución e insight
 
@@ -162,7 +165,21 @@ ficha, el verificador, las pruebas y este README en borrador.
 Las decisiones de producto fueron mías: el problema y el público, las fuentes que debía
 cruzar (incluidas Obras por Impuestos y la Defensoría), las referencias de Ojo Público y
 Manolo, y el criterio de mostrar el método del cruce y no inventar cifras.
-`PENDIENTE: agregar qué corregiste o cambiaste tú.`
+Lo que cambié o corregí durante el desarrollo:
+
+- **El producto:** empecé con un radar de minería y pobreza por distrito y lo cambié por un
+  buscador de empresas, inspirado en Suprema Fortuna (Ojo Público) y Manolo.
+- **Las fuentes:** decidí sumar sanciones del OEFA, Obras por Impuestos, los reportes de
+  conflictos de la Defensoría, la producción y el canon del Anuario Minero y el padrón de la
+  SUNAT, y bajé a mano los archivos que el agente no podía descargar.
+- **El alcance:** acoté el escáner a la minería formal de mediana y gran escala.
+- **La revisión de datos:** al probar el buscador detecté empresas que no aparecían en el
+  mapa (Paltarumi, Summa Gold), un falso duplicado (Poderosa tiene dos unidades) y RUC
+  faltantes; cada hallazgo llevó a un cruce nuevo o a una corrección.
+- **La claridad:** reescribí la descripción, pedí nombres de metales en vez de símbolos,
+  títulos de columna que se entiendan y un recuadro del mapa con distrito, provincia y región.
+- **El diseño:** definí el fondo negro con una paleta de alto contraste, las cifras animadas
+  y el mapa de calor de la portada.
 
 ## 9. Limitaciones
 
